@@ -1,0 +1,29 @@
+.hscreen{
+    height:100vh;
+}
+
+.wscreen{
+    width:100vw;
+}
+
+.wfull{
+    width: 100%;
+}
+.textsmall{
+    font-size:14px;
+}
+.textmed{
+    font-size:18px;
+}
+.textlarge{
+    font-size:18px;
+}
+.textxlarge{
+    font-size:20px;
+}
+.textxxlarge{
+    font-size:24px;
+}
+.text3xlarge{
+    font-size:24px;
+}
