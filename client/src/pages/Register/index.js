@@ -1,5 +1,5 @@
 import React from 'react';
-import{Form, Input} from "antd";
+import{DatePicker, Form, Input} from "antd";
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
 import axios from 'axios';
@@ -79,7 +79,7 @@ function Register(){
                 name="dob"
                 rules={[{required:true,type:Date, message: "Please enter your date of birth"}]}
                 >
-                <Input />
+                <DatePicker />
                 </Form.Item>
 
                 <Form.Item
