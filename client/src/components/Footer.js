@@ -1,12 +1,12 @@
 
 import React from 'react';
 
-const Footer = () => {
+function Footer(){
   return (
     <footer className="footer">
       <div className="container">
       <div className="bg-primary textxlarge textwhite flex justify-between footersize p2 mt10">
-        <p>&copy; {new Date().getFullYear()} CineMax</p>
+        <p>&copy;  CineMax @2023</p>
     </div>
       </div>
     </footer>
