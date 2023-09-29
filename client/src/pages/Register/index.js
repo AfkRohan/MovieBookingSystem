@@ -4,6 +4,8 @@ import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
 import axios from 'axios';
 import { redirect } from 'react-router-dom';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 
 function Register(){
     function onFinish(values){
@@ -20,7 +22,7 @@ function Register(){
              const data = response.data
              if(data){
                  console.log(data);
-                 redirect("/");
+             window.location.href = "/";
              }
          })
          .catch((err) => {
@@ -71,7 +73,7 @@ function Register(){
                 name="phone"
                 rules={[{required:true, message: "Please enter your phone number"}]}
                 >
-                <Input />
+                <PhoneInput />
                 </Form.Item>
 
                 <Form.Item
