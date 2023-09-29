@@ -58,7 +58,8 @@ function Login(){
                 <Input.Password />
                 </Form.Item>
 
-                <Button type="primary" htmlType="submit" title="REGISTER" />
+                <Button type="primary" htmlType="submit" title="Login" />
+                
             </Form>
            </div>
         </div>
