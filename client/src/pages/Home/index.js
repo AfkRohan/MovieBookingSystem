@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../components/Footer';
 import logo from '../../assets/logowhite1.png';
 import user from '../../assets/user1.png';
 import search from '../../assets/search1.png'; 
@@ -18,7 +19,10 @@ function Home(){
              </div>
              </div>
              <h1 className="m2 tacenter">Welcome to Cineplex Theatre</h1>
-             <div className="bg-primary textxlarge textwhite flex justify-between footersize p2 mt10"></div>
+             <Footer>
+
+             </Footer>
+             
         </>
     )
 }

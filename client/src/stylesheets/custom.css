@@ -9,3 +9,14 @@
 .bgimage{
     background-image: "https://www.wipremiertrivia.com/wp-content/uploads/2018/02/Movie-Wallpaper.jpg";
 }
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
