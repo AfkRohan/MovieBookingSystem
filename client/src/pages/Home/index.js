@@ -6,8 +6,8 @@ import ticket from '../../assets/ticket1.png';
 
 function Home(){
     return(
-        
-            <div className="bg-primary textxlarge textwhite flex justify-between p2">
+ <>
+        <div className="bg-primary textxlarge textwhite flex justify-between p2">
          <img className="m1" src={logo} alt="My Logo" />
          <div className="p1 flex gap1">
 
@@ -17,8 +17,9 @@ function Home(){
               <img className="m1" src={search} alt="search" />
              </div>
              </div>
-           
-       
+             <h1 className="m2 tacenter">Welcome to Cineplex Theatre</h1>
+             <div className="bg-primary textxlarge textwhite flex justify-between footersize p2 mt10"></div>
+        </>
     )
 }
 

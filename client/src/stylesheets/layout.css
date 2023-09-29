@@ -57,6 +57,9 @@
     margin-top:20px;
 }
 
+.mt10{
+    margin-top:25em;
+}
 .mt3{
     margin-top:30px;
 }
@@ -171,4 +174,7 @@
 
 .gap3{
     gap:30px;
+}
+.tacenter{
+    text-align: center;
 }
