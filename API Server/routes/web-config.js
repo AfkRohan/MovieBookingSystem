@@ -24,7 +24,7 @@ router.post('/create',async (req,res)=>{
       res.send(userInserted);
     }
     catch(err){
-      res.send(`<h1style='color:red;'>${err}</h1>`)
+      res.send(err)
     }
 })
 
