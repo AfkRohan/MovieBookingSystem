@@ -63,7 +63,7 @@ function Register(){
                 <Form.Item
                 label="Email"
                 name="email"
-                rules={[{required:true, message: "Please enter valid email"}]}
+                rules={[{required:true, type:'email', message: "Please enter valid email"}]}
                 >
                 <Input />
                 </Form.Item>
