@@ -2,7 +2,6 @@ import React from 'react'
 import{Form, Input} from "antd";
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
-import { redirect } from 'react-router-dom';
 import axios from 'axios';
 
 function Login(){
@@ -15,9 +14,10 @@ function Login(){
                 const data = response.data
                 if(data){
                     console.log(data);
+                    window.location.href="http://localhost:3000/"
                 }
                 else{
-                    redirect("/");
+                  alert("User Not Found");
                 }
             })
             .catch((err) => {
