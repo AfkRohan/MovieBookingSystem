@@ -4,6 +4,8 @@ const router = express.Router()
 
 const jwt = require('jsonwebtoken')
 
+const verifyToken = require('../middlewares/auth')
+
 const User = require('../models/UserModel')
 
 // API for creating a new user
@@ -32,7 +34,7 @@ router.post('/create', async (req,res)=>{
     );
     // save user token
   
-      res.cookie('token', token, { httpOnly: true });
+      res.cookie('token', token);
 
       console.log(userInserted);
       res.send(userInserted);
@@ -62,9 +64,8 @@ router.post('/login',async (req,res)=>{
             expiresIn: "2h",
           }
         );
-        // save user token
-        
-        res.cookie('token', token, { httpOnly: true });
+        // save user token        
+        res.cookie('token', token);
 
         console.log(userLoggedIn)
         res.send(userLoggedIn);
@@ -75,6 +76,6 @@ router.post('/login',async (req,res)=>{
         res.send(err);
     }
   )
-})
+},verifyToken)
 
 module.exports = router;
