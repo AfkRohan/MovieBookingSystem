@@ -89,6 +89,10 @@ router.post('/login',async (req,res)=>{
         res.send(err);
     }
   )
-},verifyToken)
+})
+
+router.get('/',verifyToken,(req,res)=>{
+  res.send("Token verified")
+})
 
 module.exports = router;
