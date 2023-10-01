@@ -77,7 +77,7 @@ function Login(){
                 <br/>
                 <br/>
                 <Link to="/">Forgot Password?</Link><br/>
-                <Link to="/">Need To Create New Account? Click Here</Link>
+                <Link to="/register">Need To Create New Account? Click Here</Link>
                 
             </Form>
            </div>
