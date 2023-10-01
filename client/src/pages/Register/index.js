@@ -1,15 +1,16 @@
 import React from 'react';
 import{DatePicker, Form, Input} from "antd";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
 import axios from 'axios';
-import { redirect } from 'react-router-dom';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 
 function Register(){
     function onFinish(values){
-        if(values.password == values.confirmpassword){
+        if(values.password === values.confirmpassword){
         axios.post('http://localhost:4000/api/create', {
             email: values.email,
             Password: values.password,
@@ -34,6 +35,12 @@ function Register(){
         }
     }
     return(
+        <>
+        
+        <div>
+        <Header>
+            
+        </Header>
         <div className="flex justify-center hscreen item-center bg-primary"
         style={{backgroundImage:'url("https://cdn.wallpapersafari.com/46/81/215NeC.jpg")',
                 backgroundSize:'cover',
@@ -103,6 +110,11 @@ function Register(){
             </Form>
            </div>
         </div>
+    <Footer>
+
+    </Footer>
+    </div>
+    </>
        
     )
 }

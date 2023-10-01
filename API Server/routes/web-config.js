@@ -27,6 +27,19 @@ router.post('/create',async (req,res)=>{
       res.send(err)
     }
 })
+//Admin Login ApI
+router.post('/admin-login',(req,res)=>{
+  const data = req.body;
+  const adminEmail = data.email;
+  console.log(data)
+  const adminPassword = data.Password;
+  if(adminEmail==="Admin" && adminPassword==="Admin@cinemax" ){
+    res.send("Admin Verified Successfully.")
+  }
+  else{
+    res.send("Incorrect Email or Password")
+  }
+})
 
 // Login API
 router.post('/login',async (req,res)=>{

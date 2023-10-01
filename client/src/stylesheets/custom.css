@@ -4,16 +4,70 @@
 }
 
 .w400{
-    width:400px;
+    width:450px;
 }
 .bgimage{
     background-image: "https://www.wipremiertrivia.com/wp-content/uploads/2018/02/Movie-Wallpaper.jpg";
 }
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+.header {
+    background-color: #090909;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
     text-align: center;
+    justify-content: space-around;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: white;
+    font-family: MarkOT, sans-serif, sans-serif;
+    align-items:centers;
+    text-align: center;
+  }
+  
+  .nav-item a:hover {
+    text-decoration: underline;
+    color: yellow;
+  }
+  
+
+svg{
+    margin-right: 10px;
+
+}
+svg:hover{
+    color: yellow;
+}
+  
+  
+.footer {
+    color: #fff;
+    text-align: center;
+    font-family: MarkOT, sans-serif, sans-serif;
+    position: fixed;
+    background-color: #090909;
+    padding: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+  }
+  nav ul li{
+    text-decoration: none;
+    display: flex;
+    margin-right: 20px;
+
   }
   
   .footer p {

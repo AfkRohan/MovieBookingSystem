@@ -1,5 +1,7 @@
 import React from 'react'
 import{Form, Input} from "antd";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
 import axios from 'axios';
@@ -25,10 +27,18 @@ function Login(){
             });
     }
     return(
+        
+        <div>
+            
+            <Header>
+            
+            </Header>
         <div className="flex justify-center hscreen item-center bg-primary"
         style={{backgroundImage:'url("https://cdn.wallpapersafari.com/46/81/215NeC.jpg")',
                 backgroundSize:'cover',
                 backgroundRepeat:'no-repeat'}}> 
+            
+           
            <div className="card p3 w400">
            <img src={logo} alt="Cinemax Logo" className="mb-4" />
             <hr />
@@ -62,6 +72,11 @@ function Login(){
                 
             </Form>
            </div>
+        </div>
+        
+        <Footer>
+            
+        </Footer>
         </div>
        
     )
