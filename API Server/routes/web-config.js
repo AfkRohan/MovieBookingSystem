@@ -2,14 +2,19 @@ const express = require('express');
 
 const router = express.Router()
 
+const jwt = require('jsonwebtoken')
+
+const verifyToken = require('../middlewares/auth')
+
 const User = require('../models/UserModel')
 
 // API for creating a new user
-router.post('/create',async (req,res)=>{
+router.post('/create', async (req,res)=>{
     const data = req.body
     console.log(data)
+    const email = data.email
     try{
-    const user = new User({
+    let user = new User({
     FirstName : data.firstName,
     LastName : data.lastName,
     DateOfBirth: data.Date,
@@ -19,7 +24,18 @@ router.post('/create',async (req,res)=>{
         phone:data.phone
     }
     })
-    const userInserted = await user.save();
+    let userInserted = await user.save();
+    const token = jwt.sign(
+      { user_id: userInserted._id,email},
+      "UserSecret",
+      {
+        expiresIn: "2h",
+      }
+    );
+    // save user token
+  
+      res.cookie('token', token);
+
       console.log(userInserted);
       res.send(userInserted);
     }
@@ -52,8 +68,20 @@ router.post('/login',async (req,res)=>{
     "Password" : userPassword
   }).then(
     (user)=>{
-        console.log(user);
-        res.send(user);
+      let userLoggedIn = user
+        console.log(userLoggedIn);
+        const token = jwt.sign(
+          { user_id: userLoggedIn._id, userEmail },
+          "UserSecret",
+          {
+            expiresIn: "2h",
+          }
+        );
+        // save user token        
+        res.cookie('token', token);
+
+        console.log(userLoggedIn)
+        res.send(userLoggedIn);
     }
   ).catch(
     (err)=>{
@@ -61,6 +89,6 @@ router.post('/login',async (req,res)=>{
         res.send(err);
     }
   )
-})
+},verifyToken)
 
 module.exports = router;
