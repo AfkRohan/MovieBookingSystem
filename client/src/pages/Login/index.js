@@ -1,5 +1,6 @@
 import React from 'react'
 import{Form, Input} from "antd";
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
@@ -34,7 +35,7 @@ function Login(){
             
             </Header>
         <div className="flex justify-center hscreen item-center bg-primary"
-        style={{backgroundImage:'url("https://cdn.wallpapersafari.com/46/81/215NeC.jpg")',
+        style={{backgroundImage:'url("https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNpbmVtYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80")',
                 backgroundSize:'cover',
                 backgroundRepeat:'no-repeat'}}> 
             
@@ -42,10 +43,12 @@ function Login(){
            <div className="card p3 w400">
            <img src={logo} alt="Cinemax Logo" className="mb-4" />
             <hr />
+            <h3>LOGIN</h3>
             <Form layout="vertical" onFinish={onFinish}
             className="mt2">
+                
                 <Form.Item
-                label="Name"
+                label="UserName"
                 name="name"
                 rules={[{required:true, message: "Please enter valid value"}]}
                 >
@@ -67,16 +70,19 @@ function Login(){
                 >
                 <Input.Password />
                 </Form.Item>
+                
+                
 
                 <Button type="primary" htmlType="submit" title="Login" />
+                <br/>
+                <br/>
+                <Link to="/">Forgot Password?</Link><br/>
+                <Link to="/">Need To Create New Account? Click Here</Link>
                 
             </Form>
            </div>
         </div>
         
-        <Footer>
-            
-        </Footer>
         </div>
        
     )

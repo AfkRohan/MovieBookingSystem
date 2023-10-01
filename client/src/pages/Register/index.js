@@ -39,15 +39,16 @@ function Register(){
         
         <div>
         <Header>
-            
+
         </Header>
-        <div className="flex justify-center hscreen item-center bg-primary"
+        <div className="flex justify-center  item-center bg-primary"
         style={{backgroundImage:'url("https://cdn.wallpapersafari.com/46/81/215NeC.jpg")',
                 backgroundSize:'cover',
                 backgroundRepeat:'no-repeat'}}> 
            <div className="card p3 w400">
            <img src={logo} alt="Cinemax Logo" className="mb-4" />
             <hr />
+            <h3>REGISTERATION</h3>
             <Form layout="vertical"
             onFinish={onFinish}
             className="mt2">
@@ -101,7 +102,7 @@ function Register(){
                 <Form.Item
                 label="Confirm Password"
                 name="confirmpassword"
-                rules={[{required:true, message: "Please re-enter your password"}]}
+                rules={[{required:true, message: "Please Re-enter your password"}]}
                 >
                 <Input.Password/>
                 </Form.Item>
@@ -110,9 +111,6 @@ function Register(){
             </Form>
            </div>
         </div>
-    <Footer>
-
-    </Footer>
     </div>
     </>
        

@@ -103,7 +103,9 @@
 /* padding */
 
 .p1{
-    padding:10px;
+    padding:10px 40px;
+    align-items: center;
+    justify-content: center;
 }
 
 .p2{

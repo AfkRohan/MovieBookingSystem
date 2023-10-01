@@ -13,3 +13,12 @@ input:focus{
 .ant-form-item{
     margin-bottom: 10px;
 }
+h3{
+    color:brown;
+    text-align: center;
+    font-size: large;
+    font-weight: lighter;
+    font-family:  'Nunito Sans', sans-serif;
+    margin-top: 10px;
+}
+
