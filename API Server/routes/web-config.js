@@ -76,24 +76,29 @@ router.post('/login',async (req,res)=>{
     (user)=>{
       let userLoggedIn = user
         console.log(userLoggedIn);
-        if(bcrypt.compare(data.Password,user.Password)){
-        const token = jwt.sign(
-          { user_id: userLoggedIn._id, userEmail },
-          "UserSecret",
-          {
-            expiresIn: "2h",
-          }
-        );
+        bcrypt.compare(data.Password,user.Password,(err,match)=>{
+          if(match){
+            const token = jwt.sign(
+              { user_id: userLoggedIn._id, userEmail },
+              "UserSecret",
+              {
+                expiresIn: "2h",
+              }
+            );
         // save user token        
         res.cookie('token', token);
 
         console.log(userLoggedIn)
         res.send(userLoggedIn);
         }
-        else{
+        else if(!match){
           res.send("Invalid Password")
         }
-    }
+        else{
+          res.send(err)
+        }
+        })
+        }
   ).catch(
     (err)=>{
         console.log(err);
