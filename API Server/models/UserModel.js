@@ -30,7 +30,8 @@ const userSchema = new mongoose.Schema({
     Contact:{
         email:{
             type:String,
-            required : true   
+            required : true,   
+            unique: true,
         },
         phone:{
             type:String,

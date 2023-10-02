@@ -2,6 +2,10 @@ const express = require('express');
 
 const router = express.Router()
 
+const bcrypt = require('bcrypt')
+
+const rounds = 10
+
 const jwt = require('jsonwebtoken')
 
 const verifyToken = require('../middlewares/auth')
@@ -13,12 +17,14 @@ router.post('/create', async (req,res)=>{
     const data = req.body
     console.log(data)
     const email = data.email
+    const userPassword = await bcrypt.hash( data.Password,rounds);
+
     try{
     let user = new User({
     FirstName : data.firstName,
     LastName : data.lastName,
     DateOfBirth: data.Date,
-    Password:data.Password,
+    Password:userPassword,
     Contact:{
         email:data.email,
         phone:data.phone
@@ -43,6 +49,7 @@ router.post('/create', async (req,res)=>{
       res.send(err)
     }
 })
+
 //Admin Login ApI
 router.post('/admin-login',(req,res)=>{
   const data = req.body;
@@ -62,14 +69,14 @@ router.post('/login',async (req,res)=>{
     const data = req.body;
     const userEmail = data.email;
     console.log(data)
-    const userPassword = data.Password;
+    
     User.findOne({ 
     "Contact.email" : userEmail,
-    "Password" : userPassword
   }).then(
     (user)=>{
       let userLoggedIn = user
         console.log(userLoggedIn);
+        if(bcrypt.compare(data.Password,user.Password)){
         const token = jwt.sign(
           { user_id: userLoggedIn._id, userEmail },
           "UserSecret",
@@ -82,6 +89,10 @@ router.post('/login',async (req,res)=>{
 
         console.log(userLoggedIn)
         res.send(userLoggedIn);
+        }
+        else{
+          res.send("Invalid Password")
+        }
     }
   ).catch(
     (err)=>{
