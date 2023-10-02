@@ -1,13 +1,17 @@
 const jwt = require('jsonwebtoken')
 
 module.exports =  verifyToken = (req,res,next) =>{
-    const token = req.cookie.token
-    try {
-      const decoded = jwt.verify(token, "UserSecret");
-      req.user = decoded;
-    } catch (err) {
-      return res.status(401).send("Invalid Token");
+    const token = req.cookies['token']
+    if (token) {
+      jwt.verify(token, "UserSecret", (err, decoded)=> {
+        if (err) {
+          res.status(403).send({ success: false, message: "Failed to authenticate user." })
+        } else {
+          req.decoded = decoded
+          next()
+        }
+      })
+    } else {
+      res.status(403).send({ success: false, message: "No Token Provided." })
     }
-    console.log("User verified")
-    return next();
   }

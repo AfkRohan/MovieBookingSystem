@@ -92,6 +92,7 @@ router.post('/login',async (req,res)=>{
 })
 
 router.get('/',verifyToken,(req,res)=>{
+  console.log(req.cookies)
   res.send("Token verified")
 })
 
