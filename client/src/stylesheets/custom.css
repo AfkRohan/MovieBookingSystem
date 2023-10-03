@@ -41,10 +41,16 @@
   }
 
 .image-slider {
-    max-width: 800px; 
-    margin: 0 auto; 
+    /* max-width: 90%;  */
+  width: 97%;
+  height:30%;
+  margin: 0 auto; 
+  margin-top: 1em;
   }
   
+  .carousel .slide{
+    height:30em;
+  }
 
 svg{
     margin-right: 10px;
@@ -59,10 +65,8 @@ svg:hover{
     color: #fff;
     text-align: center;
     font-family: MarkOT, sans-serif, sans-serif;
-    position: fixed;
     background-color: #090909;
     padding: 40px;
-    position: absolute;
     bottom: 0;
     width: 100%;
     

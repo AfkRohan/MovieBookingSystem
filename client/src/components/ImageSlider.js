@@ -1,19 +1,22 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
+import header1 from '../assets/Banner1.png';
+import header2 from '../assets/Banner2.png';
+import header3 from '../assets/Banner3.png';
 
 function ImageSlider(){
   return (
     <div className="image-slider">
       <Carousel showArrows={true} showThumbs={false}>
         <div>
-          <img src="https://wallpapercave.com/wp/wp1946074.jpg" alt="Image 1" />
+          <img src={header1} alt="" />
         </div>
         <div>
-          <img src="https://www.pixelstalk.net/wp-content/uploads/2016/07/1080p-Movie-Pictures.jpg" alt="Image 2" />
+          <img src={header2} alt="" />
         </div>
         <div>
-          <img src="https://b4blaze.com/wp-content/uploads/2021/04/RRR.jpg?v=1618296611" alt="Image 3" />
+          <img src={header3} alt="" />
         </div>
       </Carousel>
     </div>
