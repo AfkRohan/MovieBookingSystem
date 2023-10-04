@@ -14,15 +14,12 @@ function AdminLogin(){
             })
             .then((response) =>{ 
                 console.log(response)
-                if(response.status == 404){
-                    alert("Incorrect Username or password")
-                }
-                else{
+                if(response.status == 200){
                     window.location.href="/admin-dashboard"
-                    alert(response.data)
                 }
             })
             .catch((err) => {
+                alert("Invalid credentials")
                console.log(err.message);
             });
     }
