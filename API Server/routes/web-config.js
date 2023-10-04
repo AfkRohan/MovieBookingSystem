@@ -62,7 +62,7 @@ router.post('/admin-login',(req,res)=>{
 
   }
   else{
-    res.send("Incorrect Email or Password")
+    res.statusCode(404).send("Incorrect Email or Password")
   }
 })
 
