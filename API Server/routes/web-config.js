@@ -58,8 +58,6 @@ router.post('/admin-login',(req,res)=>{
   const adminPassword = data.Password;
   if(adminEmail==="Admin" && adminPassword==="Admin@cinemax" ){
     res.send("Admin Verified Successfully.")
-    res.redirect('/admin-dashboard');
-
   }
   else{
     res.statusCode(404).send("Incorrect Email or Password")
