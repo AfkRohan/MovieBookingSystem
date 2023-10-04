@@ -8,11 +8,11 @@ import header3 from '../assets/Banner3.png';
 function ImageSlider(){
   return (
     <div className="image-slider">
-      <Carousel showArrows={true} showThumbs={false}>
+      <Carousel showArrows={true}  showThumbs={false}>
         <div>
           <img src={header1} alt="" />
         </div>
-        <div>
+        <div> 
           <img src={header2} alt="" />
         </div>
         <div>
