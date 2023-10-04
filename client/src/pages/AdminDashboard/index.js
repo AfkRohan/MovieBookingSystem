@@ -11,19 +11,19 @@ function AdminDashboard() {
       <AdminNavbar />
       <div>
         <div className='centerDivStyle'>
-        <a href="/movie">
+        <a href="/movie" id='movie'>
           <img
             src={movie_stamp}
             alt="Movies"
-            style={{ width: '300px', height: '200px', margin: '10px' }}
+            style={{ width: '300px', margin: '10px' }}
           />
         </a>
 
-        <a href="/show">
+        <a href="/show" id='show'>
           <img
             src={shows_stamp}
             alt="Shows"
-            style={{ width: '300px', height: '70px', margin: '10px' }}
+            style={{ width: '300px', margin: '10px' }}
           />
         </a>
         </div>
