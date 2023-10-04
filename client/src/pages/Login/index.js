@@ -47,13 +47,6 @@ function Login(){
             <Form layout="vertical" onFinish={onFinish}
             className="mt2">
                 
-                <Form.Item
-                label="UserName"
-                name="name"
-                rules={[{required:true, message: "Please enter valid value"}]}
-                >
-                <Input />
-                </Form.Item>
 
                 <Form.Item
                 label="Email"
