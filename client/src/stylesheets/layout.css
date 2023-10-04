@@ -180,3 +180,14 @@
 .tacenter{
     text-align: center;
 }
+
+.centerDivStyle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 88px 0 88px 0;
+
+      
+      
+  }

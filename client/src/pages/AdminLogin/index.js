@@ -62,7 +62,7 @@ function AdminLogin(){
                 <Input.Password />
                 </Form.Item>
                 <br/>
-                <Button type="primary" htmlType="submit" title="Login" />
+                <Button  type="primary" htmlType="submit" title="Login" />
                 
             </Form>
            </div>
