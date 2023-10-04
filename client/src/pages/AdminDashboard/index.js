@@ -23,7 +23,7 @@ function AdminDashboard() {
           <img
             src={shows_stamp}
             alt="Shows"
-            style={{ width: '300px', margin: '10px' }}
+            style={{ width: '230px', margin: '45px' }}
           />
         </a>
         </div>

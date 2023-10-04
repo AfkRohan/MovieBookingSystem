@@ -7,7 +7,7 @@ function Shows() {
           <img
             src={shows_stamp}
             alt="Shows"
-            style={{ width: '300px', margin: 'auto' }}
+            style={{ width: '230px', margin: '45px' }}
           />
         </a>
     </div>
