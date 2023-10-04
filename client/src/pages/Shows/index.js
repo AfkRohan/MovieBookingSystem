@@ -1,7 +1,13 @@
 import React from 'react'
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 import shows_stamp from '../../assets/shows_stamp.png';
+
 function Shows() {
   return (
+    <>
+  <Header />
+
     <div className='centerDivStyle' >
         <a href="/show" id='show'>
           <img
@@ -11,6 +17,10 @@ function Shows() {
           />
         </a>
     </div>
+
+<Footer />
+</>
+
   )
 }
 
