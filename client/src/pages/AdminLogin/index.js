@@ -14,10 +14,11 @@ function AdminLogin(){
             })
             .then((response) =>{ 
                 console.log(response)
-                if(response.data==="Admin Verified Successfully"){
-                    window.location.href="/admin-dashboard"
+                if(response.status == 404){
+                    alert("Incorrect Username or password")
                 }
                 else{
+                    window.location.href="/admin-dashboard"
                     alert(response.data)
                 }
             })
