@@ -9,8 +9,8 @@ import "./stylesheets/size.css";
 import "./stylesheets/formelements.css"
 import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
-
-
+import Movies from './pages/Movie';
+import Shows from './pages/Shows';
 
 function App() {
   return (
@@ -22,7 +22,8 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
-      
+        <Route path="/Movie" element={<Movies/>}/>
+        <Route path="/Show" element={<Shows/>}/>
       </Routes>
     </BrowserRouter>
     </div>

@@ -1,0 +1,17 @@
+import React from 'react'
+import shows_stamp from '../../assets/shows_stamp.png';
+function Shows() {
+  return (
+    <div className='centerDivStyle' >
+        <a href="/show" id='show'>
+          <img
+            src={shows_stamp}
+            alt="Shows"
+            style={{ width: '300px', margin: 'auto' }}
+          />
+        </a>
+    </div>
+  )
+}
+
+export default Shows
