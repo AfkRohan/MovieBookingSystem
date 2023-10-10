@@ -43,8 +43,6 @@ function Movies() {
       rating: '4.8/5',
       language: 'HINDI',
     },
-   
-   
     {
       title: 'SINGHAM RETURN',
       imageUrl: 'https://wallpapercave.com/wp/wp8807422.jpg',
