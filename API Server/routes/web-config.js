@@ -12,6 +12,8 @@ const verifyToken = require('../middlewares/auth')
 
 const User = require('../models/UserModel')
 
+const Movie = require('../models/MovieModel')
+
 // API for creating a new user
 router.post('/create', async (req,res)=>{
     const data = req.body
@@ -107,9 +109,38 @@ router.post('/login',async (req,res)=>{
   )
 })
 
+// Get all movies
+router.get('/movie',async (req,res)=>{
+ const allmovies = await Movie.find({});
+ res.send(allmovies)
+})
+
+// Add a movie 
+router.post('/addmovie',async (req,res)=>{
+  const data = req.body
+    console.log(data)
+    try{
+    let newmovie = new Movie ({ 
+    name :data.name,
+    trailerLink : data.trailerLink,
+    image:data.image,
+    description:data.description,
+    rating:data.rating })
+    let movieInserted = await newmovie.save();
+    // save user token
+
+      res.send(movieInserted);
+    }
+    catch(err){
+      res.send(err)
+    }
+})
+
+// Test Route
 router.get('/',verifyToken,(req,res)=>{
   console.log(req.cookies)
   res.send("Token verified")
 })
+
 
 module.exports = router;
