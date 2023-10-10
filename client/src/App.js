@@ -22,8 +22,8 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
-        <Route path="/Movie" element={<Movies/>}/>
-        <Route path="/Show" element={<Shows/>}/>
+        <Route path="/movie" element={<Movies/>}/>
+        <Route path="/show" element={<Shows/>}/>
       </Routes>
     </BrowserRouter>
     </div>
