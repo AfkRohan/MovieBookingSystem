@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import ImageSlider2 from '../../components/ImageSlider2';
-import MovieCard from '../../components/MovieCard';
+
 
 function Movies() {
 
