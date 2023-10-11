@@ -121,7 +121,6 @@ function Register(){
                     pattern: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,32}$',
                     message: "Password must have atleast one small case alphabet,one number,one symbol and one small case alphabet "
                     }
-                    }
                 ]}
                 >
                 <Input.Password />
