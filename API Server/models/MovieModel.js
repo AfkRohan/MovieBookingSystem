@@ -38,6 +38,10 @@ const movieSchema = new mongoose.Schema({
         type: Number,
         required : true,   
     },
+    ageGroups:{
+        type: String,
+        requied:true
+    }
 });
 
 const Movie = mongoose.model('Movie',movieSchema);
