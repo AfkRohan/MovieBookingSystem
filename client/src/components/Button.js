@@ -1,10 +1,11 @@
 import React from 'react'
 
-function Button({title , onClick , variant , disabled}){
+function Button({title , onClick , variant , disabled, type}){
     let className ='bg-primary p1 textwhite'
     
     return(
-     <button className={className}>
+     <button className={className} type={type}
+     onClick={onClick} disabled={disabled}>
         {title}
      </button>
        

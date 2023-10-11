@@ -100,9 +100,14 @@ svg:hover{
   margin: 5px 0;
   font-size: 0.9rem;
 }
+.underline{
+  text-decoration:underline;
+  cursor: pointer;
+}
 
-
-
+.cursor-pointer{
+  cursor:pointer;
+}
 
 
   

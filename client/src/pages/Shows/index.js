@@ -1,12 +1,14 @@
 import React from 'react'
 import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+
 import shows_stamp from '../../assets/shows_stamp.png';
+import AdminNavbar from '../../components/AdminNavbar';
 
 function Shows() {
   return (
     <>
-  <Header />
+
+  <AdminNavbar />
 
     <div className='centerDivStyle' >
         <a href="/show" id='show'>

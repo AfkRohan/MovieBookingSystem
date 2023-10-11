@@ -10,6 +10,7 @@ function ImageSlider(){
   return (
     <div className="image-slider">
       <Carousel showArrows={true}  showThumbs={false}>
+    
         <div>
           <img src={header1} alt="Slide1" />
         </div>
