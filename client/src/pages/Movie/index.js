@@ -7,7 +7,6 @@ import ImageSlider2 from '../../components/ImageSlider2';
 function Movies() {
 
   const movie = [
-  
     {
       title: 'THE WOLVERINE',
       imageUrl: 'https://wallpapercave.com/wp/wp2162761.jpg',

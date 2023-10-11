@@ -97,22 +97,67 @@ router.post('/login',async (req,res)=>{
           res.send("Invalid Password")
         }
         else{
-          res.send(err)
+          res.statusCode(404).send(err)
         }
         })
         }
   ).catch(
     (err)=>{
         console.log(err);
-        res.send(err);
+        res.statusCode(404).send(err);
     }
   )
 })
 
 // Get all movies
 router.get('/movie',async (req,res)=>{
- const allmovies = await Movie.find({});
- res.send(allmovies)
+  try {
+     const allmovies = await Movie.find({});
+     res.send(allmovies)
+  }
+  catch(err) {
+      res.statusCode(404).send(err)
+  }
+})
+
+// Get movie by ID
+router.get('/movie/:id',async (req,res)=>{
+  const id = req.params.id
+  try{
+  const movie = await Movie.findById(id);
+  res.send(movie)
+  }
+  catch(err){
+    res.statusCode(404).send(err)
+  }
+})
+
+// Update movie by ID
+router.put('/movie/:id',async (req,res)=>{
+  const id = req.params.id
+  try{
+  const movie = await Movie.findByIdAndUpdate(id,{ 
+    name :data.name,
+    trailerLink : data.trailerLink,
+    image:data.image,
+    description:data.description,
+    rating:data.rating });
+    res.send(movie);
+  }
+  catch(err){
+    res.statusCode(404).send(err)
+  }
+})
+
+
+// Delete a movie by ID
+router.delete('/movie/:id',async (req,res)=>{
+  const id = req.params.id
+  Movie.findById(id).then((movie)=> {
+    res.send(`Delete movie with id: ${id}`)
+  } ).catch((err)=>{
+    res.statusCode(404).send(err);
+  })
 })
 
 // Add a movie 
@@ -128,7 +173,6 @@ router.post('/addmovie',async (req,res)=>{
     rating:data.rating })
     let movieInserted = await newmovie.save();
     // save user token
-
       res.send(movieInserted);
     }
     catch(err){
