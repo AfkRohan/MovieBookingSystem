@@ -3,11 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 import logo from '../assets/logowhite1.png';
-import user from '../assets/user1.png';
-import search from '../assets/search1.png'; 
-import ticket from '../assets/ticket1.png'; 
-
-
 
 function Header(){
     return(

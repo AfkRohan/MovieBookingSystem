@@ -55,7 +55,16 @@ function Register(){
                 <Form.Item
                 label="First Name"
                 name="fName"
-                rules={[{required:true, message: "Please enter valid value"}]}
+                rules={[
+                {
+                required:true, 
+                message: "Please enter valid value"
+                }, 
+                {
+                    pattern: '/[a-zA-Z]+$/',
+                    message: "Invalid name"
+                }
+                ]}
                 >
                <Input />
                 </Form.Item>
@@ -63,7 +72,15 @@ function Register(){
                 <Form.Item
                 label="Last Name"
                 name="lName"
-                rules={[{required:true, message: "Please enter valid value"}]}
+                rules={
+                    [{
+                    required:true, 
+                    message: "Please enter valid value"
+                    },
+                    {
+                    pattern: '/[a-zA-Z]+$/',
+                    message: "Invalid name"
+                    }]}
                 >
                <Input />
                 </Form.Item>
