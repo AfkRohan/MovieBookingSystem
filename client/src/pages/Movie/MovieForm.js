@@ -36,12 +36,12 @@ function MovieForm({
                <input type="text"/>
             </Form.Item>
         </Col>
-        <Col span={8}>
+        <Col span={16}>
             <Form.Item label="Poster URL" name="poster">
                <input type="text"/>
             </Form.Item>
         </Col>
-        <Col span={8}>
+        <Col span={16}>
             <Form.Item label="Trailer URL" name="trailer">
                <input type="text"/>
             </Form.Item>
