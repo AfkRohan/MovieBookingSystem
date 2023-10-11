@@ -1,12 +1,11 @@
 import React from 'react';
+import AdminMovieCard from '../../components/AdminMovieCard';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import ImageSlider2 from '../../components/ImageSlider2';
-import MovieList from './MovieList';
 
 
 function Movies() {
- 
 
   const movie = [
     {
@@ -56,23 +55,18 @@ function Movies() {
     <>
       <Header />
       <ImageSlider2></ImageSlider2>
-      <MovieList/>
 
       <div className='centerDivStyle'>
       <div className="movie-list">
           {movie.map((movie, index) => (
-            <div className="movie-page" key={index}>
-              <img src={movie.imageUrl} alt={movie.title} />
-              <div className="movie-details">
-                <h2>{movie.title}</h2>
-                <p>{movie.description}</p>
-                <p>Rating: {movie.rating}</p>
-                <p>Language: {movie.language}</p>
-              </div>
-            </div>
+           <AdminMovieCard movie={movie } index ={index}/>
           ))}
         </div>
       </div>
+
+      <button className="btnAddMovie">
+          <span className="btnText">Add Movie</span>
+      </button>
 
       
       

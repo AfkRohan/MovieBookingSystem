@@ -186,8 +186,58 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding: 88px 0 88px 0;
-
-      
-      
+        padding: 88px 0 88px 0;  
   }
+
+.btnAddMovie {
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 12px 20px; /* Padding for spacing */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s; /* Smooth color transition on hover */
+    text-align: center; /* Center text */
+    display: inline-block;
+    text-decoration: none; /* Remove underlines for anchor-like buttons */
+  }
+
+  .btnAddMovie:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+  }
+  
+  .btnText {
+    display: inline-block;
+  }
+
+.btnEditMovie {
+    background-color: #0ed20e; 
+    color: #fff; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 12px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    margin: 8px;
+    transition: background-color 0.3s; 
+    text-align: center; 
+    display: inline-block;
+    text-decoration: none; 
+  }
+.btnDeleteMovie {
+    background-color: #d20e2b; 
+    color: #fff; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 12px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+    text-align: center; 
+    display: inline-block;
+    text-decoration: none; 
+  }
+  
+  
+  
