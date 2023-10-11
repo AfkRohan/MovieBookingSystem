@@ -139,7 +139,11 @@ router.put('/movie/:id',async (req,res)=>{
     trailerLink : data.trailerLink,
     image:data.image,
     description:data.description,
-    rating:data.rating }).then((movie)=>res.send(movie)).catch((err)=>{
+    rating:data.rating,
+    genre: data.genre,
+    languages: data.languages,
+    ageGroups: data.ageGroups 
+    }).then((movie)=>res.send(movie)).catch((err)=>{
     res.statusCode(400).send(err)
   })
 })
@@ -165,7 +169,10 @@ router.post('/addmovie',async (req,res)=>{
     trailerLink : data.trailerLink,
     image:data.image,
     description:data.description,
-    rating:data.rating })
+    rating:data.rating,
+    genre: data.genre,
+    languages: data.languages,
+    ageGroups: data.ageGroups  })
     let movieInserted = await newmovie.save();
     // save user token
       res.send(movieInserted);
