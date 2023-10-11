@@ -1,5 +1,6 @@
 import React from 'react'
 import {Form, Col,Row,Modal} from 'antd'
+import Button from '../../components/Button';
 function MovieForm({
     showMovieFormModal,
     setShowMovieFormModal,
