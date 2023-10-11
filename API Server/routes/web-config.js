@@ -20,7 +20,6 @@ router.post('/create', async (req,res)=>{
     console.log(data)
     const email = data.email
     const userPassword = await bcrypt.hash( data.Password,rounds);
-
     try{
     let user = new User({
     FirstName : data.firstName,
@@ -70,8 +69,7 @@ router.post('/admin-login',(req,res)=>{
 router.post('/login',async (req,res)=>{
     const data = req.body;
     const userEmail = data.email;
-    console.log(data)
-    
+    console.log(data)   
     User.findOne({ 
     "Contact.email" : userEmail,
   }).then(
@@ -104,7 +102,7 @@ router.post('/login',async (req,res)=>{
   ).catch(
     (err)=>{
         console.log(err);
-        res.statusCode(404).send(err);
+        res.send(err);
     }
   )
 })
@@ -116,7 +114,7 @@ router.get('/movie',async (req,res)=>{
      res.send(allmovies)
   }
   catch(err) {
-      res.statusCode(404).send(err)
+      res.send(err)
   }
 })
 
@@ -124,39 +122,36 @@ router.get('/movie',async (req,res)=>{
 router.get('/movie/:id',async (req,res)=>{
   const id = req.params.id
   try{
-  const movie = await Movie.findById(id);
+  const movie = await Movie.findById(id.toString());
   res.send(movie)
   }
   catch(err){
-    res.statusCode(404).send(err)
+    res.send(err)
   }
 })
 
 // Update movie by ID
 router.put('/movie/:id',async (req,res)=>{
   const id = req.params.id
-  try{
-  const movie = await Movie.findByIdAndUpdate(id,{ 
+  const data = req.body
+  Movie.findByIdAndUpdate(id.toString(),{ 
     name :data.name,
     trailerLink : data.trailerLink,
     image:data.image,
     description:data.description,
-    rating:data.rating });
-    res.send(movie);
-  }
-  catch(err){
-    res.statusCode(404).send(err)
-  }
+    rating:data.rating }).then((movie)=>res.send(movie)).catch((err)=>{
+    res.statusCode(400).send(err)
+  })
 })
 
 
 // Delete a movie by ID
 router.delete('/movie/:id',async (req,res)=>{
   const id = req.params.id
-  Movie.findById(id).then((movie)=> {
+  Movie.findById(id.toString()).then((movie)=> {
     res.send(`Delete movie with id: ${id}`)
   } ).catch((err)=>{
-    res.statusCode(404).send(err);
+    res.send(err);
   })
 })
 
