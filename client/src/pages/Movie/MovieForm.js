@@ -8,6 +8,8 @@ function MovieForm({
     formType
 
 }) {
+
+    const onFinish =(values) => {};
   return (
    <Modal
    title={formType === "add"? "Add Movie":"Edit Movie"}
@@ -19,6 +21,7 @@ function MovieForm({
   >
    <Form
    layout="vertical"
+   onFinish={onFinish}
    >
     <Row
     gutter={16}>
@@ -49,6 +52,11 @@ function MovieForm({
         </Col>
 
     </Row>
+    <div className="flex justify-end">
+        <Button title="Cancel" variant="outlined" type="button"
+        onClick={()=> setShowMovieFormModal(false)} />
+        <Button title="Save" type="submit"/>
+    </div>
     </Form>
    
    </Modal>
