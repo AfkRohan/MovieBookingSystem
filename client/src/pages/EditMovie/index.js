@@ -3,12 +3,14 @@ import Footer from '../../components/Footer';
 import AdminNavbar from '../../components/AdminNavbar';
 
 
-function UpdateMovie() {
+function EditMovie() {
 
   
   return (
     <>
       <AdminNavbar />
+
+      
 
       
           
@@ -18,4 +20,4 @@ function UpdateMovie() {
   );
 }
 
-export default UpdateMovie;
+export default EditMovie;
