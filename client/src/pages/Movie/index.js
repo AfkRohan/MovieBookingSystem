@@ -67,8 +67,6 @@ function Movies() {
       <button className="btnAddMovie">
           <span className="btnText">Add Movie</span>
       </button>
-
-      
       
       <Footer />
     </>
