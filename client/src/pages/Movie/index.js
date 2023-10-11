@@ -3,6 +3,7 @@ import AdminMovieCard from '../../components/AdminMovieCard';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import ImageSlider2 from '../../components/ImageSlider2';
+import MovieList from './MovieList';
 
 
 function Movies() {
@@ -55,6 +56,7 @@ function Movies() {
     <>
       <Header />
       <ImageSlider2></ImageSlider2>
+      <MovieList/>
 
       <div className='centerDivStyle'>
       <div className="movie-list">
