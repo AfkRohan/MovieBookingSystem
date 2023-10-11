@@ -194,17 +194,18 @@
     color: #fff; 
     border: none; 
     border-radius: 4px; 
-    padding: 12px 20px; /* Padding for spacing */
-    font-size: 16px; /* Text size */
-    cursor: pointer; /* Cursor on hover */
-    transition: background-color 0.3s; /* Smooth color transition on hover */
-    text-align: center; /* Center text */
+    padding: 20px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    margin-top: 20px;
+    transition: background-color 0.3s; 
+    text-align: center; 
     display: inline-block;
-    text-decoration: none; /* Remove underlines for anchor-like buttons */
+    text-decoration: none; 
   }
 
   .btnAddMovie:hover {
-    background-color: #0056b3; /* Darker background color on hover */
+    background-color: #0056b3; 
   }
   
   .btnText {
@@ -225,6 +226,11 @@
     display: inline-block;
     text-decoration: none; 
   }
+
+  .btnEditMovie:hover {
+    background-color: #086034; 
+  }
+
 .btnDeleteMovie {
     background-color: #d20e2b; 
     color: #fff; 
@@ -237,6 +243,10 @@
     text-align: center; 
     display: inline-block;
     text-decoration: none; 
+  }
+
+  .btnDeleteMovie:hover {
+    background-color: #800713; 
   }
   
   
