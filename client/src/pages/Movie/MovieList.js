@@ -7,10 +7,7 @@ function MovieList() {
     const [showMovieFormModal,setShowMovieFormModal] = React.useState(false);
     const [selectedMovie,setSelectedMovie] = React.useState(null);
     const [formType,setformType] = React.useState("add");
-
-  
-  
-  
+    
     return (
         <div>
     <div className="flex justify-center pt1">

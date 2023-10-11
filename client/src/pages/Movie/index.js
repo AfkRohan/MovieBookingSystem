@@ -58,6 +58,7 @@ function Movies() {
       <ImageSlider2></ImageSlider2>
       <MovieList/>
 
+   
       <div className='centerDivStyle'>
       <div className="movie-list">
           {movie.map((movie, index) => (

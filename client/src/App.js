@@ -11,6 +11,7 @@ import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
 import Movies from './pages/Movie';
 import Shows from './pages/Shows';
+import UpdateMovie from './pages/UpdateMovie';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
         <Route path="/movie" element={<Movies/>}/>
         <Route path="/show" element={<Shows/>}/>
+        <Route path="/updatemovie" element={<UpdateMovie/>}/>
       </Routes>
     </BrowserRouter>
     </div>
