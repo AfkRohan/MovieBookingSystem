@@ -7,8 +7,6 @@ import {ShowLoading} from "../../redux/loadersSlice";
 import { message } from 'antd';
 import { AddMovie } from '../../apicalls/Adminmovies';
 
-
-
 function MovieForm({
     showMovieFormModal,
     setShowMovieFormModal,
@@ -25,11 +23,9 @@ function MovieForm({
             let response = null;
             if (formType === "add"){
                 response = await AddMovie(values)
-            }else{
-
             }
-            if(response.success){
-                message.success(response.message)
+            if(response){
+                message.success("Working")
                 setShowMovieFormModal(false);
             }
             else{
