@@ -7,6 +7,7 @@ import {ShowLoading} from "../../redux/loadersSlice";
 import { message } from 'antd';
 import { AddMovie } from '../../apicalls/Adminmovies';
 
+
 function MovieForm({
     showMovieFormModal,
     setShowMovieFormModal,
@@ -17,19 +18,22 @@ function MovieForm({
 }) {
     const dispatch = useDispatch();
     const onFinish =async(values) => {
+        console.log(values)
         try {
             dispatch(ShowLoading())
 
             let response = null;
             if (formType === "add"){
                 response = await AddMovie(values)
+            }else{
+
             }
-            if(response){
-                message.success("Working")
+            if(response!=null){
+                message.success("Movie Added")
                 setShowMovieFormModal(false);
             }
             else{
-                message.error(response.message);
+                message.error("Failed to add movie \n "+ response);
             }
             dispatch(HideLoading());
         } catch(error){
@@ -104,12 +108,11 @@ function MovieForm({
             </Form.Item>
         </Col>
         <Col span={16}>
-            <Form.Item label="Poster URL" name="poster">
+            <Form.Item label="Poster URL" name="image">
                <input type="text"/>
             </Form.Item>
-            </Col>
-       
-        <Col span={24}>
+        </Col>
+        <Col span={16}>
             <Form.Item label="Trailer URL" name="trailerLink">
                <input type="text"/>
             </Form.Item>
