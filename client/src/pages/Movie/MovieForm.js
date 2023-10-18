@@ -117,7 +117,7 @@ function MovieForm({
         
 
     </Row>
-    <div className="flex justify-end">
+    <div className="flex justify-end gap1">
         <Button title="Cancel" variant="outlined" type="button"
         onClick={()=> setShowMovieFormModal(false)} />
         <Button title="Save" type="submit"/>
