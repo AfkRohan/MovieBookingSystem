@@ -12,10 +12,16 @@ import "./stylesheets/theme.css";
 import Movies from './pages/Movie';
 import Shows from './pages/Shows';
 import UpdateMovie from './pages/UpdateMovie';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const {loading} = useSelector((state) => state.loaders);
   return (
+    
     <div>
+      {loading && <div className='loader-parent'>
+      <div className='loader'></div>
+      </div>}
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>

@@ -6,13 +6,19 @@ import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { ShowLoading } from '../../redux/loadersSlice';
+import { HideLoading } from '../../redux/loadersSlice';
 
 function Login(){
+    const dispatch = useDispatch();
+    dispatch(ShowLoading())
     async function onFinish(values){
         axios.post('http://localhost:4000/api/login', {
                email: values.email,
                Password: values.password,
             })
+            dispatch(HideLoading())
             .then((response) =>{ 
                 const data = response.data
                 if(data){
@@ -24,6 +30,7 @@ function Login(){
                 }
             })
             .catch((err) => {
+                dispatch(HideLoading())
                console.log(err.message);
             });
     }

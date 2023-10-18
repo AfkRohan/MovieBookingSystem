@@ -2,9 +2,9 @@ const {axiosInstance} = require(".");
 
 //add a new movie
 
-export const AddMovie= async(payload) => {
+const AddMovie= async(payload) => {
     try{
-        const response = await axiosInstance.post("api/movies/add-movie",payload);
+        const response = await axiosInstance.post("api/movies/addmovie",payload);
         return response.data;
     }
     catch(error){
@@ -12,3 +12,4 @@ export const AddMovie= async(payload) => {
     }
 
 }
+module.export = (AddMovie)
