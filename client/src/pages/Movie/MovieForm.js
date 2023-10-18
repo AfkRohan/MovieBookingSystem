@@ -48,7 +48,6 @@ function MovieForm({
    title={formType === "add"? "Add Movie":"Edit Movie"}
     open={showMovieFormModal}
     onCancel={() => setShowMovieFormModal(false)}
-    // onCancel={()=> setShowMovieFormModal(false)}
     footer={null}
     width={800}
   >
