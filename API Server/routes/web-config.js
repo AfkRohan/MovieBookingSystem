@@ -175,6 +175,7 @@ router.post('/addmovie',async (req,res)=>{
     ageGroups: data.ageGroups  })
     let movieInserted = await newmovie.save();
     // save user token
+    console.log(movieInserted)
       res.send(movieInserted);
     }
     catch(err){

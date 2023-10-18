@@ -19,7 +19,7 @@ const movieSchema = new mongoose.Schema({
         required : true
     },
     image:{
-        type: URL,
+        type: String,
         required : true
     },
     description:{
