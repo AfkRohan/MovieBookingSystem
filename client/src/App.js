@@ -12,7 +12,6 @@ import "./stylesheets/theme.css";
 import Movies from './pages/Movie';
 import Shows from './pages/Shows';
 import UpdateMovie from './pages/UpdateMovie';
-import { useSelector } from 'react-redux';
 
 function App() {
   const {loading} = useSelector((state) => state.loaders);
@@ -31,7 +30,7 @@ function App() {
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
         <Route path="/movie" element={<Movies/>}/>
         <Route path="/show" element={<Shows/>}/>
-        <Route path="/updatemovie" element={<UpdateMovie/>}/>
+        <Route path="/editmovie" element={<EditMovie/>}/>
       </Routes>
     </BrowserRouter>
     </div>

@@ -55,7 +55,6 @@ function Movies() {
   return (
     <>
       <Header />
-      <ImageSlider2></ImageSlider2>
       <MovieList/>
 
    
@@ -67,9 +66,7 @@ function Movies() {
         </div>
       </div>
 
-      <button className="btnAddMovie">
-          <span className="btnText">Add Movie</span>
-      </button>
+
       
       <Footer />
     </>

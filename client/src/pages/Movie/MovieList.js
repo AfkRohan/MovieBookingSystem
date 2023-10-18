@@ -12,6 +12,7 @@ function MovieList() {
         <div>
     <div className="flex justify-center pt1">
         <Button
+        className="btnAddMovie"
         title="Add Movie"
         variant="outlined"
         onClick={() => {
