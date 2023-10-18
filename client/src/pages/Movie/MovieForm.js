@@ -92,6 +92,17 @@ function MovieForm({
             </Form.Item>
         </Col>
         <Col span={8}>
+            <Form.Item label="Age Groups" name="ageGroups">
+            <select name="" id="">
+                <option value="">Select Age Group</option>
+                <option value="Kids">Kids</option>
+                <option value="Teenage">Teenage</option>
+                <option value="Adult">Adult</option>
+                <option value="Family">Family</option>
+            </select>
+            </Form.Item>
+        </Col>
+        <Col span={8}>
             <Form.Item label="Rating" name="rating">
                <input type="text"/>
             </Form.Item>
@@ -100,8 +111,9 @@ function MovieForm({
             <Form.Item label="Poster URL" name="poster">
                <input type="text"/>
             </Form.Item>
-        </Col>
-        <Col span={16}>
+            </Col>
+       
+        <Col span={24}>
             <Form.Item label="Trailer URL" name="trailerLink">
                <input type="text"/>
             </Form.Item>
