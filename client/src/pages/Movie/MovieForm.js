@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { HideLoading } from "../../redux/loadersSlice"; 
 import {ShowLoading} from "../../redux/loadersSlice";
 import { message } from 'antd';
-import { AddMovie } from '../../apicalls/Adminmovies';
+import axios from 'axios';
 
 
 function MovieForm({
@@ -22,15 +22,16 @@ function MovieForm({
         try {
             dispatch(ShowLoading())
 
-            let response = null;
+            let response =  null;
             if (formType === "add"){
-                response = await AddMovie(values)
+                response =  await axios.post("http://localhost:4000/api/addmovie", values) ?? null;
             }else{
 
             }
             if(response!=null){
                 message.success("Movie Added")
                 setShowMovieFormModal(false);
+                window.location.reload(false);
             }
             else{
                 message.error("Failed to add movie \n "+ response);
@@ -39,13 +40,12 @@ function MovieForm({
         } catch(error){
             dispatch(HideLoading())
             message.error(error.message)
-
         }
     };
 
   return (
    <Modal
-   title={formType === "add"? "Add Movie":"Edit Movie"}
+   title={formType === "add"}
     open={showMovieFormModal}
     onCancel={() => setShowMovieFormModal(false)}
     footer={null}
@@ -104,17 +104,17 @@ function MovieForm({
         </Col>
         <Col span={8}>
             <Form.Item label="Rating" name="rating">
-               <input type="text"/>
+               <input type="number"/>
             </Form.Item>
         </Col>
         <Col span={16}>
             <Form.Item label="Poster URL" name="image">
-               <input type="text"/>
+               <input type="url"/>
             </Form.Item>
         </Col>
         <Col span={16}>
             <Form.Item label="Trailer URL" name="trailerLink">
-               <input type="text"/>
+               <input type="url"/>
             </Form.Item>
         </Col>
         
