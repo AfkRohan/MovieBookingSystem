@@ -11,7 +11,8 @@ import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
 import Movies from './pages/Movie';
 import Shows from './pages/Shows';
-import UpdateMovie from './pages/UpdateMovie';
+import { useSelector } from 'react-redux';
+import EditMovie from './pages/EditMovie'
 
 function App() {
   const {loading} = useSelector((state) => state.loaders);
