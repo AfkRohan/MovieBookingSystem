@@ -122,6 +122,12 @@ svg:hover{
 
 
 }
+.featured-movie:hover{
+
+  background-color:darkgray;
+
+
+}
 
 .movie-poster {
   flex-wrap: wrap;
@@ -147,15 +153,21 @@ svg:hover{
 .experience{
   display: flex;
   text-align: center;
+  background-color: #090909;
+  margin-left: 20px;
+  margin-right: 20px;
   
 }
 .experience-section {
   border: 1px solid #e0e0e0;
   justify-content:space-around;
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
   background-color: #090909;
   color: #fff;
+}
+.experience-section:hover{
+  background-color:cadetblue;
 }
 
 .experience-image {
