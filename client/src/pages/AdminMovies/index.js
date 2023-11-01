@@ -23,6 +23,7 @@ function AdminMovies() {
   return (
     <>
       <Header />
+      <MovieList />
       <div className='centerDivStyle'>
       <div className="movie-list">
           {movie.map((movie, index) => (

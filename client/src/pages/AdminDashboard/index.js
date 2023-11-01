@@ -11,7 +11,7 @@ function AdminDashboard() {
       <AdminNavbar />
       <div>
         <div className='centerDivStyle'>
-        <a href="/movie" id='movie'>
+        <a href="/admin-movie" id='movie'>
           <img
             src={movie_stamp}
             alt="Movies"
