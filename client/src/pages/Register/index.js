@@ -61,7 +61,7 @@ function Register(){
                 message: "Please enter valid value"
                 }, 
                 {
-                    pattern: '/[a-zA-Z]+$/',
+                    pattern: /[a-zA-Z]+$/,
                     message: "Invalid name"
                 }
                 ]}
@@ -78,7 +78,7 @@ function Register(){
                     message: "Please enter valid value"
                     },
                     {
-                    pattern: '/[a-zA-Z]+$/',
+                    pattern: /[a-zA-Z]+$/,
                     message: "Invalid name"
                     }]}
                 >
@@ -118,7 +118,7 @@ function Register(){
                     message: "Please enter your password"
                     },
                     {
-                    pattern: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,32}$',
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/,
                     message: "Password must have atleast one small case alphabet,one number,one symbol and one small case alphabet "
                     }
                 ]}
@@ -134,7 +134,7 @@ function Register(){
                         message: "Please Re-enter your password"
                     },
                     {
-                        pattern: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,32}$',
+                        pattern: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,32}$',
                         message: "Password must have atleast one small case alphabet,one number,one symbol and one small case alphabet "
                     }
                 ]}
