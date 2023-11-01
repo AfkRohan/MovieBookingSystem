@@ -23,7 +23,6 @@ function Movies() {
   return (
     <>
       <Header />
-     
       <div className='centerDivStyle'>
       <div className="movie-list">
           {movie.map((movie, index) => (
