@@ -1,51 +1,32 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import ImageSlider from '../../components/ImageSlider';
-import FeaturedMovie from '../../components/FeaturedMovie';
-import AdminMovieCard from '../../components/AdminMovieCard';
+import FeaturedMovieCard from '../../components/FeaturedMovieCard';
 import ExperienceSection from '../../components/ExperienceSection';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-
+import axios from 'axios';
 
 function Home(){
-   
+   const [movie,setMovies] = useState([])
+  useEffect( () => {
+    axios.get("http://localhost:4000/api/movie").then((response)=>{
+    response.data = response.data.slice(0,3) 
+    setMovies(response.data)
+    }).catch(err => {
+     console.log(err)
+    })    
+      },[])
     return(
  <>
        <Header/>
-             
              <ImageSlider></ImageSlider>
              <main className="main-content">
              <center><h1>Featured Movies</h1></center>
-             <div className="app">
-                <FeaturedMovie
-                   
-                    title="Wednesday"
-                    description="This is the description of the first movie."
-                    imageSrc="https://m.media-amazon.com/images/I/61Nu7B0M5rL._AC_SL1000_.jpg"
-                />
-              <FeaturedMovie
-                    title="Justice leage"
-                    description="This is the description of the second movie."
-                    imageSrc="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e5865358516595.59ffa0a2671f5.jpg"
-                />
-              <FeaturedMovie
-                   
-                   title="Tar"
-                   description="This is the description of the third movie."
-                   imageSrc="https://www.bing.com/th?id=OIP.3BTgWgTpbvTxR-ICopujEAHaLH&w=120&h=185&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"/>
-
-             <FeaturedMovie
-                   title="Scream"
-                   description="This is the description of the fourth movie."
-                   imageSrc="https://th.bing.com/th?id=OPHS.bTdI%2fXy61LsZjQ474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1"
-             />
-            <FeaturedMovie
-                   title="Batman"
-                   description="This is the description of the fourth movie."
-                   imageSrc="https://m.media-amazon.com/images/I/81Yakb7GZuL._AC_SL1500_.jpg"
-            />
-            
-      </div>
+             <div className="featured-movies">
+             {movie.map((movie, index) => (
+              <FeaturedMovieCard movie={movie} index ={index}/>
+            ))}
+             </div>
 
       <h2>Experience</h2>
     <div className='experience'>

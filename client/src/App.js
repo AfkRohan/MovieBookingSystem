@@ -12,7 +12,7 @@ import "./stylesheets/theme.css";
 import AdminMovies from './pages/AdminMovies';
 import Shows from './pages/Shows';
 import { useSelector } from 'react-redux';
-// import EditMovie from './pages/EditMovie'
+
 import MovieDetails from './pages/AdminMovies/MovieDetails';
 import Movies from './pages/Movies';
 
@@ -34,7 +34,10 @@ function App() {
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
         <Route path="/admin-movie" element={<AdminMovies/>}/>
         <Route path="/show" element={<Shows/>}/>
+<<<<<<< HEAD
         {/* <Route path="/editmovie" element={<EditMovie/>}/> */}
+=======
+>>>>>>> 127652d5994f82a0f481e456e71fcf4bc6c267f5
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
 

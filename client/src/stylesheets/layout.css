@@ -269,22 +269,38 @@
     background-color: #42179e; 
   }
 
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .list-group-item {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
   .imgsize {
     width: 100%;
     height: auto;
+    display: block;
+    margin: 0 auto;
   }
+  
+  .list-group-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .list-group-item h1 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+  
+  .list-group-item p {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+  
+  .list-group-item:first-child {
+    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+  }
+  
+  .list-group-item:last-child {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+  
   
 
   

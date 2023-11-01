@@ -131,4 +131,4 @@ function MovieForm({
   )
 }
 
-export default MovieForm;
+export default MovieForm

@@ -8,9 +8,9 @@ import { Dropdown, Menu } from 'antd';
 
 function Movies() {
     const [movie,setMovies] = useState([]);
-    const [searchPrompt,setSearchPrompt] = useState(null)
-    const [languageFilter,setFilterLanguage] = useState(null)
-    const [categoryFilter,setCategoryFilter] = useState(null)
+    // const [searchPrompt,setSearchPrompt] = useState(null)
+    // const [languageFilter,setFilterLanguage] = useState(null)
+    // const [categoryFilter,setCategoryFilter] = useState(null)
     useEffect( () => {
        axios.get("http://localhost:4000/api/movie").then((response)=>{
         setMovies(response.data)
@@ -24,9 +24,9 @@ function Movies() {
         <Header />
         <div className='centerDivStyle'>
         <div className="movie-list">
-            {movie.map((movie, index) => (
-             <UserMovieCard movie={movie} index ={index}/>
-            ))}
+            {movie.map((movie) =>(
+             <UserMovieCard movie={movie}/>
+            )).length(3)}
           </div>
         </div>      
         <Footer />
