@@ -10,7 +10,8 @@ function Home(){
    const [movie,setMovies] = useState([])
   useEffect( () => {
     axios.get("http://localhost:4000/api/movie").then((response)=>{
-     setMovies(response.data)
+    response.data = response.data.slice(0,3) 
+    setMovies(response.data)
     }).catch(err => {
      console.log(err)
     })    
@@ -21,9 +22,9 @@ function Home(){
              <ImageSlider></ImageSlider>
              <main className="main-content">
              <center><h1>Featured Movies</h1></center>
-             <div className="app">
+             <div className="featured-movies">
              {movie.map((movie, index) => (
-             <FeaturedMovieCard movie={movie} index ={index}/>
+              <FeaturedMovieCard movie={movie} index ={index}/>
             ))}
              </div>
 

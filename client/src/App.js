@@ -34,10 +34,6 @@ function App() {
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
         <Route path="/admin-movie" element={<AdminMovies/>}/>
         <Route path="/show" element={<Shows/>}/>
-<<<<<<< HEAD
-        {/* <Route path="/editmovie" element={<EditMovie/>}/> */}
-=======
->>>>>>> 033c5c14 (featured movie card editted)
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
 
