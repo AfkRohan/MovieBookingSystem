@@ -10,10 +10,7 @@ function EditMovie() {
     <>
       <AdminNavbar />
 
-      
-
-      
-          
+       
       
       <Footer />
     </>
