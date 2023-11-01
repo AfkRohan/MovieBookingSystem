@@ -269,6 +269,23 @@
     background-color: #42179e; 
   }
 
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .list-group-item {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .imgsize {
+    width: 100%;
+    height: auto;
+  }
+  
 
   
   

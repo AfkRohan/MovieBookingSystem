@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import EditMovie from './pages/EditMovie'
 import MovieDetails from './pages/Movie/MovieDetails';
 
+
 function App() {
   const {loading} = useSelector((state) => state.loaders);
   return (
