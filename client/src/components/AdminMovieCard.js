@@ -5,7 +5,6 @@ function AdminMovieCard(props) {
  
  
     return (
-
       <div className="movie-page" key={props.index}>
       <img src={props.movie.image} alt={props.movie.title} />
       <div className="movie-details">
