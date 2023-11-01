@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminHeader from '../../components/AdminHeader';
 import Footer from '../../components/Footer';
 import movie_stamp from '../../assets/movie_stamp.png';
 import shows_stamp from '../../assets/shows_stamp.png';
@@ -8,7 +8,7 @@ import shows_stamp from '../../assets/shows_stamp.png';
 function AdminDashboard() {
   return (
     <>
-      <AdminNavbar />
+      <AdminHeader />
       <div>
         <div className='centerDivStyle'>
         <a href="/admin-movie" id='movie'>

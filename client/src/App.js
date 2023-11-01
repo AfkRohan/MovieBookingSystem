@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashBoard from './pages/AdminDashboard'
+import AdminLogout from './pages/AdminLogout';
 import "./stylesheets/layout.css";
 import "./stylesheets/size.css";
 import "./stylesheets/formelements.css"
@@ -31,6 +32,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
+        <Route path="/admin-logout" element={<AdminLogout/>}/>
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
         <Route path="/admin-movie" element={<AdminMovies/>}/>
         <Route path="/show" element={<Shows/>}/>
