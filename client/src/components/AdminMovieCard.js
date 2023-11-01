@@ -1,5 +1,6 @@
 import React from 'react'
 import DeleteButton from './DeleteButton'
+import ViewDetailsButton from './ViewDetailsButton'
 
 function AdminMovieCard(props) {
  
@@ -16,7 +17,7 @@ function AdminMovieCard(props) {
          <button className="btnEditMovie">
                <span className="btnText">Edit Movie</span>
          </button>
-         <DeleteButton id={props.movie.id} />
+         <DeleteButton id={props.movie._id} />
          </div>
       </div>
     </div>
