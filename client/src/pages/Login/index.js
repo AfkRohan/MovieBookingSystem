@@ -1,7 +1,7 @@
 import React from 'react'
 import{Form, Input} from "antd";
 import { Link } from 'react-router-dom';
-import Header from '../../components/AdminHeader';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
@@ -18,9 +18,9 @@ function Login(){
                email: values.email,
                Password: values.password,
             })
-            dispatch(HideLoading())
             .then((response) =>{ 
                 const data = response.data
+                sessionStorage['username'] = response.data;
                 if(data){
                     console.log(data);
                     window.location.href="http://localhost:3000/"
