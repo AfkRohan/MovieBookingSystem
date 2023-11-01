@@ -152,7 +152,7 @@ router.put('/movie/:id',async (req,res)=>{
 // Delete a movie by ID
 router.delete('/movie/:id',async (req,res)=>{
   const id = req.params.id
-  Movie.findById(id.toString()).then((movie)=> {
+  Movie.findByIdAndDelete(id.toString()).then((movie)=> {
     res.send(`Delete movie with id: ${id}`)
   } ).catch((err)=>{
     res.send(err);
