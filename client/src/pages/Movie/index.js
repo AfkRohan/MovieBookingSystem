@@ -27,13 +27,10 @@ function Movies() {
       <div className='centerDivStyle'>
       <div className="movie-list">
           {movie.map((movie, index) => (
-           <UserMovieCard movie={movie } index ={index}/>
+           <AdminMovieCard movie={movie } index ={index}/>
           ))}
         </div>
-      </div>
-
-
-      
+      </div>      
       <Footer />
     </>
   );
