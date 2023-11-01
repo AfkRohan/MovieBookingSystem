@@ -19,7 +19,7 @@ const MovieDetails = () => {
   }, [id]);
 
   if (!movie) {
-    return <div>Movie not found</div>;
+    return <div></div>;
   }
 
   return (
@@ -27,7 +27,7 @@ const MovieDetails = () => {
       <Header />
       <Row align="middle" gutter={[16, 16]}>
         <Col xs={24} md={8} className="text-center" style={{paddingLeft:'30px'}}>
-          <div style={{ border: '4px solid black', padding: '10px',paddingLeft:'10px' }}>
+          <div style={{ border: '4px solid white', padding: '10px',paddingLeft:'10px' }}>
             <Image className='imgsize img-fluid' src={movie.image} />
           </div>
         </Col>
