@@ -8,6 +8,10 @@
     flex-direction: row;
 }
 
+.bgblck{
+    background-color: black;
+    color:#fff;
+}
 .flex-column{
     flex-direction: column;
 }
@@ -187,6 +191,7 @@
         align-items: center;
         flex-direction: column;
         padding: 88px 0 88px 0;  
+        background-color: black;
   }
 
   /* Button Admin Side   */
