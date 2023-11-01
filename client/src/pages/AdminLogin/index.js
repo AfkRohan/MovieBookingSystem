@@ -1,7 +1,5 @@
 import React from 'react'
 import{Form, Input} from "antd";
-import Header from '../../components/AdminHeader';
-import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
 import axios from 'axios';
@@ -26,8 +24,6 @@ function AdminLogin(){
     }
     return(
         <>
-        <Header></Header>
-    
         <div className="flex justify-center hscreen item-center bg-primary "
         style={{backgroundImage:'url("https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNpbmVtYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80")',
                 backgroundSize:'cover',

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Image, List, Typography, Row, Col } from 'antd';
-import Header from '../../components/AdminHeader';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const MovieDetails = () => {

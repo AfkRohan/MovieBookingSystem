@@ -1,10 +1,9 @@
 import React from 'react'
 import UserMovieCard from '../../components/UserMovieCard';
 import { useState,useEffect } from 'react';
-import Header from '../../components/AdminHeader';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import axios from 'axios';
-import { Dropdown, Menu } from 'antd';
 
 function Movies() {
     const [movie,setMovies] = useState([]);
@@ -26,7 +25,7 @@ function Movies() {
         <div className="movie-list">
             {movie.map((movie) =>(
              <UserMovieCard movie={movie}/>
-            )).length(3)}
+            ))}
           </div>
         </div>      
         <Footer />

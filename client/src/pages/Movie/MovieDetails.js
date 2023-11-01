@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Card, Image, List, Typography, Row, Col } from 'antd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const MovieDetails = ({ movies }) => {
   const { id } = useParams();
@@ -24,6 +26,7 @@ const MovieDetails = ({ movies }) => {
   }
 
   return (
+    <> <Header/>
     <div className='bootstrap'>
       <Row>
         <Col xs={12} md={6}>
@@ -57,6 +60,8 @@ const MovieDetails = ({ movies }) => {
         </Col>
       </Row>
     </div>
+    <Footer/>
+    </>
   );
 };
 
