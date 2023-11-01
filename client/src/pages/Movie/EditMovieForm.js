@@ -27,11 +27,11 @@ function EditMovieForm({
       }
 
       if (response !== null) {
-        message.success(`${formType === 'add' ? 'Movie Added' : 'Movie Edited'}`);
+        message.success(`${formType === 'edit' ? 'Movie Edited' : 'Failed to edit movie' }`);
         setShowMovieFormModal(false);
         window.location.reload(false);
       } else {
-        message.error(`Failed to ${formType === 'add' ? 'add' : 'edit'} movie \n ${response}`);
+        message.error(`Failed to ${formType === 'edit' ? 'edit' : 'add'} movie \n ${response}`);
       }
       dispatch(HideLoading());
     } catch (error) {

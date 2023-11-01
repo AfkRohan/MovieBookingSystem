@@ -26,7 +26,6 @@ function AdminMovieCard(props) {
           <button className="btnDeleteMovie">
             <span className="btnText">Delete Movie</span>
           </button>
-          <ViewDetailsButton movieId={props.movie._id}/>
         </div>
       </div>
 
