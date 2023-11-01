@@ -169,7 +169,7 @@ body{
   justify-content:space-around;
   margin: 10px;
   width: 20rem;
-  height: 20rem;
+  height: 24rem;
   background-color: #090909;
   color: #fff;
   flex-grow: 1;
@@ -179,9 +179,9 @@ body{
 }
 
 .experience-image {
-  max-width: 400px;
-  max-height: 550px;
-  object-fit: cover;
+  max-width: 20rem;
+  max-height: 16rem;
+  object-fit: contain;
   flex-wrap: wrap;
 }
 
@@ -200,7 +200,7 @@ body{
 
 .experience-container {
   display: flex;
-  justify-content: space-between; /* Adjust as needed to control the spacing */
+  justify-content: space-between; 
   padding: 20px; /* Add padding as needed */
 }
 

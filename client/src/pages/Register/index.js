@@ -1,6 +1,6 @@
 import React from 'react';
 import{DatePicker, Form, Input} from "antd";
-import Header from '../../components/AdminHeader';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
@@ -38,9 +38,7 @@ function Register(){
         <>
         
         <div>
-        <Header>
-
-        </Header>
+        <Header/>
         <div className="flex justify-center  item-center bg-primary"
         style={{backgroundImage:'url("https://iotweek.org/wp-content/uploads/2018/10/IOTWeek_PP-hero_Full-HD_1920x1080-Blank-Background.jpg")',
                 backgroundSize:'cover',
@@ -61,7 +59,7 @@ function Register(){
                 message: "Please enter valid value"
                 }, 
                 {
-                    pattern: '/[a-zA-Z]+$/',
+                    pattern: /[a-zA-Z]+$/,
                     message: "Invalid name"
                 }
                 ]}
@@ -118,7 +116,7 @@ function Register(){
                     message: "Please enter your password"
                     },
                     {
-                    pattern: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|\]).{8,32}$',
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/,
                     message: "Password must have atleast one small case alphabet,one number,one symbol and one small case alphabet "
                     }
                 ]}
