@@ -4,9 +4,13 @@ import { useState,useEffect } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import axios from 'axios';
+import { Dropdown, Menu } from 'antd';
 
 function Movies() {
     const [movie,setMovies] = useState([]);
+    const [searchPrompt,setSearchPrompt] = useState(null)
+    const [languageFilter,setFilterLanguage] = useState(null)
+    const [categoryFilter,setCategoryFilter] = useState(null)
     useEffect( () => {
        axios.get("http://localhost:4000/api/movie").then((response)=>{
         setMovies(response.data)
@@ -14,7 +18,6 @@ function Movies() {
         console.log(err)
        })    
          },[])
-  
   
     return (
       <>
