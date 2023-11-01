@@ -13,8 +13,15 @@ function UserMovieCard(props) {
       <p>{props.movie.description}</p>
       <p>Rating: {props.movie.rating}</p>
       <p>Language: {props.movie.languages}</p>
-      <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
-      <ViewDetailsButton movieId={props.movie._id} btnText={"View More"} />
+      <div className='featured-movies'>
+        <div>
+        <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+          </div>  
+          <div>
+          <ViewDetailsButton movieId={props.movie._id} btnText={"View More"} />
+          </div>
+      </div>
+      
     </div>
     </div>
   )
