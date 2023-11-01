@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AdminMovieCard from '../../components/AdminMovieCard';
 import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import Header from '../../components/AdminHeader';
 import ImageSlider2 from '../../components/ImageSlider2';
 import MovieList from './MovieList';
 import axios from 'axios';

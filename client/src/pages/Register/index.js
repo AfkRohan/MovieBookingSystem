@@ -1,6 +1,6 @@
 import React from 'react';
 import{DatePicker, Form, Input} from "antd";
-import Header from '../../components/Header';
+import Header from '../../components/AdminHeader';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';

@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import ImageSlider from '../../components/ImageSlider';
 import FeaturedMovieCard from '../../components/FeaturedMovieCard';
 import ExperienceSection from '../../components/ExperienceSection';
-import Header from '../../components/Header';
+import Header from '../../components/AdminHeader';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 

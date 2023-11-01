@@ -1,7 +1,7 @@
 import React from 'react'
 import UserMovieCard from '../../components/UserMovieCard';
 import { useState,useEffect } from 'react';
-import Header from '../../components/Header';
+import Header from '../../components/AdminHeader';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 import { Dropdown, Menu } from 'antd';
