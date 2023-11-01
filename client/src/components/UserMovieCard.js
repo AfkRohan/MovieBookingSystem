@@ -1,5 +1,5 @@
 import React from 'react'
-import Heart from "react-animated-heart";
+import Heart from 'react-animated-heart';
 import { useState } from 'react';
 import ViewDetailsButton from '../components/ViewDetailsButton'
 
