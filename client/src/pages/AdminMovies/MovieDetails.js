@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Image, List, Typography, Row, Col } from 'antd';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
-const MovieDetails = ({ movies }) => {
+const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
@@ -16,44 +18,45 @@ const MovieDetails = ({ movies }) => {
     fetchMovie();
   }, [id]);
 
- 
   if (!movie) {
     return <div>Movie not found</div>;
   }
 
   return (
     <div className='bootstrap'>
-      <Row>
-        <Col xs={12} md={6}>
-          <Card>
+      <Header />
+      <Row align="middle" gutter={[16, 16]}>
+        <Col xs={24} md={8} className="text-center" style={{paddingLeft:'30px'}}>
+          <div style={{ border: '4px solid black', padding: '10px',paddingLeft:'10px' }}>
             <Image className='imgsize img-fluid' src={movie.image} />
-          </Card>
+          </div>
         </Col>
-        <Col xs={12} md={6}>
+        <Col xs={24} md={16}>
           <Card>
             <List>
               <List.Item className='list-group-item'>
-                <h1>{movie.name}</h1>
+                <h1 style={{paddingLeft:'30px'}}>{movie.name}</h1>
               </List.Item>
               <List.Item className='list-group-item'>
-                <p>{movie.description}</p>
+                <p style={{paddingLeft:'30px',paddingRight:'30px'}}>{movie.description}</p>
               </List.Item>
               <List.Item className='list-group-item'>
-                <Typography.Text>Language:</Typography.Text> {movie.language}
+                <Typography.Text style={{paddingLeft:'30px'}}>Language:</Typography.Text> {movie.language}
               </List.Item>
               <List.Item className='list-group-item'>
-                <Typography.Text>Genre:</Typography.Text> {movie.genre}
+                <Typography.Text style={{paddingLeft:'30px'}}>Genre:</Typography.Text> {movie.genre}
               </List.Item>
               <List.Item className='list-group-item'>
-                <Typography.Text>Age Groups:</Typography.Text> {movie.ageGroups}
+                <Typography.Text style={{paddingLeft:'30px'}}>Age Groups:</Typography.Text> {movie.ageGroups}
               </List.Item>
               <List.Item className='list-group-item'>
-                <Typography.Text>Rating:</Typography.Text> {movie.rating}
+                <Typography.Text style={{paddingLeft:'30px'}}>Rating:</Typography.Text> {movie.rating}
               </List.Item>
             </List>
           </Card>
         </Col>
       </Row>
+      <Footer />
     </div>
   );
 };
