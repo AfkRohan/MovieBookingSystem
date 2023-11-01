@@ -6,6 +6,7 @@ import ImageSlider2 from '../../components/ImageSlider2';
 import MovieList from './MovieList';
 import axios from 'axios';
 import { useEffect } from 'react';
+import UserMovieCard from '../../components/UserMovieCard';
 
 
 function Movies() {
@@ -26,7 +27,7 @@ function Movies() {
       <div className='centerDivStyle'>
       <div className="movie-list">
           {movie.map((movie, index) => (
-           <AdminMovieCard movie={movie } index ={index}/>
+           <UserMovieCard movie={movie } index ={index}/>
           ))}
         </div>
       </div>

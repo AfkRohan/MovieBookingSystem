@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import EditMovieForm from '../pages/Movie/EditMovieForm';
-import ViewDetailsButton from './ViewDetailsButton';
+
 
 function AdminMovieCard(props) {
   const [showModal, setShowModal] = useState(false);
