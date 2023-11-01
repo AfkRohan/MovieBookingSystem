@@ -154,16 +154,19 @@ svg:hover{
   display: flex;
   text-align: center;
   background-color: #090909;
-  margin-left: 20px;
-  margin-right: 20px;
-  
+  margin: 20px;
+  flex-direction: row;
+  place-items: center;
 }
 .experience-section {
   border: 1px solid #e0e0e0;
   justify-content:space-around;
   margin: 10px;
+  width: 20rem;
+  height: 20rem;
   background-color: #090909;
   color: #fff;
+  flex-grow: 1;
 }
 .experience-section:hover{
   background-color:cadetblue;
@@ -187,7 +190,6 @@ svg:hover{
 }
 
 .experience-description {
-  margin: 10px 0;
   text-wrap:wrap;
 }
 

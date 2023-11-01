@@ -5,6 +5,7 @@ function HomePageMovieCard(props) {
   return (
     <Card
     hoverable
+    onClick={()=>window.location.href=`movie/${props.movie._id}`}
     style={{
       width: 240,
     }}
