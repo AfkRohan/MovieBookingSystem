@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import UserMovieCard from '../../components/UserMovieCard';
 
 
-function Movies() {
+function AdminMovies() {
   const [movie,setMovies] = useState([]);
   useEffect( () => {
      axios.get("http://localhost:4000/api/movie").then((response)=>{
@@ -35,4 +35,4 @@ function Movies() {
   );
 }
 
-export default Movies;
+export default AdminMovies;

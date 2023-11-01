@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import EditMovieForm from '../pages/Movie/EditMovieForm';
-
+import EditMovieForm from '../pages/AdminMovies/EditMovieForm';
+import DeleteButton from './DeleteButton';
+import ViewDetailsButton from './ViewDetailsButton';
 
 function AdminMovieCard(props) {
   const [showModal, setShowModal] = useState(false);
@@ -23,9 +24,8 @@ function AdminMovieCard(props) {
           <button className="btnEditMovie" onClick={openModal}>
             <span className="btnText">Edit Movie</span>
           </button>
-          <button className="btnDeleteMovie">
-            <span className="btnText">Delete Movie</span>
-          </button>
+          <DeleteButton id={props.movie._id} />
+          <ViewDetailsButton movieId={props.movie._id} btnText={"View More"} />
         </div>
       </div>
 

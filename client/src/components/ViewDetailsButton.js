@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ViewDetailsButton = ({ movieId }) => {
+const ViewDetailsButton = ({ movieId, btnText }) => {
   return (
     <Link to={`/movie/${movieId}`}>
       <button type="button" className="btnViewDetailsMovie">
-        View Details
+        {btnText}
       </button>
     </Link>
   );

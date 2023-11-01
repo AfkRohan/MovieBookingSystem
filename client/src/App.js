@@ -9,11 +9,12 @@ import "./stylesheets/size.css";
 import "./stylesheets/formelements.css"
 import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
-import Movies from './pages/Movie';
+import AdminMovies from './pages/AdminMovies';
 import Shows from './pages/Shows';
 import { useSelector } from 'react-redux';
 import EditMovie from './pages/EditMovie'
-import MovieDetails from './pages/Movie/MovieDetails';
+import MovieDetails from './pages/AdminMovies/MovieDetails';
+import Movies from './pages/Movies';
 
 
 function App() {
@@ -31,11 +32,11 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
-        <Route path="/movie" element={<Movies/>}/>
+        <Route path="/admin-movie" element={<AdminMovies/>}/>
         <Route path="/show" element={<Shows/>}/>
         <Route path="/editmovie" element={<EditMovie/>}/>
         <Route path="/movie/:id" element={<MovieDetails />} />
-
+        <Route path="/movies" element={<Movies />} />
 
       </Routes>
     </BrowserRouter>
