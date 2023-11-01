@@ -23,15 +23,15 @@ function EditMovieForm({
       let response = null;
       if(formType === 'edit') {
         // Edit the selected movie
-        response = await axios.put(`http://localhost:4000/api/editmovie/${selectedMovie.id}`, values) ?? null;
+        response = await axios.put(`http://localhost:4000/api/movie/${selectedMovie._id}`, values) ?? null;
       }
 
       if (response !== null) {
-        message.success(`${formType === 'edit' ? 'Movie Edited' : 'Failed to edit movie' }`);
+        message.success('Movie Edited');
         setShowMovieFormModal(false);
         window.location.reload(false);
       } else {
-        message.error(`Failed to ${formType === 'edit' ? 'edit' : 'add'} movie \n ${response}`);
+        message.error(`Failed to edit movie \n ${response}`);
       }
       dispatch(HideLoading());
     } catch (error) {
