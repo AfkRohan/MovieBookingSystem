@@ -21,7 +21,7 @@ function Home(){
        <Header/>
              <ImageSlider></ImageSlider>
              <main className="main-content">
-             <center><h1>Featured Movies</h1></center>
+             <center><h1 className='mt1'>Featured Movies</h1></center>
              <div className="featured-movies">
              {movie.map((movie, index) => (
               <FeaturedMovieCard movie={movie} index ={index}/>
