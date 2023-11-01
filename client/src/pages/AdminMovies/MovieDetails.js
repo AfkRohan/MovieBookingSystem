@@ -33,7 +33,7 @@ const MovieDetails = () => {
         </Col>
         <Col xs={24} md={16}>
           <Card>
-            <List>
+            <List className='listpadding'>
               <List.Item className='list-group-item'>
                 <h1 style={{paddingLeft:'30px'}}>{movie.name}</h1>
               </List.Item>
