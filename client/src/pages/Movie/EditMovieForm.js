@@ -21,10 +21,7 @@ function EditMovieForm({
       dispatch(ShowLoading());
 
       let response = null;
-      if (formType === 'add') {
-        
-        response = await axios.post('http://localhost:4000/api/addmovie', values) ?? null;
-      } else if (formType === 'edit') {
+      if(formType === 'edit') {
         // Edit the selected movie
         response = await axios.put(`http://localhost:4000/api/editmovie/${selectedMovie.id}`, values) ?? null;
       }
@@ -45,7 +42,7 @@ function EditMovieForm({
 
   return (
     <Modal
-      title={formType === 'add' ? 'Add Movie' : 'Edit Movie'}
+      title={formType === 'edit' }
       visible={showMovieFormModal}
       onCancel={() => setShowMovieFormModal(false)}
       footer={null}
