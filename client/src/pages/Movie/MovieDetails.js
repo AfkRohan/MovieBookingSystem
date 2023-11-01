@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, Image, List, Typography, Row, Col } from 'antd';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const MovieDetails = ({ movies }) => {
   const { id } = useParams();
@@ -22,7 +24,7 @@ const MovieDetails = ({ movies }) => {
   }
 
   return (
-    <div>
+    <div className='bootstrap'>
       <Row>
         <Col xs={12} md={6}>
           <Card>
