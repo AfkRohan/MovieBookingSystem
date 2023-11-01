@@ -29,21 +29,21 @@ function Home(){
              </div>
 
       <h2>Experience</h2>
-    <div className='experience'>
+      <div className='experience experience-container'>
         <ExperienceSection
-         imageSrc="https://th.bing.com/th/id/OIP.6s5SFaoI0vWjXjOFHMkbsgHaEA?pid=ImgDet&rs=1"
+         imageSrc="https://mediafiles.cineplex.com/modernization/D1098GOTG_R1-6_2048x1280px_VOL3_DOM2_ENG_R02_20230426144640_0.jpg"
           title="IMAX"
           description="Experience the ultimate in movie-watching technology."
          
         />
         <ExperienceSection
-          imageSrc="https://cms-assets.webediamovies.pro/cdn-cgi/image/dpr=1,fit=scale-down,gravity=auto,metadata=none,quality=85,width=400,height=550/production/3306/0979a2e3630c3098b095d2b2132f613b.jpg"
+          imageSrc="https://mediafiles.cineplex.com/Experiences/ultra-avx/UltraAVX_Billboard_Tablet.jpg"
           title="UltraAVX"
           description="Enhanced audio and visuals for a superior cinema experience."
          
         />
          <ExperienceSection
-          imageSrc="https://dubaitravelblog.com/wp-content/uploads/2018/08/reel-cinema-dubai-mall-platinum-seats.jpg"
+          imageSrc="https://media.npr.org/assets/img/2014/09/28/4dx_interior_img02_wide-c89a3d8756fae045234d9e7bc0a17258b43cdbcb.jpg"
           title="VIP"
           description="Enjoy an elevated night out in an intimate."
          
