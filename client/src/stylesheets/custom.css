@@ -182,7 +182,6 @@ body{
   max-width: 400px;
   max-height: 550px;
   object-fit: cover;
-  margin-right: 20px;
   flex-wrap: wrap;
 }
 
@@ -197,6 +196,24 @@ body{
 
 .experience-description {
   text-wrap:wrap;
+}
+
+.experience-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed to control the spacing */
+  padding: 20px; /* Add padding as needed */
+}
+
+/* Style each ExperienceSection component */
+.experience-container .ExperienceSection {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Center the images */
+.experience-container .ExperienceSection img {
+  display: block;
+  margin: 0 auto;
 }
 
 .featured-movies{
