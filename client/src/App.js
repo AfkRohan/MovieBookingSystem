@@ -13,6 +13,7 @@ import Movies from './pages/Movie';
 import Shows from './pages/Shows';
 import { useSelector } from 'react-redux';
 import EditMovie from './pages/EditMovie'
+import MovieDetails from './pages/Movie/MovieDetails';
 
 function App() {
   const {loading} = useSelector((state) => state.loaders);
@@ -32,6 +33,9 @@ function App() {
         <Route path="/movie" element={<Movies/>}/>
         <Route path="/show" element={<Shows/>}/>
         <Route path="/editmovie" element={<EditMovie/>}/>
+        <Route path="/movie/:id" element={<MovieDetails />} />
+
+
       </Routes>
     </BrowserRouter>
     </div>
