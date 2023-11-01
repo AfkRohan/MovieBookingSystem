@@ -42,7 +42,7 @@ function Register(){
 
         </Header>
         <div className="flex justify-center  item-center bg-primary"
-        style={{backgroundImage:'url("https://cdn.wallpapersafari.com/46/81/215NeC.jpg")',
+        style={{backgroundImage:'url("https://iotweek.org/wp-content/uploads/2018/10/IOTWeek_PP-hero_Full-HD_1920x1080-Blank-Background.jpg")',
                 backgroundSize:'cover',
                 backgroundRepeat:'no-repeat'}}> 
            <div className="card p3 w400">
