@@ -41,7 +41,7 @@ const MovieDetails = () => {
                 <p style={{paddingLeft:'30px',paddingRight:'30px'}}>{movie.description}</p>
               </List.Item>
               <List.Item className='list-group-item'>
-                <Typography.Text style={{paddingLeft:'30px'}}>Language:</Typography.Text> {movie.language}
+                <Typography.Text style={{paddingLeft:'30px'}}>Language:</Typography.Text> {movie.languages}
               </List.Item>
               <List.Item className='list-group-item'>
                 <Typography.Text style={{paddingLeft:'30px'}}>Genre:</Typography.Text> {movie.genre}
