@@ -42,7 +42,7 @@ function Login(){
             
             </Header>
         <div className="flex justify-center hscreen item-center bg-primary"
-        style={{backgroundImage:'url("https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNpbmVtYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80")',
+        style={{backgroundImage:'url("https://img.wallpapersafari.com/tablet/768/1024/84/64/sfvXo0.jpg")',
                 backgroundSize:'cover',
                 backgroundRepeat:'no-repeat'}}> 
            <div className="card p3 w400">
