@@ -1,11 +1,11 @@
 import React from 'react'
 
-function index() {
-    sessionStorage['username']=null
-    window.location.href='/login';
+function Logout() {
+    localStorage.removeItem('username')
+    window.location.href='/'
   return (
-    <div>index</div>
+    <div>Logout</div>
   )
 }
 
-export default index
+export default Logout

@@ -5,7 +5,6 @@ import logo from '../../assets/logo1.png';
 import axios from 'axios';
 
 function AdminLogin(){
-    
     async function onFinish(values){
         axios.post('http://localhost:4000/api/admin-login', {
                email: values.email,
@@ -14,6 +13,7 @@ function AdminLogin(){
             .then((response) =>{ 
                 console.log(response)
                 if(response.status == 200){
+                    localStorage.setItem('admin','Admin')
                     window.location.href="/admin-dashboard"
                 }
             })

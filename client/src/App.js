@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashBoard from './pages/AdminDashboard'
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/logout" element={<Logout/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
         <Route path="/admin-logout" element={<AdminLogout/>}/>

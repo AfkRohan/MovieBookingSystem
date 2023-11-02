@@ -192,11 +192,12 @@ body{
 
 .experience-title {
   font-size: 1.5rem;
-  margin: 0;
+  margin: 1em;
 }
 
 .experience-description {
   text-wrap:wrap;
+  margin: 1em;
 }
 
 .experience-container {

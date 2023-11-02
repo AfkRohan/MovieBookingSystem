@@ -14,6 +14,8 @@ const User = require('../models/UserModel')
 
 const Movie = require('../models/MovieModel')
 
+const Show = require('../models/ShowsModel')
+
 // API for creating a new user
 router.post('/create', async (req,res)=>{
     const data = req.body
@@ -177,6 +179,74 @@ router.post('/addmovie',async (req,res)=>{
     // save user token
     console.log(movieInserted)
       res.send(movieInserted);
+    }
+    catch(err){
+      res.send(err)
+    }
+})
+
+// Get all shows
+router.get('/show',async (req,res)=>{
+  try {
+     const allshows = await Show.find({});
+     res.send(allshows)
+  }
+  catch(err) {
+      res.send(err)
+  }
+})
+
+// Get show by ID
+router.get('/show/:id',async (req,res)=>{
+  const id = req.params.id
+  try{
+  const show = await Show.findById(id.toString());
+  res.send(show)
+  }
+  catch(err){
+    res.send(err)
+  }
+})
+
+// Update show by ID
+router.put('/show/:id',async (req,res)=>{
+  const id = req.params.id
+  const data = req.body
+  Show.findByIdAndUpdate(id.toString(),{ 
+  showDate : data.ShowDate,
+  showTime : data.showTime,
+  movieId : data.movieId,
+  price : data.price
+    }).then((show)=>res.send(show)).catch((err)=>{
+    res.statusCode(400).send(err)
+  })
+})
+
+
+// Delete a show by ID
+router.delete('/show/:id',async (req,res)=>{
+  const id = req.params.id
+  Show.findByIdAndDelete(id.toString()).then((show)=> {
+    res.send(`Delete movie with id: ${id}`)
+  } ).catch((err)=>{
+    res.send(err);
+  })
+})
+
+// Add a show
+router.post('/addshow',async (req,res)=>{
+  const data = req.body
+    console.log(data)
+    try{
+    let newshow = new Show ({ 
+    showDate : data.ShowDate,
+    showTime : data.showTime,
+    movieId : data.movieId,
+    price : data.price  })
+    let showInserted = await newshow.save();
+    // save user token
+    console.log(showInserted)
+      res.send(showInserted);
     }
     catch(err){
       res.send(err)

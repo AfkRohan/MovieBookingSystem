@@ -20,9 +20,12 @@ function Login(){
             })
             .then((response) =>{ 
                 const data = response.data
-                sessionStorage['username'] = response.data;
-                if(data){
+                // Test Credentials 
+                // name@gmail.com
+                // Name!123
+                if(data!="Invalid Password"){
                     console.log(data);
+                    localStorage.setItem('username',data.FirstName);
                     window.location.href="http://localhost:3000/"
                 }
                 else{
@@ -51,8 +54,6 @@ function Login(){
             <h3>LOGIN</h3>
             <Form layout="vertical" onFinish={onFinish}
             className="mt2">
-                
-
                 <Form.Item
                 label="Email"
                 name="email"

@@ -9,12 +9,8 @@ mongoose.connect(url,{
 .then(console.log("***Mongoose Connected***"))
 .catch((error)=>console.log(error))
 
-const showSchema = new mongoose.Schema({
-    showDate : {
-        required : true,
-        type : Date,
-    },
-    showTime : {
+const ticketSchema = new mongoose.Schema({
+    showId : {
         required : true,
         type : String
     },
@@ -22,11 +18,19 @@ const showSchema = new mongoose.Schema({
         required : true,
         type : String,
     },
-    price : {
+    userId : {
         required : true,
-        type : Number
+        type : String,
     },
+    seatNumber : {
+        required : true,
+        type : String,
+    },
+    screenNumber : {
+        required : true,
+        type : Number,
+    }
 });
 
-const Show = mongoose.model('Show',showSchema);
-module.exports = Show ;
+const Tickets = mongoose.model('Tickets',ticketSchema);
+module.exports = Tickets ;
