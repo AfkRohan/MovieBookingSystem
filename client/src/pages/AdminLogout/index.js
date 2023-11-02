@@ -1,8 +1,8 @@
 import React from 'react'
 
 function AdminLogout() {
- sessionStorage['admin']=null
- window.location.href='/admin-login';
+  localStorage.removeItem('admin');
+  window.location.href='/admin-login'
  return (
     <div>AdminLogout</div>
   )
