@@ -12,9 +12,9 @@ import "./stylesheets/formelements.css"
 import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
 import AdminMovies from './pages/AdminMovies';
-import Shows from './pages/Shows';
+import Shows from './pages/AdminShows';
 import { useSelector } from 'react-redux';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import MovieDetails from './pages/AdminMovies/MovieDetails';
 import Movies from './pages/Movies';
 
@@ -40,7 +40,7 @@ function App() {
         <Route path="/show" element={<Shows/>}/>
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
-
+        
       </Routes>
     </BrowserRouter>
     </div>

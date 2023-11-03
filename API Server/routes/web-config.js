@@ -53,6 +53,17 @@ router.post('/create', async (req,res)=>{
     }
 })
 
+//route to get all movies
+router.get('/movies', async (req, res) => {
+  try {
+    const allMovies = await Movie.find({});
+    res.json(allMovies);
+  } catch (error) {
+    console.error('Error loading movies:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 //Admin Login ApI
 router.post('/admin-login',(req,res)=>{
   const data = req.body;
@@ -213,9 +224,9 @@ router.put('/show/:id',async (req,res)=>{
   const id = req.params.id
   const data = req.body
   Show.findByIdAndUpdate(id.toString(),{ 
-  showDate : data.ShowDate,
+  showDate : data.showDate,
   showTime : data.showTime,
-  movieId : data.movieId,
+  movieId : JSON.stringify(data.movieId),
   price : data.price
     }).then((show)=>res.send(show)).catch((err)=>{
     res.statusCode(400).send(err)
@@ -238,11 +249,11 @@ router.post('/addshow',async (req,res)=>{
   const data = req.body
     console.log(data)
     try{
-    let newshow = new Show ({ 
-    showDate : data.ShowDate,
-    showTime : data.showTime,
-    movieId : data.movieId,
-    price : data.price  })
+      let newshow = new Show ({ 
+        showDate : new Date(data.showDate),
+        showTime : data.showTime,
+        movieId : JSON.stringify(data.movieId),
+        price : Number(data.price)  })
     let showInserted = await newshow.save();
     // save user token
     console.log(showInserted)
@@ -252,6 +263,8 @@ router.post('/addshow',async (req,res)=>{
       res.send(err)
     }
 })
+
+
 
 // Test Route
 router.get('/',verifyToken,(req,res)=>{
