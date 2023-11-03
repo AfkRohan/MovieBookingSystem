@@ -85,8 +85,8 @@ function ShowForm({
         </Col>
 
         <Col span={8}>
-            <Form.Item label="Movie" name="movieID">
-             <select >
+            <Form.Item label="Movie" name="movieId">
+             <select name='movieId' >
              {movies.map((movie) => (
                 <option key={movie._id} value={movie._id}>
                   {movie.name}

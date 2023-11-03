@@ -22,7 +22,7 @@ function AdminShows() {
 
   return (
     <>
-      <AdminHeader />
+      {/* <AdminHeader /> */}
       <ShowList />
       <div className='centerDivStyle'>
       {/* <div className="movie-list">
