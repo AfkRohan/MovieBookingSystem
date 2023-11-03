@@ -6,6 +6,8 @@ import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashBoard from './pages/AdminDashboard'
 import AdminLogout from './pages/AdminLogout';
+import Helpcenter from './pages/HelpCenter';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import "./stylesheets/layout.css";
 import "./stylesheets/size.css";
 import "./stylesheets/formelements.css"
@@ -40,6 +42,8 @@ function App() {
         <Route path="/show" element={<Shows/>}/>
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
+        <Route path="/helpcenter" element={<Helpcenter/>} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
 
       </Routes>
     </BrowserRouter>

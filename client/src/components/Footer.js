@@ -15,7 +15,10 @@ function Footer(){
             <p>+1 619-909-8900</p>
           </li>
           <li>
-            <a href="/help-center">Help Center</a>
+            <a href="./helpcenter">Help Center</a>
+          </li>
+          <li>
+            <a href='/privacypolicy'>Privacy Policy</a>
           </li>
         </ul>
       </nav>

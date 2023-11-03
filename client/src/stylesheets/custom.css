@@ -203,16 +203,15 @@ body{
 .experience-container {
   display: flex;
   justify-content: space-between; 
-  padding: 20px; /* Add padding as needed */
+  padding: 20px; 
 }
 
-/* Style each ExperienceSection component */
+
 .experience-container .ExperienceSection {
   text-align: center;
   padding: 20px;
 }
 
-/* Center the images */
 .experience-container .ExperienceSection img {
   display: block;
   margin: 0 auto;
@@ -229,6 +228,127 @@ body{
 .featured-movies div{
   flex-grow: 1;
 }
+
+
+
+
+.help-center {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #343333;
+}
+
+section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+.contact-info p {
+  font-size: 18px;
+  color: #333;
+}
+
+.email-customer-care a {
+  font-size: 18px;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.email-customer-care a:hover {
+  text-decoration: underline;
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 16px;
+  color: #555;
+}
+
+
+
+.privacy-policy {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+section {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+p {
+  font-size: 16px;
+  color: #a10606;
+  line-height: 1.6;
+}
+
+ul {
+  list-style:none;
+  margin-left: 20px;
+  color: #090909;
+  text-decoration: none;
+}
+
+
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+
   
 .footer {
     color: #fff;
@@ -249,9 +369,9 @@ body{
   
   .footer p {
     margin: 0;
+    color: #fff;
   }
-/* 
-  loader */
+
   
   .loader-parent{
     position: fixed;
@@ -273,7 +393,7 @@ body{
 
   }
 
-  /* loader animation */
+
 
   @keyframes loader-anim{
     0%{
