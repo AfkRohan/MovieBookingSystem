@@ -10,6 +10,7 @@ function Header() {
               <img className="m1" src={logo} alt="My Logo" />
           </li>
           <div className="p1 flex gap1">
+          
               <li className="nav-item">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                   <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
@@ -23,12 +24,6 @@ function Header() {
                   </svg>
                   <Link to="/ticket" >Tickets</Link>
               </li> 
-              <li className='nav-item'>
-                <form  className="d-flex" method='get' action='movies'> 
-                <input className="form-control me-sm-2 m-1" type='text' name='searchParam' placeholder='search a movie here..' id='searchParam' />
-                <button className="btn btn-dark me-sm-2 m-1" type='submit'> Q </button>
-                </form>
-              </li>
               <li className="nav-item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
                         <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
@@ -61,6 +56,12 @@ function Header() {
                   <Link to="/logout">Logout</Link>
               </li>
             </>)}
+            <li className='nav-item'>
+                <form  className="d-flex" method='get' action='movies'> 
+                <input className="form-control me-sm-2 m-1" type='text' name='searchParam' placeholder='search a movie here..' id='searchParam' />
+                <button className="btn btn-dark me-sm-2 m-1" type='submit'> Q </button>
+                </form>
+              </li>
             </div>
       </ul>
     </nav>
