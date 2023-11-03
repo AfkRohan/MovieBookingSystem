@@ -26,7 +26,7 @@ function AdminShows() {
 
   return (
     <>
-      <AdminHeader />
+      {/* <AdminHeader /> */}
       <ShowList />
 
       <table style={tableStyle}>
