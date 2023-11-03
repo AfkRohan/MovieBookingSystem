@@ -11,7 +11,7 @@ function HomePageMovieCard(props) {
     }}
     cover={<img alt={props.movie.name} src={props.movie.image} />}
   >
-    <Meta title={props.movie.title} description={props.movie.description} />
+    <Meta  title={props.movie.title} description={props.movie.description.slice(0,100)} />
   </Card>
   )
 }
