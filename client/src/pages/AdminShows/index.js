@@ -26,7 +26,7 @@ function AdminShows() {
 
   return (
     <>
-      {/* <AdminHeader /> */}
+      <AdminHeader />
       <ShowList />
 
       <table style={tableStyle}>
@@ -46,7 +46,7 @@ function AdminShows() {
               <td style={tdStyle}>{show.showDate}</td>
               <td style={tdStyle}>{show.showTime}</td>
               <td style={tdStyle}>{show.movieId}</td>
-              <td style={tdStyle}>${show.price}</td> {/* Add "$" sign to the price */}
+              <td style={tdStyle}>${show.price}</td> 
               <td style={tdStyle}>Edit</td>
               <td style={tdStyle}><DeleteShow id={show._id} /></td>
             </tr>
