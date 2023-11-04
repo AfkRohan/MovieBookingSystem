@@ -14,7 +14,6 @@ import "./stylesheets/formelements.css"
 import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
 import AdminMovies from './pages/AdminMovies';
-import Shows from './pages/Shows';
 import { useSelector } from 'react-redux';
 
 import MovieDetails from './pages/AdminMovies/MovieDetails';
@@ -39,7 +38,7 @@ function App() {
         <Route path="/admin-logout" element={<AdminLogout/>}/>
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
         <Route path="/admin-movie" element={<AdminMovies/>}/>
-        <Route path="/show" element={<Shows/>}/>
+      
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/helpcenter" element={<Helpcenter/>} />
