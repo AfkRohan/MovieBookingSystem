@@ -10,12 +10,12 @@ function PrivacyPolicy()  {
         <h1>Privacy Policy</h1>
       </header>
       <section className="content">
-        <h2>Introduction</h2>
-        <p>
+        <h2 className="h2blue">Introduction</h2>
+        <p className="pblack">
           Welcome to Cinemax Movie's Privacy Policy. This policy explains how we collect, use, and protect your personal information. We take your privacy seriously and are committed to safeguarding your data.
         </p>
-        <h2>Information We Collect</h2>
-        <p>
+        <h2 className="h2blue">Information We Collect</h2>
+        <p className="pblack">
           We may collect various types of information, including but not limited to:
         </p>
         <ul>
@@ -25,8 +25,8 @@ function PrivacyPolicy()  {
           <li>Information about User device, browser, and IP address for analytics and security purposes.</li>
         </ul>
 
-        <h2>How We Use Your Information</h2>
-        <p>
+        <h2 className="h2blue">How We Use Your Information</h2>
+        <p className="pblack">
           We use your information for various purposes, including:
         </p>
         <ul>

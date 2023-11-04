@@ -70,6 +70,7 @@ const thStyle = {
   padding: '10px',
   textAlign: 'left',
   border: '1px solid #ccc',
+  color:'black'
 };
 
 const tdStyle = {

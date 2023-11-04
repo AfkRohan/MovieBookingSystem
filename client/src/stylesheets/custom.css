@@ -25,6 +25,7 @@
   }  
   .nav-item {
     margin-right: 20px;
+    color: white;
   }
   
   .nav-item a {
@@ -320,13 +321,20 @@ section {
 h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #007BFF;
+  color: #ffffff;
+}
+.h2blue{
+  color:#007BFF
+
 }
 
 p {
   font-size: 16px;
-  color:#fff;
+  color:#ffffff;
   line-height: 1.6;
+}
+.pblack{
+  color:black;
 }
 
 ul {
@@ -345,11 +353,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-
-
-
-  
 .footer {
     color: #fff;
     text-align: center;
