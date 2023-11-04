@@ -325,7 +325,7 @@ h2 {
 
 p {
   font-size: 16px;
-  color: #a10606;
+  color:#fff;
   line-height: 1.6;
 }
 
@@ -370,6 +370,11 @@ a:hover {
   .footer p {
     margin: 0;
     color: #fff;
+
+  }
+  footer b{
+    color: #fff;
+    margin-right: 10px;
   }
 
   
