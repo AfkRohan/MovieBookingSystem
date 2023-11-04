@@ -10,7 +10,7 @@ function MovieList() {
     
     return (
         <div>
-    <div className="flex justify-center pt1">
+    <div className="flex justify-center pt1black">
         <Button
         className="btnAddMovie"
         title="Add Movie"

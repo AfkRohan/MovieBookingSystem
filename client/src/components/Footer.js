@@ -3,7 +3,7 @@ import React from 'react';
 
 function Footer(){
   return (
-    <footer className="footer mt2">
+    <footer className="footer ">
       <nav>
         <ul>
           <li>

@@ -7,7 +7,7 @@ import {ShowLoading} from "../../redux/loadersSlice";
 import { message } from 'antd';
 import axios from 'axios';
 import  {useState, useEffect } from 'react';
-
+import AdminHeader from '../../components/AdminHeader';
 
 function ShowForm({
     showShowsFormModal,
@@ -60,6 +60,7 @@ function ShowForm({
       }, []);
 
   return (
+    
    <Modal
    title={formType === "add"}
     open={showShowsFormModal}
@@ -67,6 +68,7 @@ function ShowForm({
     footer={null}
     width={800}
   >
+  
    <Form
    layout="vertical"
    onFinish={onFinish}

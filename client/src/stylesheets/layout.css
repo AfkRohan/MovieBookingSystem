@@ -61,6 +61,7 @@
     margin-top:20px;
 }
 
+
 .mt25{
     margin-top:25em;
 }
@@ -122,6 +123,10 @@
 
 .pt1{
     padding-top:10px;
+}
+.pt1black{
+    padding-top:10px;
+    background-color:black;
 }
 
 .pt2{
@@ -213,6 +218,7 @@
   .btnAddMovie:hover {
     background-color: #F7BD02; 
   }
+  
   
   .btnText {
     display: inline-block;
