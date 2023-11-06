@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function TicketSearch() {
-  const [tickets, setTickets] = useState({ movie: "", date: "", time: "" });
+  const [tickets, setTickets] = useState({ date: "", time: "" });
   const [data, setData] = useState([]);
 
   const handleOnChange = (e) => {

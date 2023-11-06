@@ -44,7 +44,7 @@ function App() {
         <Route path='/show' element={<Show/>}/>
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/tickets" element={<Tickets />} />
+        <Route path="/tickets/:searchparam" element={<Tickets />} />
         <Route path="/helpcenter" element={<Helpcenter/>} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
 
