@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ImageSlider2 from '../../components/ImageSlider2';
 function Helpcenter() {
   return (
     <div>
     <Header></Header>
+    <ImageSlider2></ImageSlider2>
         <div className="help-center">
       <header>
         <h1>Cinemax Movie Help Center</h1>

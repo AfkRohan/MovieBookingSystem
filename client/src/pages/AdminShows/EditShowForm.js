@@ -62,6 +62,11 @@ function EditShowForm({
                <textarea type="text"/>
             </Form.Item>
         </Col>
+        <Col span={8}>
+            <Form.Item label="Screen Number" name="screen">
+               <input type="number"/>
+            </Form.Item>
+        </Col>
 
         <Col span={8}>
             <Form.Item label="Movie" name="movieId">
