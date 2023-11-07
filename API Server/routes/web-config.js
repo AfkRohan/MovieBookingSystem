@@ -219,6 +219,18 @@ router.get('/show/:id',async (req,res)=>{
   }
 })
 
+// Get show by movieID
+router.get('/shows/:movieId',async (req,res)=>{
+  const id = req.params.movieId
+  try{
+  const show = await Show.find({ movieId : id});
+  res.send(show)
+  }
+  catch(err){
+    res.send(err)
+  }
+})
+
 // Update show by ID
 router.put('/show/:id',async (req,res)=>{
   const id = req.params.id
@@ -227,8 +239,10 @@ router.put('/show/:id',async (req,res)=>{
   showDate : data.showDate,
   showTime : data.showTime,
   movieId : JSON.stringify(data.movieId),
+  screen: data.screen,
+  isAvailable : ((data.isAvailable).trim() === "true" ) ? true : false,
   price : data.price
-    }).then((show)=>res.send(show)).catch((err)=>{
+  }).then((show)=>res.send(show)).catch((err)=>{
     res.statusCode(400).send(err)
   })
 })
@@ -253,7 +267,9 @@ router.post('/addshow',async (req,res)=>{
         showDate : new Date(data.showDate),
         showTime : data.showTime,
         movieId : JSON.stringify(data.movieId),
-        price : Number(data.price)  })
+        price : Number(data.price),
+        screen: data.screen,
+        isAvailable : data.isAvailable})
     let showInserted = await newshow.save();
     // save user token
     console.log(showInserted)

@@ -14,6 +14,14 @@ const showSchema = new mongoose.Schema({
         required : true,
         type : Date,
     },
+    screen: {
+        required : true,
+        type : Number,
+    },
+    isAvailable : {
+        default: true,
+        type: Boolean,
+    },
     showTime : {
         required : true,
         type : String
