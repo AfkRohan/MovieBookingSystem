@@ -332,9 +332,47 @@
   .listpadding{
     padding-bottom: 120px;
   }
-  
-  
 
+  .movie-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   
+  .movie-background-image {
+    position: relative;
+    width: 100%;
+    background: #000; /* Set a background color if the image has transparency */
+  }
   
+  .movie-background-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+  }
+  
+  .movie-card {
+    max-width: 800px;
+    padding: 20px;
+    font-size: large;
+  }
+  
+  .movie-description-card {
+    max-width: 800px;
+    padding: 20px;
+    margin-top: 20px;
+  }
   
