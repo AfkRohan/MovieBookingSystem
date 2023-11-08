@@ -102,7 +102,7 @@ function EditMovieForm({
           </Col>
           <Col span={8}>
             <Form.Item label="Duration" name="duration">
-               <input type="number" min={0} max={5}/>
+               <input type="number" min={50} max={180}/>
             </Form.Item>
         </Col>
           <Col span={16}>

@@ -8,7 +8,9 @@ import Footer from '../../components/Footer';
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
-
+  const tagStyle =(colorbg) =>{
+    return { fontSize: '1.5em', background:`${colorbg}`, color: "black", padding: '0.5em 1em' }
+  }
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await axios.get(`http://localhost:4000/api/movie/${id}`);
@@ -25,10 +27,8 @@ const MovieDetails = () => {
   return (
     <div className="movie-details-container">
       <Header />
-      <div className="movie-background-image">
-        <Image src={movie.image} alt={movie.name} />
-        <div className="movie-overlay" >
-          <Card className="movie-card"  style={{ background: 'transparent' }}>
+        <div  >
+          <Card className="movie-card"  style={{ background: `url(${movie.image})` }}>
             <List className="movie-details-list">
               <List.Item className="movie-details-title">
                 <h1 className='moviename' style={{ fontSize: '2.5em' }}>{movie.name}</h1>
@@ -47,17 +47,16 @@ const MovieDetails = () => {
           </List.Item>
 
               <List.Item className="movie-tags" style={{ fontSize: '0.7em' }}>
-                <Tag color="blue" style={{ fontSize: '1.5em' }}>{movie.languages}</Tag>
-                <Tag color="green" style={{ fontSize: '1.5em' }}>{movie.genre}</Tag>
-                <Tag color="orange" style={{ fontSize: '1.5em' }}>Age: {movie.ageGroups}</Tag>
-                <Tag color="purple" style={{ fontSize: '1.5em' }}>Rating: {movie.rating}</Tag>
-                <Tag color="red" style={{ fontSize: '1.5em' }}>Duration: {movie.duration} min</Tag>
+                <Tag  style={tagStyle('#bca0dc')}>{movie.languages}</Tag>
+                <Tag color="green" style={tagStyle('#66d78b')}>{movie.genre}</Tag>
+                <Tag color="orange" style={tagStyle('#ff7f50')}>Age: {movie.ageGroups}</Tag>
+                <Tag color="purple" style={tagStyle('pink')}>Rating: {movie.rating}</Tag>
+                <Tag color="red" style={tagStyle('#b1f2ff')}>Duration: {movie.duration} min</Tag>
               </List.Item>
             
-
               <List.Item className="movie-details-seats">
-                <Link to={`/seat-selection/${id}`}>
-                  <Button className="btn-seat-selection">Book Now</Button>
+                <Link to={`//${id}`}>
+                  <Button className="btnSeatselection">Book Now</Button>
                 </Link>
               </List.Item>
             </List>
@@ -68,7 +67,6 @@ const MovieDetails = () => {
           </Card>
           </Card>
         </div>
-      </div>
       <Footer />
     </div>
   );
