@@ -53,10 +53,14 @@ function MovieShow(){
     <div className="movie-show-container">
         <div className="movie-ticket-page">
             <div className="movie-details">
-                <h1>{movieData.title}parthiban</h1>
+                <h1>{movieData.title}parthiben</h1>
                 <img src={movieData.image} alt={movieData.title} />
                  <p>{movieData.description}</p>
-                <a href={movieData.trailerUrl} target="_blank" rel="open">Watch Trailer</a>
+                 <a href={movieData.trailerUrl} target="_blank" rel="open">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
+                 <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 10a.5.5 0 0 0 .832.374l4.5-4a.5.5 0 0 0 0-.748l-4.5-4A.5.5 0 0 0 5.5 4v8z"/>
+                </svg>
+                 Watch Trailer</a>
             </div>
         </div>
       
@@ -85,6 +89,7 @@ function MovieShow(){
           </div>
         ))}
     </div>
+    <center><button>Select Seats</button></center>
    
       </div>
     </div>
