@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import MovieShow from '../../components/MovieShow';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import BookNowButton from '../../components/BookNowButton';
