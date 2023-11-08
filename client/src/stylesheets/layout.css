@@ -227,7 +227,6 @@
     padding: 7px 13px; 
     font-size: 12px; 
     cursor: pointer; 
-    
     transition: background-color 0.3s; 
     text-align: center; 
     display: inline-block;
@@ -291,7 +290,7 @@
     text-align: center; 
     display: inline-block;
     text-decoration: none; 
-    margin-left: 5px;
+   
   }
 
   .btnViewDetailsMovie:hover{
