@@ -12,7 +12,7 @@ function EditShowForm({
   setShowShowsFormModal,
   selectedShow,
   formType, 
-  shows
+  movies
 }) {
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ function EditShowForm({
 
       let response = null;
       if(formType === 'edit') {
-        // Edit the selected shows
+        // Edit the selected movie
         response = await axios.put(`http://localhost:4000/api/show/${selectedShow._id}`, values) ?? null;
       }
 
@@ -62,18 +62,13 @@ function EditShowForm({
                <textarea type="text"/>
             </Form.Item>
         </Col>
-        <Col span={8}>
-            <Form.Item label="Screen Number" name="screen">
-               <input type="number"/>
-            </Form.Item>
-        </Col>
 
         <Col span={8}>
             <Form.Item label="Movie" name="movieId">
-            <select>
+              <select>
                 {movies && Array.isArray(movies) ? (
                   movies.map((movie) => (
-                    <option key={movie._id} value={movie._id} selected={selectedShow.movieId === movie._id}>
+                    <option key={movie._id} value={movie._id}>
                       {movie.name}
                     </option>
                   ))
@@ -87,18 +82,7 @@ function EditShowForm({
             <Form.Item label="Price" name="price">
                <input type="number"/>
             </Form.Item>
-         </Col>
-
-         <Col span={8}>
-            <Form.Item label="Available" name="isAvailable">
-                <select name="isAvailable">
-                  <option key={shows._id}  value={"true"}>
-                  </option>
-                  <option key={shows._id}  value={"false"}>
-                  </option>
-                </select>  
-            </Form.Item>
-        </Col>
+            </Col>
 
     </Row>
     <div className="flex justify-end gap1">
