@@ -3,26 +3,41 @@ import Footer from '../../components/Footer';
 import AdminHeader from '../../components/AdminHeader';
 import ShowList from './ShowList';
 import axios from 'axios';
-import { Table } from 'antd';
 import DeleteShow from '../../components/DeleteShow';
+import EditShowForm from './EditShowForm';
 
 function AdminShows() {
   const [show, setShow] = useState([]);
+  const [isEditFormVisible, setIsEditFormVisible] = useState(false);
+  const [movies, setMovies] = useState([]);
+  const [selectedShow, setSelectedShow] = useState(null);
 
   useEffect(() => {
+    axios.get("http://localhost:4000/api/movies")
+      .then((response) => {
+        setMovies(response.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
     axios.get("http://localhost:4000/api/show")
       .then((response) => {
-        const formattedData = response.data.map((show) => ({
-          ...show,
-          showDate: new Date(show.showDate).toLocaleDateString('en-US'),
+        const formattedData = response.data.map((showItem) => ({
+          ...showItem,
+          showDate: new Date(showItem.showDate).toLocaleDateString('en-US'),
         }));
         setShow(formattedData);
-        console.log(formattedData);
       })
       .catch(err => {
         console.log(err);
       });
   }, []);
+
+  const openEditForm = (showItem) => {
+    setSelectedShow(showItem);
+    setIsEditFormVisible(true);
+  };
 
   return (
     <>
@@ -41,19 +56,33 @@ function AdminShows() {
           </tr>
         </thead>
         <tbody>
-          {show.map((show) => (
-            <tr key={show._id}>
-              <td style={tdStyle}>{show.showDate}</td>
-              <td style={tdStyle}>{show.showTime}</td>
-              <td style={tdStyle}>{show.movieId}</td>
-              <td style={tdStyle}>${show.price}</td> 
-              <td style={tdStyle}>Edit</td>
-              <td style={tdStyle}><DeleteShow id={show._id} /></td>
+          {show.map((showItem) => (
+            <tr key={showItem._id}>
+              <td style={tdStyle}>{showItem.showDate}</td>
+              <td style={tdStyle}>{showItem.showTime}</td>
+              <td style={tdStyle}>{showItem.movieId}</td>
+              <td style={tdStyle}>${showItem.price}</td>
+              <td style={tdStyle}>
+                <button className="btnEditMovie" onClick={() => openEditForm(showItem)}>
+                  <span className="btnText">Edit Movie</span>
+                </button>
+              </td>
+              <td style={tdStyle}><DeleteShow id={showItem._id} /></td>
             </tr>
           ))}
         </tbody>
       </table>
       <Footer />
+
+      {isEditFormVisible && (
+        <EditShowForm
+          showShowsFormModal={isEditFormVisible}
+          setShowShowsFormModal={setIsEditFormVisible}
+          formType="edit"
+          selectedShow={selectedShow}
+          movies={movies}
+        />
+      )}
     </>
   );
 }
@@ -70,7 +99,7 @@ const thStyle = {
   padding: '10px',
   textAlign: 'left',
   border: '1px solid #ccc',
-  color:'black'
+  color: 'black',
 };
 
 const tdStyle = {

@@ -44,7 +44,7 @@ function EditShowForm({
   return (
     <Modal
       title={formType === 'edit' }
-      visible={showShowsFormModal}
+      open={showShowsFormModal}
       onCancel={() => setShowShowsFormModal(false)}
       footer={null}
       width={800}
@@ -65,13 +65,17 @@ function EditShowForm({
 
         <Col span={8}>
             <Form.Item label="Movie" name="movieId">
-             <select>
-             {movies.map((movie) => (
-                <option key={movie._id} value={movie._id}>
-                  {movie.name}
-                </option>
-              ))}
-            </select>
+            <select>
+                {movies && Array.isArray(movies) ? (
+                  movies.map((movie) => (
+                    <option key={movie._id} value={movie._id} selected={selectedShow.movieId === movie._id}>
+                      {movie.name}
+                    </option>
+                  ))
+                ) : (
+                  <option value="">No movies available</option>
+                )}
+              </select>
             </Form.Item>
         </Col>
         <Col span={8}>
