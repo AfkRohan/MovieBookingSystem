@@ -6,6 +6,7 @@ import { HideLoading } from '../../redux/loadersSlice';
 import { ShowLoading } from '../../redux/loadersSlice';
 import { message } from 'antd';
 import axios from 'axios';
+import {Checkbox} from 'antd';
 
 function EditShowForm({
   showShowsFormModal,
@@ -62,13 +63,22 @@ function EditShowForm({
                <textarea type="text"/>
             </Form.Item>
         </Col>
-
+        <Col span={8}>
+            <Form.Item label="Houseful" name="isAvailable" valuePropName="checked">
+                <Checkbox />
+            </Form.Item>
+        </Col>
+        <Col span={8}>
+            <Form.Item label="Screen Number" name="screen">
+               <input type="number"/>
+            </Form.Item>
+        </Col>
         <Col span={8}>
             <Form.Item label="Movie" name="movieId">
               <select>
                 {movies && Array.isArray(movies) ? (
                   movies.map((movie) => (
-                    <option key={movie._id} value={movie._id}>
+                    <option key={movie._id} value={(movie._id).toString().trim('"')}>
                       {movie.name}
                     </option>
                   ))

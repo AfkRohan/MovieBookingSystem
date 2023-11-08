@@ -43,14 +43,14 @@ function AdminShows() {
     <>
       <AdminHeader />
       <ShowList />
-
       <table style={tableStyle}>
         <thead>
           <tr>
             <th style={thStyle}>Show Date</th>
-            <th style={thStyle}>Show Time</th>
-            <th style={thStyle}>Screen Number</th> 
+            <th style={thStyle}>Show Time</th> 
             <th style={thStyle}>Movie ID</th>
+            <th style={thStyle}>Screen Number </th>
+            <th style={thStyle}>Housefull </th>
             <th style={thStyle}>Price</th>
             <th style={thStyle}>Edit</th>
             <th style={thStyle}>Delete</th>
@@ -61,7 +61,9 @@ function AdminShows() {
             <tr key={showItem._id}>
               <td style={tdStyle}>{showItem.showDate}</td>
               <td style={tdStyle}>{showItem.showTime}</td>
-              <td style={tdStyle}>{showItem.movieId}</td>
+              <td style={tdStyle}>{(showItem.movieId)}</td>
+              <td style={tdStyle}>{(showItem.screen)}</td>
+              <td style={tdStyle}>{(!showItem.isAvailable ? "No" : "Yes")}</td>
               <td style={tdStyle}>${showItem.price}</td>
               <td style={tdStyle}>
                 <button className="btnEditMovie" onClick={() => openEditForm(showItem)}>
