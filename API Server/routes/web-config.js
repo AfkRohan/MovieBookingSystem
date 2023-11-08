@@ -53,7 +53,7 @@ router.post('/create', async (req,res)=>{
     }
 })
 
-//route to get all movies
+//api to get all movies
 router.get('/movies', async (req, res) => {
   try {
     const allMovies = await Movie.find({});
@@ -241,9 +241,9 @@ router.put('/show/:id',async (req,res)=>{
   Show.findByIdAndUpdate(id.toString(),{ 
   showDate : data.showDate,
   showTime : data.showTime,
-  movieId : JSON.stringify(data.movieId),
+  movieId : JSON.stringify(data.movieId).replaceAll('"',''),
   screen: data.screen,
-  isAvailable : ((data.isAvailable).trim() === "true" ) ? true : false,
+  isAvailable : ((data.isAvailable).toString().toLowerCase() === "true" ) ? true : false,
   price : data.price
   }).then((show)=>res.send(show)).catch((err)=>{
     res.statusCode(400).send(err)
@@ -269,7 +269,7 @@ router.post('/addshow',async (req,res)=>{
       let newshow = new Show ({ 
         showDate : new Date(data.showDate),
         showTime : data.showTime,
-        movieId : data.movieId,
+        movieId : (data.movieId).toString().replaceAll('"',''),
         price : Number(data.price),
         screen: data.screen,
         isAvailable : data.isAvailable})
