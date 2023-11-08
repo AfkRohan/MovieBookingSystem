@@ -107,6 +107,11 @@ function MovieForm({
                <input type="number"/>
             </Form.Item>
         </Col>
+        <Col span={8}>
+            <Form.Item label="Duration" name="duration">
+               <input type="number" min={0} max={5}/>
+            </Form.Item>
+        </Col>
         <Col span={16}>
             <Form.Item label="Poster URL" name="image">
                <input type="url"/>
@@ -117,8 +122,6 @@ function MovieForm({
                <input type="url"/>
             </Form.Item>
         </Col>
-        
-
     </Row>
     <div className="flex justify-end gap1">
         <Button title="Cancel" variant="outlined" type="button"

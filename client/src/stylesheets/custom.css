@@ -9,6 +9,9 @@
 .bgimage{
     background-image: "https://www.wipremiertrivia.com/wp-content/uploads/2018/02/Movie-Wallpaper.jpg";
 }
+.text-center{
+  text-align: center;
+}
 .header {
     background-color: #090909;
     color: white;

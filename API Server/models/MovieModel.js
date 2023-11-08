@@ -30,6 +30,10 @@ const movieSchema = new mongoose.Schema({
         type:String,
         required : true
     },
+    duration:{
+        type:String,
+        default : "unknown"
+    },
     genre:{
         type:String,
         required : true

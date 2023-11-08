@@ -22,7 +22,7 @@ const showSchema = new mongoose.Schema({
         default: true,
         type: Boolean,
     },
-    showTime : {
+    showTime : { // ex : 6-9
         required : true,
         type : String
     },

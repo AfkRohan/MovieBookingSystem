@@ -153,6 +153,7 @@ router.put('/movie/:id',async (req,res)=>{
     image:data.image,
     description:data.description,
     rating:data.rating,
+    duration:data.duration,
     genre: data.genre,
     languages: data.languages,
     ageGroups: data.ageGroups 
@@ -182,6 +183,7 @@ router.post('/addmovie',async (req,res)=>{
     trailerLink : data.trailerLink,
     image:data.image,
     description:data.description,
+    duration:data.duration,
     rating:data.rating,
     genre: data.genre,
     languages: data.languages,
@@ -211,7 +213,7 @@ router.get('/show',async (req,res)=>{
 router.get('/show/:id',async (req,res)=>{
   const id = req.params.id
   try{
-  const show = await Show.findById(id.toString());
+  const show = await Show.findById(id);
   res.send(show)
   }
   catch(err){
@@ -221,9 +223,10 @@ router.get('/show/:id',async (req,res)=>{
 
 // Get show by movieID
 router.get('/shows/:movieId',async (req,res)=>{
-  const id = req.params.movieId
+  const id = (req.params.movieId)
   try{
   const show = await Show.find({ movieId : id});
+  console.log(show)
   res.send(show)
   }
   catch(err){
@@ -266,7 +269,7 @@ router.post('/addshow',async (req,res)=>{
       let newshow = new Show ({ 
         showDate : new Date(data.showDate),
         showTime : data.showTime,
-        movieId : JSON.stringify(data.movieId),
+        movieId : data.movieId,
         price : Number(data.price),
         screen: data.screen,
         isAvailable : data.isAvailable})

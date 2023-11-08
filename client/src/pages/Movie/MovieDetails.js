@@ -53,6 +53,9 @@ const MovieDetails = ({ movies }) => {
                 <Typography.Text>Age Groups:</Typography.Text> {movie.ageGroups}
               </List.Item>
               <List.Item className='list-group-item'>
+                <Typography.Text>Duration:</Typography.Text> {movie.duration}
+              </List.Item>
+              <List.Item className='list-group-item'>
                 <Typography.Text>Rating:</Typography.Text> {movie.rating}
               </List.Item>
             </List>

@@ -52,6 +52,9 @@ const MovieDetails = () => {
               <List.Item className='list-group-item'>
                 <Typography.Text style={{ paddingLeft: '30px' }}>Rating:</Typography.Text> {movie.rating}
               </List.Item>
+              <List.Item className='list-group-item'>
+                <Typography.Text style={{paddingLeft:'30px'}}>Duration:</Typography.Text> {movie.duration}
+              </List.Item>
             </List>
             {/* Add a Button to redirect to the seat selection page */}
             <Link to={`/seat-selection/${id}`}>
