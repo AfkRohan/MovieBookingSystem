@@ -31,7 +31,7 @@ const MovieDetails = () => {
           <Card className="movie-card"  style={{ background: 'transparent' }}>
             <List className="movie-details-list">
               <List.Item className="movie-details-title">
-                <h1 className='moviename' style={{ fontSize: '5em' }}>{movie.name}</h1>
+                <h1 className='moviename' style={{ fontSize: '2.5em' }}>{movie.name}</h1>
               </List.Item>
 
               <List.Item className="movie-details-video">
@@ -53,8 +53,7 @@ const MovieDetails = () => {
                 <Tag color="purple" style={{ fontSize: '1.5em' }}>Rating: {movie.rating}</Tag>
                 <Tag color="red" style={{ fontSize: '1.5em' }}>Duration: {movie.duration} min</Tag>
               </List.Item>
-              <p className='descfont' style={{ fontSize: '1.5em' }}>{movie.description}</p>
-
+            
 
               <List.Item className="movie-details-seats">
                 <Link to={`/seat-selection/${id}`}>
@@ -62,6 +61,11 @@ const MovieDetails = () => {
                 </Link>
               </List.Item>
             </List>
+          <Card style={{ background: 'rgba(255, 255, 255, 0.7)'}}>
+          <List.Item>
+              <p className='descfont' style={{ fontSize: '1.4em' }}>{movie.description}</p>
+            </List.Item>
+          </Card>
           </Card>
         </div>
       </div>
