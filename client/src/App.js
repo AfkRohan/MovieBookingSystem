@@ -8,11 +8,14 @@ import AdminDashBoard from './pages/AdminDashboard'
 import AdminLogout from './pages/AdminLogout';
 import Helpcenter from './pages/HelpCenter';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Tickets from './pages/Tickets';
 import "./stylesheets/layout.css";
 import "./stylesheets/size.css";
 import "./stylesheets/formelements.css"
 import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
+import "./stylesheets/tickets.css";
+
 import AdminMovies from './pages/AdminMovies';
 import { useSelector } from 'react-redux';
 import Show from './pages/AdminShows'
@@ -41,6 +44,7 @@ function App() {
         <Route path='/show' element={<Show/>}/>
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
+        <Route path="/tickets/:searchparam" element={<Tickets />} />
         <Route path="/helpcenter" element={<Helpcenter/>} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
 

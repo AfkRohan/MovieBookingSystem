@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Col,Row,Modal} from 'antd'
+import {Form, Col,Row,Modal,Checkbox} from 'antd'
 import Button from '../../components/Button';
 import { useDispatch } from 'react-redux';
 import { HideLoading } from "../../redux/loadersSlice"; 
@@ -85,10 +85,19 @@ function ShowForm({
                <textarea type="text"/>
             </Form.Item>
         </Col>
-
+        <Col span={8}>
+            <Form.Item label="Screen Number" name="screen">
+               <input type="number"/>
+            </Form.Item>
+        </Col>
+        <Col span={8}>
+            <Form.Item label="Houseful" name="isAvailable" valuePropName="checked">
+                <Checkbox />
+            </Form.Item>
+        </Col>
         <Col span={8}>
             <Form.Item label="Movie" name="movieId">
-             <select>
+             <select name="movieId">
              {movies.map((movie) => (
                 <option key={movie._id} value={movie._id}>
                   {movie.name}
@@ -97,11 +106,12 @@ function ShowForm({
             </select>
             </Form.Item>
         </Col>
+
         <Col span={8}>
             <Form.Item label="Price" name="price">
                <input type="number"/>
             </Form.Item>
-            </Col>
+        </Col>
 
     </Row>
     <div className="flex justify-end gap1">

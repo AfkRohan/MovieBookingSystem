@@ -49,6 +49,7 @@ function AdminShows() {
           <tr>
             <th style={thStyle}>Show Date</th>
             <th style={thStyle}>Show Time</th>
+            <th style={thStyle}>Screen Number</th> 
             <th style={thStyle}>Movie ID</th>
             <th style={thStyle}>Price</th>
             <th style={thStyle}>Edit</th>
