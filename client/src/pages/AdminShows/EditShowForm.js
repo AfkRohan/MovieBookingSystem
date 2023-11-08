@@ -12,7 +12,7 @@ function EditShowForm({
   setShowShowsFormModal,
   selectedShow,
   formType, 
-  shows
+  movies
 }) {
   const dispatch = useDispatch();
 
@@ -23,7 +23,7 @@ function EditShowForm({
 
       let response = null;
       if(formType === 'edit') {
-        // Edit the selected shows
+        // Edit the selected movie
         response = await axios.put(`http://localhost:4000/api/show/${selectedShow._id}`, values) ?? null;
       }
 
@@ -44,7 +44,7 @@ function EditShowForm({
   return (
     <Modal
       title={formType === 'edit' }
-      visible={showShowsFormModal}
+      open={showShowsFormModal}
       onCancel={() => setShowShowsFormModal(false)}
       footer={null}
       width={800}
@@ -62,39 +62,27 @@ function EditShowForm({
                <textarea type="text"/>
             </Form.Item>
         </Col>
-        <Col span={8}>
-            <Form.Item label="Screen Number" name="screen">
-               <input type="number"/>
-            </Form.Item>
-        </Col>
 
         <Col span={8}>
             <Form.Item label="Movie" name="movieId">
-             <select>
-             {shows.map((show) => (
-                <option key={show._id} value={show._id}>
-                  {show.name}
-                </option>
-              ))}
-            </select>
+              <select>
+                {movies && Array.isArray(movies) ? (
+                  movies.map((movie) => (
+                    <option key={movie._id} value={movie._id}>
+                      {movie.name}
+                    </option>
+                  ))
+                ) : (
+                  <option value="">No movies available</option>
+                )}
+              </select>
             </Form.Item>
         </Col>
         <Col span={8}>
             <Form.Item label="Price" name="price">
                <input type="number"/>
             </Form.Item>
-         </Col>
-
-         <Col span={8}>
-            <Form.Item label="Available" name="isAvailable">
-                <select name="isAvailable">
-                  <option key={shows._id}  value={"true"}>
-                  </option>
-                  <option key={shows._id}  value={"false"}>
-                  </option>
-                </select>  
-            </Form.Item>
-        </Col>
+            </Col>
 
     </Row>
     <div className="flex justify-end gap1">

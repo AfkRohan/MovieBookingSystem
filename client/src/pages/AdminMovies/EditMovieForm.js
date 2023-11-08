@@ -116,8 +116,7 @@ function EditMovieForm({
             title="Cancel"
             variant="outlined"
             type="button"
-            onClick={() => setShowMovieFormModal(false)}
-          />
+            onClick={() => setShowMovieFormModal(false)}/>
           <Button title="Save" type="submit" />
         </div>
       </Form>

@@ -218,7 +218,24 @@
   .btnAddMovie:hover {
     background-color: #F7BD02; 
   }
-  
+
+  .btnSeatselection{
+    background-color: rgb(255, 255, 255); 
+    color: #000000; 
+    border: 1px solid #F7BD02; 
+    border-radius: 4px; 
+    padding: 7px 13px; 
+    font-size: 12px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    text-align: center; 
+    display: inline-block;
+    text-decoration: none; 
+  }
+  .btnSeatselection:hover{
+    background-color: #F7BD02; 
+    color: #000000;
+  }
   
   .btnText {
     display: inline-block;
@@ -273,7 +290,7 @@
     text-align: center; 
     display: inline-block;
     text-decoration: none; 
-    margin-left: 5px;
+   
   }
 
   .btnViewDetailsMovie:hover{

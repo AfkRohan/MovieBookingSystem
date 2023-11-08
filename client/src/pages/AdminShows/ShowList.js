@@ -13,7 +13,7 @@ function ShowList() {
     <div className="flex justify-center pt1">
         <Button
         className="btnAddShow"
-        title="Add Show"
+        title="Add a Show"
         variant="outlined"
         onClick={() => {
             setShowShowsFormModal(true);
