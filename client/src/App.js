@@ -15,6 +15,7 @@ import "./stylesheets/formelements.css"
 import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
 import "./stylesheets/tickets.css";
+import "./stylesheets/movieshow.css";
 
 import AdminMovies from './pages/AdminMovies';
 import { useSelector } from 'react-redux';
