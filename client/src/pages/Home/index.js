@@ -4,6 +4,7 @@ import FeaturedMovieCard from '../../components/FeaturedMovieCard';
 import ExperienceSection from '../../components/ExperienceSection';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import AboutUs from '../../components/AboutUS';
 import axios from 'axios';
 
 function Home(){
@@ -49,7 +50,9 @@ function Home(){
          
         />
     </div>
-       
+       <div>
+        <AboutUs></AboutUs>
+       </div>
       </main>
             
              <Footer/>

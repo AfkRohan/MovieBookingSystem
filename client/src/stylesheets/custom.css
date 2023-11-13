@@ -269,7 +269,7 @@ h2 {
 
 .contact-info p {
   font-size: 18px;
-  color: #333;
+  color: #333333;
 }
 
 .email-customer-care a {
@@ -320,6 +320,26 @@ section {
   border-radius: 5px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
+
+.about-us-container {
+  border: 1px solid #e0e0e0;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: justify;
+  background-color: #000; 
+  color: #fff; 
+}
+
+.about-us-container h2 {
+  color: #fff; 
+}
+
+.about-us-container p {
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
 
 h2 {
   font-size: 24px;

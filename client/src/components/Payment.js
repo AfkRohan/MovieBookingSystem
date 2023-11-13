@@ -12,6 +12,7 @@ function Payment(){
     const [cardNumber, setCardNumber] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
     const [cvv, setCvv] = useState('');
+    const[cardholdername, setCardholderName]=useState('');
   
     const [ticketQuantity, setTicketQuantity] = useState(1);
     const [ticketPrice, setTicketPrice] = useState(10); 
@@ -61,6 +62,16 @@ function Payment(){
             type="text"
             name="firstName"
             value={firstName}
+            rules={[
+                {
+                required:true, 
+                message: "Please enter valid FirstName"
+                }, 
+                {
+                    pattern: /[a-zA-Z]+$/,
+                    message: "Invalid name"
+                }
+                ]}
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="Enter your first name"
           />
@@ -73,6 +84,15 @@ function Payment(){
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             placeholder="Enter your last name"
+            rules={
+                [{
+                required:true, 
+                message: "Please enter valid value"
+                },
+                {
+                pattern: /[a-zA-Z]+$/,
+                message: "Invalid name"
+                }]}
           />
         </label>
         <label>
@@ -83,6 +103,7 @@ function Payment(){
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
+            rules={[{required:true, type:'email', message: "Please enter valid email"}]}
           />
         </label>
         <label>
@@ -93,6 +114,7 @@ function Payment(){
             value={billingAddress}
             onChange={(e) => setBillingAddress(e.target.value)}
             placeholder="Enter your billing address"
+            rules={[{required:true,  message: "Please enter valid Address."}]}
           />
         </label>
         <label>
@@ -103,6 +125,7 @@ function Payment(){
             value={streetCity}
             onChange={(e) => setStreetCity(e.target.value)}
             placeholder="Enter your street/city"
+            rules={[{required:true, message: "Please enter valid street/City"}]}
           />
         </label>
         <label>
@@ -113,6 +136,7 @@ function Payment(){
             value={state}
             onChange={(e) => setState(e.target.value)}
             placeholder="Enter your state"
+            rules={[{required:true, message: "Please enter valid state"}]}
           />
         </label>
         <label>
@@ -123,6 +147,7 @@ function Payment(){
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             placeholder="Enter your postal code"
+            rules={[{required:true, message: "Please enter valid Postal Code"}]}
           />
         </label>
         <label>
@@ -132,6 +157,27 @@ function Payment(){
             name="ticketQuantity"
             value={ticketQuantity}
             onChange={(e) => setTicketQuantity(e.target.value)}
+            rules={[{required:true, type:'number', message: "Please enter valid number"}]}
+          />
+        </label>
+        <label>
+          CardHolder Name
+          <input
+            type="text"
+            name="cardholdername"
+            value={cardholdername}
+            placeholder="Enter your Holder Name"
+            onChange={(e) => setCardholderName(e.target.value)}
+            rules={[
+                {
+                required:true, 
+                message: "Please enter valid FirstName"
+                }, 
+                {
+                    pattern: /[a-zA-Z]+$/,
+                    message: "Invalid name"
+                }
+                ]}
           />
         </label>
         <label>
@@ -142,6 +188,7 @@ function Payment(){
             value={cardNumber}
             onChange={(e) => setCardNumber(e.target.value)}
             placeholder="Enter your card number"
+            rules={[{required:true, type:'phone', message: "Please enter valid cardNumber"}]}
           />
         </label>
         <label>
