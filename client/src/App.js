@@ -4,7 +4,8 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
-import AdminDashBoard from './pages/AdminDashboard'
+import AdminDashBoard from './pages/AdminDashboard';
+import PaymentForm from './pages/PaymentForm';
 import AdminLogout from './pages/AdminLogout';
 import Helpcenter from './pages/HelpCenter';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -16,6 +17,7 @@ import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
 import "./stylesheets/tickets.css";
 import "./stylesheets/movieshow.css";
+import "./stylesheets/paymentform.css";
 
 import AdminMovies from './pages/AdminMovies';
 import { useSelector } from 'react-redux';
@@ -42,7 +44,8 @@ function App() {
         <Route path="/admin-logout" element={<AdminLogout/>}/>
         <Route path="/admin-dashboard" element={<AdminDashBoard/>}/>
         <Route path="/admin-movie" element={<AdminMovies/>}/>
-        <Route path='/show' element={<Show/>}/>
+        <Route path="/show" element={<Show/>}/>
+        <Route path="/payment" element={<PaymentForm/>}/>
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/tickets/:searchparam" element={<Tickets />} />
