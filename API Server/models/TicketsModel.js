@@ -12,15 +12,15 @@ mongoose.connect(url,{
 const ticketSchema = new mongoose.Schema({
     showId : {
         required : true,
-        type : String
+        type : Object
     },
     movieId : {
         required : true,
-        type : String,
+        type : Object,
     },
     userId : {
         required : true,
-        type : String,
+        type : Object,
     },
     seatNumber : {
         required : true,

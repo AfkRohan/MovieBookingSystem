@@ -12,12 +12,10 @@ function Payment(){
     const [cardNumber, setCardNumber] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
     const [cvv, setCvv] = useState('');
-    const[cardholdername, setCardholderName]=useState('');
-  
+    const[cardholdername, setCardholderName]=useState('');  
     const [ticketQuantity, setTicketQuantity] = useState(1);
     const [ticketPrice, setTicketPrice] = useState(10); 
-  const [gstPercentage, setGstPercentage] = useState(5); 
-
+    const [gstPercentage, setGstPercentage] = useState(5); 
 
   const calculateTotalAmount = () => {
     const subtotal = ticketPrice * ticketQuantity;
@@ -48,11 +46,7 @@ function Payment(){
     });
   };
 
-
-    
-
   return (
-
     <div className="payment-container">
       <h2>Payment Information</h2>
       <form className='formclass' onSubmit={handlePaymentSubmit}>
@@ -211,14 +205,12 @@ function Payment(){
             placeholder="CVV"
           />
         </label>
-        
         <div className="payment-details">
           <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
           <p>Quantity: {ticketQuantity}</p>
           <p>GST ({gstPercentage}%): ${((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}</p>
           <p>Total Payment: ${calculateTotalAmount()}</p>
         </div>
-
         <button type="submit">Pay Now</button>
       </form>
     </div>
