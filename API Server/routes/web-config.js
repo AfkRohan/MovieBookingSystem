@@ -17,6 +17,7 @@ const Movie = require('../models/MovieModel')
 const Show = require('../models/ShowsModel');
 
 const Seat = require('../models/SeatModel');
+const { default: tokenGenerator } = require('../extras/tokenGenerator');
 
 // API for creating a new user
 router.post('/create', async (req,res)=>{
@@ -91,29 +92,13 @@ router.post('/login',async (req,res)=>{
         console.log(userLoggedIn);
         bcrypt.compare(data.Password,user.Password,(err,match)=>{
           if(match){
-            const token = jwt.sign(
-              { user_id: userLoggedIn._id, userEmail },
-              "UserSecret",
-              {
-                expiresIn: "2h",
-              }
-            );
-        // save user token        
-        res.cookie('token', token);
-        console.log(userLoggedIn)
-        res.send(userLoggedIn);
+          tokenGenerator(res);
+          console.log(userLoggedIn)
+          res.send(userLoggedIn);
         }
         else if(!match){
           if((data.Password).match(user.Password)) {
-            const token = jwt.sign(
-              { user_id: userLoggedIn._id, userEmail },
-              "UserSecret",
-              {
-                expiresIn: "2h",
-              }
-            );
-        // save user token        
-        res.cookie('token', token)
+           tokenGenerator(res);
             res.send(userLoggedIn)}
         }  
         else{
