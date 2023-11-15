@@ -116,24 +116,28 @@ router.post('/login',async (req,res)=>{
 
 // Book a seat
 router.post('/bookseats',async(req,res)=>{
+  const data = res.data;
+  const respseats = [];
+  for(let i=0; i<data.length(); i++){
   try{
-    const data = req.body;
-   let seatConfirmation = await Seat.create({screen : data.screen, 
-      isAvailable : data.isAvailable,
-      number : data.number,
-      row : data.row,
-      showId: data.showId,
-      userId : data.userId,
-      price : data.price})
-    res.send(seatConfirmation);
+   let seatConfirmation = await Seat.create({screen : data[i].screen, 
+      isAvailable : data[i].isAvailable,
+      number : data[i].number,
+      row : data[i].row,
+      showId: data[i].showId,
+      userId : data[i].userId,
+      price : data[i].price});
+    respseats.add(seatConfirmation);
   }
   catch (er){
     res.send(er);
   }
+}
+res.send(respseats);
 });
 
-// Cancel a booking by userId
-router.get('/cancelseats/:id', async(req,res)=>{
+// all bookings
+router.get('/getseats/:id', async(req,res)=>{
   try{
     const userId = req.params.id;
     const cancelledSeats = [];
@@ -145,6 +149,18 @@ router.get('/cancelseats/:id', async(req,res)=>{
       cancelledSeats.push(seatDeleteConfirmation._id);
     }
     res.send(cancelledSeats);
+  }
+  catch (er){
+    res.send(er);
+  }
+});
+
+//  Bookings by showId
+router.get('/bookedseats/:id', async(req,res)=>{
+  try{
+    const showId = req.params.id;
+    const seatsByShow = await Seat.find({showId : showId});
+    res.send(seatsByShow);
   }
   catch (er){
     res.send(er);

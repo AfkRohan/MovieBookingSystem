@@ -20,7 +20,7 @@ const seatSchema = new mongoose.Schema({
     },
     row : {
         default: true,
-        type : CharacterData
+        type : String
     },
     number : {
         default: true,
