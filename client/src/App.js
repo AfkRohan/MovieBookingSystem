@@ -19,10 +19,7 @@ import "./stylesheets/tickets.css";
 import "./stylesheets/movieshow.css";
 import "./stylesheets/MovieSeatBooking.css"
 import "./stylesheets/paymentform.css";
-<<<<<<< HEAD
-=======
 import "./stylesheets/PaymentSuccess.css";
->>>>>>> dc2115222adf515bc406ad2772175303aa03a90a
 import AdminMovies from './pages/AdminMovies';
 import { useSelector } from 'react-redux';
 import Show from './pages/AdminShows'
