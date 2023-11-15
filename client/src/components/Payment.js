@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 
-function Payment(){
+function Payment(props){
+    const shows = props.shows;
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -14,7 +16,7 @@ function Payment(){
     const [cvv, setCvv] = useState('');
     const[cardholdername, setCardholderName]=useState('');  
     const [ticketQuantity, setTicketQuantity] = useState(1);
-    const [ticketPrice, setTicketPrice] = useState(10); 
+    const [ticketPrice, setTicketPrice] = useState(props.shows ? props.shows.price : 0);
     const [gstPercentage, setGstPercentage] = useState(5); 
 
   const calculateTotalAmount = () => {
@@ -47,173 +49,152 @@ function Payment(){
   };
 
   return (
-    <div className="payment-container">
-      <h2>Payment Information</h2>
-      <form className='formclass' onSubmit={handlePaymentSubmit}>
-        <label>
-          First Name
-          <input
-            type="text"
-            name="firstName"
-            value={firstName}
-            rules={[
-                {
-                required:true, 
-                message: "Please enter valid FirstName"
-                }, 
-                {
-                    pattern: /[a-zA-Z]+$/,
-                    message: "Invalid name"
-                }
-                ]}
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder="Enter your first name"
-          />
-        </label>
-        <label>
-          Last Name
-          <input
-            type="text"
-            name="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder="Enter your last name"
-            rules={
-                [{
-                required:true, 
-                message: "Please enter valid value"
-                },
-                {
-                pattern: /[a-zA-Z]+$/,
-                message: "Invalid name"
-                }]}
-          />
-        </label>
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            rules={[{required:true, type:'email', message: "Please enter valid email"}]}
-          />
-        </label>
-        <label>
-          Billing Address
-          <input
-            type="text"
-            name="billingAddress"
-            value={billingAddress}
-            onChange={(e) => setBillingAddress(e.target.value)}
-            placeholder="Enter your billing address"
-            rules={[{required:true,  message: "Please enter valid Address."}]}
-          />
-        </label>
-        <label>
-          Street/City
-          <input
-            type="text"
-            name="streetCity"
-            value={streetCity}
-            onChange={(e) => setStreetCity(e.target.value)}
-            placeholder="Enter your street/city"
-            rules={[{required:true, message: "Please enter valid street/City"}]}
-          />
-        </label>
-        <label>
-          State
-          <input
-            type="text"
-            name="state"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            placeholder="Enter your state"
-            rules={[{required:true, message: "Please enter valid state"}]}
-          />
-        </label>
-        <label>
-          Postal Code
-          <input
-            type="text"
-            name="postalCode"
-            value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}
-            placeholder="Enter your postal code"
-            rules={[{required:true, message: "Please enter valid Postal Code"}]}
-          />
-        </label>
-        <label>
-          Ticket Quantity
-          <input
-            type="number"
-            name="ticketQuantity"
-            value={ticketQuantity}
-            onChange={(e) => setTicketQuantity(e.target.value)}
-            rules={[{required:true, type:'number', message: "Please enter valid number"}]}
-          />
-        </label>
-        <label>
-          CardHolder Name
-          <input
-            type="text"
-            name="cardholdername"
-            value={cardholdername}
-            placeholder="Enter your Holder Name"
-            onChange={(e) => setCardholderName(e.target.value)}
-            rules={[
-                {
-                required:true, 
-                message: "Please enter valid FirstName"
-                }, 
-                {
-                    pattern: /[a-zA-Z]+$/,
-                    message: "Invalid name"
-                }
-                ]}
-          />
-        </label>
-        <label>
-          Card Number
-          <input
-            type="text"
-            name="cardNumber"
-            value={cardNumber}
-            onChange={(e) => setCardNumber(e.target.value)}
-            placeholder="Enter your card number"
-            rules={[{required:true, type:'phone', message: "Please enter valid cardNumber"}]}
-          />
-        </label>
-        <label>
-          Expiry Date
-          <input
-            type="text"
-            name="expiryDate"
-            value={expiryDate}
-            onChange={(e) => setExpiryDate(e.target.value)}
-            placeholder="MM/YY"
-          />
-        </label>
-        <label>
-          CVC
-          <input
-            type="text"
-            name="cvv"
-            value={cvv}
-            onChange={(e) => setCvv(e.target.value)}
-            placeholder="CVV"
-          />
-        </label>
-        <div className="payment-details">
-          <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
-          <p>Quantity: {ticketQuantity}</p>
-          <p>GST ({gstPercentage}%): ${((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}</p>
-          <p>Total Payment: ${calculateTotalAmount()}</p>
-        </div>
-        <button type="submit">Pay Now</button>
-      </form>
+   <div className="payment-container">
+  <h2>Ticket Payment Information</h2>
+  <form action="/paymentsuccess" className='formclass' onSubmit={handlePaymentSubmit}>
+    <div className="form-row">
+      <div className="form-group">
+        <label htmlFor="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          placeholder="Enter your first name"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          placeholder="Enter your last name"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="billingAddress">Billing Address</label>
+        <input
+          type="text"
+          id="billingAddress"
+          name="billingAddress"
+          value={billingAddress}
+          onChange={(e) => setBillingAddress(e.target.value)}
+          placeholder="Enter your billing address"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="streetCity">Street/City</label>
+        <input
+          type="text"
+          id="streetCity"
+          name="streetCity"
+          value={streetCity}
+          onChange={(e) => setStreetCity(e.target.value)}
+          placeholder="Enter your street/city"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="state">State</label>
+        <input
+          type="text"
+          id="state"
+          name="state"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          placeholder="Enter your state"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="postalCode">Postal Code</label>
+        <input
+          type="text"
+          id="postalCode"
+          name="postalCode"
+          value={postalCode}
+          onChange={(e) => setPostalCode(e.target.value)}
+          placeholder="Enter your postal code"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="ticketQuantity">Ticket Quantity</label>
+        <input
+          type="number"
+          id="ticketQuantity"
+          name="ticketQuantity"
+          value={ticketQuantity}
+          onChange={(e) => setTicketQuantity(e.target.value)}
+        />
+      </div>
     </div>
+    <div className="form-group">
+      <label htmlFor="cardholdername">CardHolder Name</label>
+      <input
+        type="text"
+        id="cardholdername"
+        name="cardholdername"
+        value={cardholdername}
+        placeholder="Enter your Holder Name"
+        onChange={(e) => setCardholderName(e.target.value)}
+      />
+    </div>
+    <div className="form-group">
+      <label htmlFor="cardNumber">Card Number</label>
+      <input
+        type="text"
+        id="cardNumber"
+        name="cardNumber"
+        value={cardNumber}
+        onChange={(e) => setCardNumber(e.target.value)}
+        placeholder="Enter your card number"
+      />
+    </div>
+    <div className="form-group">
+      <label htmlFor="expiryDate">Expiry Date</label>
+      <input
+        type="text"
+        id="expiryDate"
+        name="expiryDate"
+        value={expiryDate}
+        onChange={(e) => setExpiryDate(e.target.value)}
+        placeholder="MM/YY"
+      />
+    </div>
+    <div className="form-group">
+      <label htmlFor="cvv">CVV</label>
+      <input
+        type="text"
+        id="cvv"
+        name="cvv"
+        value={cvv}
+        onChange={(e) => setCvv(e.target.value)}
+        placeholder="CVV"
+      />
+    </div>
+    <div className="payment-details">
+      <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
+      <p>Quantity: {ticketQuantity}</p>
+      <p>GST ({gstPercentage}%): ${((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}</p>
+      <p>Total Payment: ${calculateTotalAmount()}</p>
+    </div>
+    <button type="submit">Pay Now</button>
+  </form>
+</div>
+
   );
 };
 

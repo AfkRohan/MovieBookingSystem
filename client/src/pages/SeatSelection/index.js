@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Select, Card, Button } from 'antd';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 
 const { Option } = Select;
 
 const App = () => {
-  const { id, moviename } = useParams();
-  const [selectedMovie, setSelectedMovie] = useState('10');
+  const { id, moviename , screenNumber , price } = useParams();
+  const [selectedMovie, setSelectedMovie] = useState(parseFloat(price));
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [isBooked,setBooked] = useState([]);
   const isOccupied = (seat) =>{
@@ -76,6 +76,8 @@ const App = () => {
   
     return seats;
   };
+
+  
  
   useEffect(() => {
     // Handle seat selection in the UI
@@ -103,16 +105,18 @@ const App = () => {
   
 
       {/* { <Card className='showcase'>
+        <div>
         <div className="seat not-selected"></div>
         <small>Not Selected</small>
         <div className="seat selected"></div>
         <small>Selected</small>
         <div className="seat occupied"></div>
         <small>Occupied</small>
+        </div>
       </Card> } */}
 
       <div className="container">
-        <div className="screen"></div>
+        <div className="screen text-center"><h1 style={{"color":"black", "margin-top":"10px"}} className='text-center'> Screen {screenNumber}</h1></div>
         <div className="row">
          
           <div className="middle-seats">{renderSeats(5, 10, 69)}</div>
@@ -124,8 +128,10 @@ const App = () => {
         You have selected <span id="count">0</span> seats for a price of $
         <span id="total">0</span>
       </p>
-    <button className='btnproceedcheckout'>Proceed to Checkout</button>
-    </div>
+      <Link to="/payment">
+        <button className="btnproceedcheckout" disabled={selectedSeats.length === 0}>Proceed to Checkout</button>
+      </Link>
+      </div>
   );
 };
 

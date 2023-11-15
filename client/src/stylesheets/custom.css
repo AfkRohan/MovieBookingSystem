@@ -272,27 +272,30 @@ h2 {
   color: #333333;
 }
 
-.email-customer-care a {
-  font-size: 18px;
-  color: #007BFF;
-  text-decoration: none;
+.help-center {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.email-customer-care a:hover {
-  text-decoration: underline;
+.contact-info,
+.faqs,
+.email-customer-care {
+  margin-bottom: 20px;
 }
 
-.faq-item h3 {
-  font-size: 20px;
+.h2blue {
+  color: #3498db;
+}
+
+.pblack {
   color: #333;
-  margin-bottom: 10px;
 }
 
-.faq-item p {
-  font-size: 16px;
-  color: #555;
+.faq-item {
+  margin-bottom: 15px;
 }
-
 
 
 .privacy-policy {

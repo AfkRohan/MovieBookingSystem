@@ -12,6 +12,7 @@ function Tickets() {
   const removeDuplicates = (data) =>{ return [... new Set(data)]}
   const [movieData,setMovieData] = useState([])
   const [showByMovieId,setShowByMovieId] = useState([])
+  const [movieId] = useState([])
   // 6542aa7e148dbfce5d5979fd
   useEffect(() => {
     axios
@@ -50,7 +51,7 @@ function Tickets() {
         <h1 className='text-center'> No Shows available now for this movie </h1> : (
           <div className="showtimes">
         <h2>Showtimes</h2>
-        <TabbedView dates={dates} shows={showByMovieId}/>
+        <TabbedView dates={dates} shows={showByMovieId} movies={movieData.name}/>
         <table class="table table-striped table-hover table-light ">
           <thead>
             <tr>

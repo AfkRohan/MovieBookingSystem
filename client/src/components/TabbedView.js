@@ -1,7 +1,32 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect , useState } from 'react';
+import { Link  , useParams} from 'react-router-dom';
+
+
 import { Button, Tabs } from 'antd';
 const TabbedView = (props) => {
-  const shows = (props.shows);
+  const shows = props.shows;
+  
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+
+  useEffect(() => {
+    const fetchMovie = async () => {
+      try {
+        const response = await axios.get(`http://localhost:4000/api/movie/${id}`);
+        setMovie(response.data);
+      } catch (error) {
+        console.error('Error fetching movie:', error);
+      }
+    };
+
+    fetchMovie();
+  }, [id]);
+
+  if (!movie) {
+    return <div>Loading...</div>; 
+  }
+
   console.log("tabs");
   const removeDuplicateDates = (dates) => {
     const uniqueDates = [];
@@ -14,9 +39,8 @@ const TabbedView = (props) => {
       }
     }
     return uniqueDates;
-  }
+  };
   const dates = removeDuplicateDates(props.dates);
-  console.log();
   return (
     <>
       <Tabs
@@ -30,9 +54,13 @@ const TabbedView = (props) => {
           return {
             label: ` ${tarikh}`,
             key: tarikh,
-            children: <div className='p2'> {shows.map((show)=>{
+            children: 
+            <div className='p2'> {shows.map((show)=>{
                 if(new Date(show.showDate.toString()).toDateString() == tarikh)
-                    return <Button style={{margin:'5px'}}> {show.showTime} </Button>
+                    return  ( 
+                    <Link to={`/seatselection/${show._id}/${props.movies}/${show.screen}/${show.price}`} key={show.showTime}>
+                    <Button style={{ margin: '5px' }}>{show.showTime}</Button>
+                  </Link>); 
             }) } </div>,
           };
         })}

@@ -1,0 +1,29 @@
+/* PaymentSuccess.css */
+.payment-success-container {
+    text-align: center; 
+    padding: 20px;
+    background-color: #a8af4c; 
+    color: white;
+    border-radius: 5px;
+    margin: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 200px; 
+    margin-bottom: 250px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .payment {
+    color: azure;
+  }

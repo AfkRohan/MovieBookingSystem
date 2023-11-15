@@ -1,58 +1,75 @@
 .payment-container {
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-  }
-  
-  h2 {
-    text-align: center;
-  }
-  
-  .formclass {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  input {
+  width: 100%;
+  max-width: 800px;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-group {
+  width: calc(48% - 10px); /* Adjust the percentage and spacing as needed */
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.payment-details {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.payment-details p {
+  margin: 5px 0;
+  color: #333;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+  .form-group {
     width: 100%;
-    padding: 10px;
-    margin-top: 4px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
   }
-  
-  .payment-details {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-  }
-  
-  .payment-details p {
-    margin: 5px 0;
-    color: #333;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+}
