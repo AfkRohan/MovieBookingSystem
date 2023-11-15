@@ -17,13 +17,18 @@ import "./stylesheets/custom.css";
 import "./stylesheets/theme.css";
 import "./stylesheets/tickets.css";
 import "./stylesheets/movieshow.css";
+<<<<<<< HEAD
+import "./stylesheets/MovieSeatBooking.css"
+=======
 import "./stylesheets/paymentform.css";
 
+>>>>>>> 7bc13d46713de723e3ec4e4ed96bfc522529635d
 import AdminMovies from './pages/AdminMovies';
 import { useSelector } from 'react-redux';
 import Show from './pages/AdminShows'
 import MovieDetails from './pages/AdminMovies/MovieDetails';
 import Movies from './pages/Movies';
+import SeatSelection from './pages/SeatSelection';
 
 
 function App() {
@@ -51,6 +56,7 @@ function App() {
         <Route path="/tickets/:searchparam" element={<Tickets />} />
         <Route path="/helpcenter" element={<Helpcenter/>} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
+        <Route path="/seatselection/:id/:moviename" element={<SeatSelection/>}/>
 
       </Routes>
     </BrowserRouter>
