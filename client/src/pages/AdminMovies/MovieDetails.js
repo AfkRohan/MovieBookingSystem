@@ -54,9 +54,15 @@ const MovieDetails = () => {
                 <Tag color="red" style={tagStyle('#b1f2ff')}>Duration: {movie.duration} min</Tag>
               </List.Item>
             
+<<<<<<< HEAD
               <List.Item className="movie-details-seats">
                 <Link to={`/seatselection/${id}/${movie.name}`}>
                   <Button className="btnSeatselection">Book Now</Button>
+=======
+              <List.Item className="movie-details-seats centerDivStyle m3" style={{background:'none'}}>
+                <Link to={`/tickets/${id}`}>
+                  <Button block style={{width:'15rem'}}>Book Now</Button>
+>>>>>>> 7bc13d46713de723e3ec4e4ed96bfc522529635d
                 </Link>
               </List.Item>
             </List>

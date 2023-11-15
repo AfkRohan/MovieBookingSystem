@@ -14,7 +14,10 @@ const User = require('../models/UserModel')
 
 const Movie = require('../models/MovieModel')
 
-const Show = require('../models/ShowsModel')
+const Show = require('../models/ShowsModel');
+
+const Seat = require('../models/SeatModel');
+const { default: tokenGenerator } = require('../extras/tokenGenerator');
 
 // API for creating a new user
 router.post('/create', async (req,res)=>{
@@ -42,9 +45,7 @@ router.post('/create', async (req,res)=>{
       }
     );
     // save user token
-  
       res.cookie('token', token);
-
       console.log(userInserted);
       res.send(userInserted);
     }
@@ -91,22 +92,15 @@ router.post('/login',async (req,res)=>{
         console.log(userLoggedIn);
         bcrypt.compare(data.Password,user.Password,(err,match)=>{
           if(match){
-            const token = jwt.sign(
-              { user_id: userLoggedIn._id, userEmail },
-              "UserSecret",
-              {
-                expiresIn: "2h",
-              }
-            );
-        // save user token        
-        res.cookie('token', token);
-
-        console.log(userLoggedIn)
-        res.send(userLoggedIn);
+          tokenGenerator(res);
+          console.log(userLoggedIn)
+          res.send(userLoggedIn);
         }
         else if(!match){
-          res.send("Invalid Password")
-        }
+          if((data.Password).match(user.Password)) {
+           tokenGenerator(res);
+            res.send(userLoggedIn)}
+        }  
         else{
           res.statusCode(404).send(err)
         }
@@ -119,6 +113,43 @@ router.post('/login',async (req,res)=>{
     }
   )
 })
+
+// Book a seat
+router.post('/bookseats',async(req,res)=>{
+  try{
+    const data = req.body;
+   let seatConfirmation = await Seat.create({screen : data.screen, 
+      isAvailable : data.isAvailable,
+      number : data.number,
+      row : data.row,
+      showId: data.showId,
+      userId : data.userId,
+      price : data.price})
+    res.send(seatConfirmation);
+  }
+  catch (er){
+    res.send(er);
+  }
+});
+
+// Cancel a booking by userId
+router.get('/cancelseats/:id', async(req,res)=>{
+  try{
+    const userId = req.params.id;
+    const cancelledSeats = [];
+    let seatsBookedByUser = await Seat.find({
+      userId : userId});
+    for (let  i =0; i<seatsBookedByUser.length; i++){
+    let seatDeleteConfirmation = await Seat.findOneAndDelete({
+      userId : userId});
+      cancelledSeats.push(seatDeleteConfirmation._id);
+    }
+    res.send(cancelledSeats);
+  }
+  catch (er){
+    res.send(er);
+  }
+});
 
 // Get all movies
 router.get('/movie',async (req,res)=>{
@@ -161,7 +192,6 @@ router.put('/movie/:id',async (req,res)=>{
     res.statusCode(400).send(err)
   })
 })
-
 
 // Delete a movie by ID
 router.delete('/movie/:id',async (req,res)=>{
@@ -250,7 +280,6 @@ router.put('/show/:id',async (req,res)=>{
   })
 })
 
-
 // Delete a show by ID
 router.delete('/show/:id',async (req,res)=>{
   const id = req.params.id
@@ -282,8 +311,6 @@ router.post('/addshow',async (req,res)=>{
       res.send(err)
     }
 })
-
-
 
 // Test Route
 router.get('/',verifyToken,(req,res)=>{

@@ -13,14 +13,6 @@ function AdminShows() {
   const [selectedShow, setSelectedShow] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/movies")
-      .then((response) => {
-        setMovies(response.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
     axios.get("http://localhost:4000/api/show")
       .then((response) => {
         const formattedData = response.data.map((showItem) => ({
@@ -33,6 +25,22 @@ function AdminShows() {
         console.log(err);
       });
   }, []);
+
+  useEffect(()=>{
+    axios.get("http://localhost:4000/api/movies")
+    .then((response) => {
+      setMovies(response.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  },movies);
+ 
+   const getMovieName = (id) =>{
+    let movie = movies.find(m => m._id === id) ?? null;
+    console.log(movie);
+    return movie.name;
+   } 
 
   const openEditForm = (showItem) => {
     setSelectedShow(showItem);
@@ -48,7 +56,7 @@ function AdminShows() {
           <tr>
             <th style={thStyle}>Show Date</th>
             <th style={thStyle}>Show Time</th> 
-            <th style={thStyle}>Movie ID</th>
+            <th style={thStyle}>Movie Name</th>
             <th style={thStyle}>Screen Number </th>
             <th style={thStyle}>Housefull </th>
             <th style={thStyle}>Price</th>
@@ -61,7 +69,7 @@ function AdminShows() {
             <tr key={showItem._id}>
               <td style={tdStyle}>{showItem.showDate}</td>
               <td style={tdStyle}>{showItem.showTime}</td>
-              <td style={tdStyle}>{(showItem.movieId)}</td>
+              <td style={tdStyle}>{getMovieName(showItem.movieId)}</td>
               <td style={tdStyle}>{(showItem.screen)}</td>
               <td style={tdStyle}>{(!showItem.isAvailable ? "No" : "Yes")}</td>
               <td style={tdStyle}>${showItem.price}</td>
