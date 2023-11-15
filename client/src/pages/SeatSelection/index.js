@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Select, Card, Button } from 'antd';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 
@@ -76,6 +76,8 @@ const App = () => {
   
     return seats;
   };
+
+  
  
   useEffect(() => {
     // Handle seat selection in the UI
@@ -103,12 +105,14 @@ const App = () => {
   
 
       {/* { <Card className='showcase'>
+        <div>
         <div className="seat not-selected"></div>
         <small>Not Selected</small>
         <div className="seat selected"></div>
         <small>Selected</small>
         <div className="seat occupied"></div>
         <small>Occupied</small>
+        </div>
       </Card> } */}
 
       <div className="container">
@@ -124,8 +128,10 @@ const App = () => {
         You have selected <span id="count">0</span> seats for a price of $
         <span id="total">0</span>
       </p>
-    <button className='btnproceedcheckout'>Proceed to Checkout</button>
-    </div>
+      <Link to="/payment">
+        <button className="btnproceedcheckout" disabled={selectedSeats.length === 0}>Proceed to Checkout</button>
+      </Link>
+      </div>
   );
 };
 
