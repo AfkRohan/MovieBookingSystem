@@ -6,6 +6,7 @@ import { Link  , useParams} from 'react-router-dom';
 import { Button, Tabs } from 'antd';
 const TabbedView = (props) => {
   const shows = props.shows;
+  
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
@@ -23,7 +24,7 @@ const TabbedView = (props) => {
   }, [id]);
 
   if (!movie) {
-    return <div>Loading...</div>; // You can show a loading spinner or a message while the data is being fetched
+    return <div>Loading...</div>; 
   }
 
   console.log("tabs");
@@ -56,7 +57,8 @@ const TabbedView = (props) => {
             children: 
             <div className='p2'> {shows.map((show)=>{
                 if(new Date(show.showDate.toString()).toDateString() == tarikh)
-                    return  ( <Link to={`/seatselection/${id}/${movie.name}`} key={show.showTime}>
+                    return  ( 
+                    <Link to={`/seatselection/${show._id}/${props.movies}/${show.screen}/${show.price}`} key={show.showTime}>
                     <Button style={{ margin: '5px' }}>{show.showTime}</Button>
                   </Link>); 
             }) } </div>,

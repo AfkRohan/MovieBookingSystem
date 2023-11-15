@@ -7,8 +7,8 @@ import { Link, useParams } from 'react-router-dom';
 const { Option } = Select;
 
 const App = () => {
-  const { id, moviename } = useParams();
-  const [selectedMovie, setSelectedMovie] = useState('10');
+  const { id, moviename , screenNumber , price } = useParams();
+  const [selectedMovie, setSelectedMovie] = useState(parseFloat(price));
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [isBooked,setBooked] = useState([]);
   const isOccupied = (seat) =>{
@@ -116,7 +116,7 @@ const App = () => {
       </Card> } */}
 
       <div className="container">
-        <div className="screen"></div>
+        <div className="screen text-center"><h1 style={{"color":"black", "margin-top":"10px"}} className='text-center'> Screen {screenNumber}</h1></div>
         <div className="row">
          
           <div className="middle-seats">{renderSeats(5, 10, 69)}</div>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 
-function Payment(){
+function Payment(props){
+    const shows = props.shows;
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -14,7 +16,7 @@ function Payment(){
     const [cvv, setCvv] = useState('');
     const[cardholdername, setCardholderName]=useState('');  
     const [ticketQuantity, setTicketQuantity] = useState(1);
-    const [ticketPrice, setTicketPrice] = useState(10); 
+    const [ticketPrice, setTicketPrice] = useState(props.shows ? props.shows.price : 0);
     const [gstPercentage, setGstPercentage] = useState(5); 
 
   const calculateTotalAmount = () => {
@@ -48,8 +50,8 @@ function Payment(){
 
   return (
    <div className="payment-container">
-  <h2>Payment Information</h2>
-  <form className='formclass' onSubmit={handlePaymentSubmit}>
+  <h2>Ticket Payment Information</h2>
+  <form action="/paymentsuccess" className='formclass' onSubmit={handlePaymentSubmit}>
     <div className="form-row">
       <div className="form-group">
         <label htmlFor="firstName">First Name</label>

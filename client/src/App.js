@@ -19,12 +19,14 @@ import "./stylesheets/tickets.css";
 import "./stylesheets/movieshow.css";
 import "./stylesheets/MovieSeatBooking.css"
 import "./stylesheets/paymentform.css";
+import "./stylesheets/PaymentSuccess.css";
 import AdminMovies from './pages/AdminMovies';
 import { useSelector } from 'react-redux';
 import Show from './pages/AdminShows'
 import MovieDetails from './pages/AdminMovies/MovieDetails';
 import Movies from './pages/Movies';
 import SeatSelection from './pages/SeatSelection';
+import PaymentSuccess from './pages/PaymentForm/PaymentSuccess';
 
 
 function App() {
@@ -52,7 +54,8 @@ function App() {
         <Route path="/tickets/:searchparam" element={<Tickets />} />
         <Route path="/helpcenter" element={<Helpcenter/>} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
-        <Route path="/seatselection/:id/:moviename" element={<SeatSelection/>}/>
+        <Route path="/seatselection/:id/:moviename/:screenNumber/:price" element={<SeatSelection/>}/>
+        <Route path="/paymentsuccess" element={<PaymentSuccess/>}/>
 
       </Routes>
     </BrowserRouter>
