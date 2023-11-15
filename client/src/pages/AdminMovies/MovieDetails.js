@@ -55,7 +55,7 @@ const MovieDetails = () => {
               </List.Item>
             
               <List.Item className="movie-details-seats">
-                <Link to={`//${id}`}>
+                <Link to={`/seatselection/${id}/${movie.name}`}>
                   <Button className="btnSeatselection">Book Now</Button>
                 </Link>
               </List.Item>
