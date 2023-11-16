@@ -327,11 +327,11 @@ section {
 .about-us-container {
   border: 1px solid #e0e0e0;
   max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 60px auto;
   text-align: justify;
   background-color: #000; 
   color: #fff; 
+  padding: 30px;
 }
 
 .about-us-container h2 {

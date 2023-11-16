@@ -19,11 +19,11 @@ const seatSchema = new mongoose.Schema({
         type: Boolean,
     },
     row : {
-        default: true,
-        type : String
+        required: true,
+        type : String,
     },
     number : {
-        default: true,
+        required: true,
         type : Number
     },
     showId : { 

@@ -22,6 +22,9 @@ function Home(){
        <Header/>
              <ImageSlider></ImageSlider>
              <main className="main-content">
+             <div>
+                <AboutUs></AboutUs>
+            </div>
              <center><h1 className='mt1'>Featured Movies</h1></center>
              <div className="featured-movies">
              {movie.map((movie, index) => (
@@ -50,9 +53,7 @@ function Home(){
          
         />
     </div>
-       <div>
-        <AboutUs></AboutUs>
-       </div>
+      
       </main>
             
              <Footer/>

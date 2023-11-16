@@ -136,7 +136,7 @@ router.post('/bookseats',async(req,res)=>{
 res.send(respseats);
 });
 
-// all bookings
+// all bookings by seat with userId
 router.get('/getseats/:id', async(req,res)=>{
   try{
     const userId = req.params.id;
@@ -155,7 +155,7 @@ router.get('/getseats/:id', async(req,res)=>{
   }
 });
 
-//  Bookings by showId
+//  Bookings by SeatId
 router.get('/bookedseats/:id', async(req,res)=>{
   try{
     const showId = req.params.id;

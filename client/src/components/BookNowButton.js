@@ -3,7 +3,7 @@ import React from 'react'
 function BookNowButton(props) {
     console.log(props.id)
   return (
-    <button > BookNow </button>
+    <button className='btnSeatselection'> BookNow </button>
   )
 }
 

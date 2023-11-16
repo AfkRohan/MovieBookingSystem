@@ -3,8 +3,9 @@ import React from 'react';
 
 function AboutUs() {
   return (
+    <>
+    <h1  className='text-center pt3'>Welcome to Cinemax Movies</h1>
     <div className="about-us-container">
-      <h2>About Cinemax Movies</h2>
       <p>
         Welcome to Cinemax Movies, where we bring the magic of cinema to your doorstep.
         At Cinemax, we are passionate about delivering an exceptional movie-watching experience for our audience.
@@ -21,6 +22,7 @@ function AboutUs() {
         Thank you for choosing Cinemax Movies. Lights, camera, action!
       </p>
     </div>
+    </>
   );
 }
 

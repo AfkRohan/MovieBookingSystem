@@ -9,7 +9,7 @@ function UserMovieCard(props) {
     <div className="movie-page" key={props.index}>
     <img src={props.movie.image} alt={props.movie.title} />
     <div className="movie-details">
-      <h2>{props.movie.name}</h2>
+      <h1 style={{color:"white"}}>{props.movie.name}</h1>
       <p>{props.movie.description}</p>
       <p>Rating: {props.movie.rating}</p>
       <p>Language: {props.movie.languages}</p>

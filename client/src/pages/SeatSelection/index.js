@@ -17,10 +17,17 @@ const App = () => {
     else
       return true;
   }
-  
+
+   
+ const [payload , setPayload] = useState([]);
+
+
+
   const handleMovieChange = (value) => {
     setSelectedMovie(value);
   };
+
+  
 
   const handleSeatClick = (seat,isOccupied) => {
     if(!isOccupied.includes(seat)){
@@ -101,7 +108,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h2 style={{textAlign:'center'}}>Select Seats for Booking {moviename}</h2>
+      <h2 style={{textAlign:'center' , color: 'white'}}>Select Seats for Booking : {moviename}</h2>
   
 
       {/* { <Card className='showcase'>
@@ -116,7 +123,7 @@ const App = () => {
       </Card> } */}
 
       <div className="container">
-        <div className="screen text-center"><h1 style={{"color":"black", "margin-top":"10px"}} className='text-center'> Screen {screenNumber}</h1></div>
+        <div className="screen text-center"><h2 style={{"color":"black", "margin-top":"10px"}} className='text-center'> Screen {screenNumber}</h2></div>
         <div className="row">
          
           <div className="middle-seats">{renderSeats(5, 10, 69)}</div>
@@ -128,11 +135,14 @@ const App = () => {
         You have selected <span id="count">0</span> seats for a price of $
         <span id="total">0</span>
       </p>
-      <Link to="/payment">
-        <button className="btnproceedcheckout" disabled={selectedSeats.length === 0}>Proceed to Checkout</button>
+       
+       <Link to="/payment">   
+         <button className="btnproceedcheckout" disabled={selectedSeats.length === 0}>Proceed to Checkout</button>
       </Link>
       </div>
   );
 };
 
 export default App;
+
+

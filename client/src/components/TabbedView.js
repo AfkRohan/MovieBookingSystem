@@ -59,7 +59,7 @@ const TabbedView = (props) => {
                 if(new Date(show.showDate.toString()).toDateString() == tarikh)
                     return  ( 
                     <Link to={`/seatselection/${show._id}/${props.movies}/${show.screen}/${show.price}`} key={show.showTime}>
-                    <Button style={{ margin: '5px' }}>{show.showTime}</Button>
+                    <Button className='btnSeatselection' style={{ margin: '5px' , color:'black' }}>{show.showTime}</Button>
                   </Link>); 
             }) } </div>,
           };

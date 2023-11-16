@@ -50,7 +50,7 @@ function Tickets() {
         {!isAvailable ? 
         <h1 className='text-center'> No Shows available now for this movie </h1> : (
           <div className="showtimes">
-        <h2>Showtimes</h2>
+        <h1 className='text-center p3'>Showtimes</h1>
         <TabbedView dates={dates} shows={showByMovieId} movies={movieData.name}/>
         <table class="table table-striped table-hover table-light ">
           <thead>
