@@ -28,11 +28,11 @@ const seatSchema = new mongoose.Schema({
     },
     showId : { 
         required : true,
-        type : Object
+        type : String
     },
     userId :{
         required: true,
-        type: Object
+        type: String
     },
     price : {
         required : true,
