@@ -20,8 +20,7 @@ function UserMovieCard(props) {
           <div>
           <ViewDetailsButton movieId={props.movie._id} btnText={"View More"} />
           </div>
-      </div>
-      
+      </div>    
     </div>
     </div>
   )
