@@ -119,24 +119,26 @@ router.post('/login',async (req,res)=>{
 router.post('/bookseats',async(req,res)=>{
   const data = req.body;
   console.log(data)
-  // const respseats = [];
-  // for(let i=0; i<data.length(); i++){
+  const respseats = [];
+  for(let i=0; i<data.length(); i++){
   try{
       let seatConfirmation = await Seat({
-      screen : data.screen, 
-      isAvailable : false,
-      number : data.number,
-      row : data.row,
-      showId: data.showId,
-      userId : data.userId,
-      price : data.price
+      screen : data[i].screen, 
+      isAvailable : data[i].isAvailable,
+      number : data[i].number,
+      row : data[i].row,
+      showId: data[i].showId,
+      userId : data[i].userId,
+      price : data[i].price
     });
-     let seat = await seatConfirmation.save()
-      res.send(data);
+     let seat = await seatConfirmation.save();
+     respseats.push(seat);
   }
   catch (er){
     res.send(er);
   }
+}
+res.send(respseats)
 });
 
 // all bookings
