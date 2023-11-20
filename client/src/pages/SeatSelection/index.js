@@ -18,6 +18,7 @@ const App = () => {
       return true;
   }
 
+
    
  const [payload , setPayload] = useState([]);
 
@@ -64,7 +65,7 @@ const App = () => {
             key={seat}
             className={`seat ${isSelected ? 'selected' : ''} 
             }`}
-            style={seatStyle} // Apply the style here
+            style={seatStyle} 
             onClick={() => handleSeatClick(seat,isBooked)}
           >
             {seatNumber}
@@ -134,11 +135,22 @@ const App = () => {
       <p className="text">
         You have selected <span id="count">0</span> seats for a price of $
         <span id="total">0</span>
-      </p>
        
-       <Link to="/payment">   
-         <button className="btnproceedcheckout" disabled={selectedSeats.length === 0}>Proceed to Checkout</button>
-      </Link>
+      </p>
+      {console.log('Selected seats:', selectedSeats.length)}
+      <Link
+to={{
+    pathname: '/payment',
+    state: { ticketQuantity: selectedSeats.length , selectedSeats: selectedSeats}
+  }}
+>
+  <button
+    className="btnproceedcheckout"
+    disabled={selectedSeats.length === 0}
+  >
+    Proceed to Checkout
+  </button>
+</Link>
       </div>
   );
 };
