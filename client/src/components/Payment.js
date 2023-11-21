@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React,{useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-  
+function Payment(props) {
   const location = useLocation();
   const { ticketQuantity } = location.state || { ticketQuantity: 0 };
   
   console.log('Ticket Quantity:', ticketQuantity); 
   const shows = props.shows;
-
-
+  const [success, setSuccess] = useState(false);
+  const [ErrorMessage, setErrorMessage] = useState("");
+  const [orderID, setOrderID] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,7 +22,11 @@ import React, { useState } from 'react';
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [cardholdername, setCardholderName] = useState("");
-  
+  const initialOptions = {
+    clientId: "AdxX5Jm6gPp1fqRFvOd-v6cnyrnckqDDBr_hG6rP8A8h6huOFONISAWsDgPYdAJOJzxVgqBtdYPXBcUW",
+    currency: "USD",
+    intent: "capture",
+};
   const [ticketPrice, setTicketPrice] = useState(
     props.shows ? props.shows.price : 0
   );
@@ -54,6 +61,7 @@ import React, { useState } from 'react';
     }
     setState(value);
   };
+
   const handleStreetCityChange = (value) => {
     if (value.trim() === "") {
       setStreetCityError("Street/City is required");
@@ -62,6 +70,7 @@ import React, { useState } from 'react';
     }
     setStreetCity(value);
   };
+
   const handleBillingAddressChange = (value) => {
     if (value.trim() === "") {
       setBillingAddressError("Billing Address is required");
@@ -72,6 +81,45 @@ import React, { useState } from 'react';
     }
     setBillingAddress(value);
   };
+
+  const createOrder = (data, actions) => {
+    return actions.order
+      .create({
+        purchase_units: [
+          {
+            description: "Sunflower",
+            amount: {
+              currency_code: "USD",
+              value: 20,
+            },
+          },
+        ],
+      })
+      .then((orderID) => {
+        setOrderID(orderID);
+        return orderID;
+      });
+  };
+
+  // check Approval
+  const onApprove = (data, actions) => {
+    return actions.order.capture().then(function (details) {
+      const { payer } = details;
+      setSuccess(true);
+    });
+  };
+
+  //capture error
+  const onError = (data, actions) => {
+    setErrorMessage("An Error occured with your payment ");
+  };
+
+  useEffect(() => {
+    if (success) {
+      alert("Payment successful!!");
+      console.log("Order successful . Your order id is--", orderID);
+    }
+  }, [orderID, success]);
 
   const calculateTotalAmount = () => {
     const subtotal = ticketPrice * ticketQuantity;
@@ -357,59 +405,22 @@ import React, { useState } from 'react';
         />
       </div>
     </div>
-    <div className="form-group">
-      <label htmlFor="cardholdername">CardHolder Name</label>
-      <input
-        type="text"
-        id="cardholdername"
-        name="cardholdername"
-        value={cardholdername}
-        placeholder="Enter your Holder Name"
-        onChange={(e) => setCardholderName(e.target.value)}
-      />
-    </div>
-    <div className="form-group">
-      <label htmlFor="cardNumber">Card Number</label>
-      <input
-        type="text"
-        id="cardNumber"
-        name="cardNumber"
-        value={cardNumber}
-        onChange={(e) => setCardNumber(e.target.value)}
-        placeholder="Enter your card number"
-      />
-    </div>
-    <div className="form-group">
-      <label htmlFor="expiryDate">Expiry Date</label>
-      <input
-        type="text"
-        id="expiryDate"
-        name="expiryDate"
-        value={expiryDate}
-        onChange={(e) => setExpiryDate(e.target.value)}
-        placeholder="MM/YY"
-      />
-    </div>
-    <div className="form-group">
-      <label htmlFor="cvv">CVV</label>
-      <input
-        type="text"
-        id="cvv"
-        name="cvv"
-        value={cvv}
-        onChange={(e) => setCvv(e.target.value)}
-        placeholder="CVV"
-      />
-    </div>
+
     <div className="payment-details">
       <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
       <p>Quantity: {ticketQuantity}</p>
       <p>GST ({gstPercentage}%): ${((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}</p>
       <p>Total Payment: ${calculateTotalAmount()}</p>
     </div>
-    <button type="submit">Pay Now</button>
+    {/* <button type="submit">Pay Now</button> */}
+     <PayPalScriptProvider options={initialOptions}>  
+        <PayPalButtons
+        style={{ layout: "vertical" }}
+        createOrder={createOrder}
+        onApprove={onApprove}
+        />
+      </PayPalScriptProvider>
   </form>
 </div>
-
-  );
+  );}
 export default Payment;
