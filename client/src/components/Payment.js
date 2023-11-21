@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import { useLocation } from 'react-router-dom';
-
-function Payment(props) {
+import React, { useState } from 'react';
 
   
   const location = useLocation();
@@ -358,21 +355,62 @@ function Payment(props) {
           value={ticketQuantity}
           readOnly // Use readOnly instead of disabled for read-only inputs
         />
-          </div>
-        </div>
-       
-        <div className="payment-details">
-          <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
-          <p>Quantity: {ticketQuantity}</p>
-          <p>
-            GST ({gstPercentage}%): $
-            {((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}
-          </p>
-          <p>Total Payment: ${calculateTotalAmount()}</p>
-        </div>
-        <button type="submit">Pay Now</button>
-      </form>
+      </div>
     </div>
+    <div className="form-group">
+      <label htmlFor="cardholdername">CardHolder Name</label>
+      <input
+        type="text"
+        id="cardholdername"
+        name="cardholdername"
+        value={cardholdername}
+        placeholder="Enter your Holder Name"
+        onChange={(e) => setCardholderName(e.target.value)}
+      />
+    </div>
+    <div className="form-group">
+      <label htmlFor="cardNumber">Card Number</label>
+      <input
+        type="text"
+        id="cardNumber"
+        name="cardNumber"
+        value={cardNumber}
+        onChange={(e) => setCardNumber(e.target.value)}
+        placeholder="Enter your card number"
+      />
+    </div>
+    <div className="form-group">
+      <label htmlFor="expiryDate">Expiry Date</label>
+      <input
+        type="text"
+        id="expiryDate"
+        name="expiryDate"
+        value={expiryDate}
+        onChange={(e) => setExpiryDate(e.target.value)}
+        placeholder="MM/YY"
+      />
+    </div>
+    <div className="form-group">
+      <label htmlFor="cvv">CVV</label>
+      <input
+        type="text"
+        id="cvv"
+        name="cvv"
+        value={cvv}
+        onChange={(e) => setCvv(e.target.value)}
+        placeholder="CVV"
+      />
+    </div>
+    <div className="payment-details">
+      <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
+      <p>Quantity: {ticketQuantity}</p>
+      <p>GST ({gstPercentage}%): ${((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}</p>
+      <p>Total Payment: ${calculateTotalAmount()}</p>
+    </div>
+    <button type="submit">Pay Now</button>
+  </form>
+</div>
+
   );
 }
 

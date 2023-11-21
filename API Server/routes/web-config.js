@@ -188,7 +188,7 @@ router.get('/movie/:id',async (req,res)=>{
   const id = req.params.id
   try{
   const movie = await Movie.findById(id.toString());
-  res.send(movie)
+  res.send(movie);
   }
   catch(err){
     res.send(err)
