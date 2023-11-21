@@ -37,7 +37,7 @@ function Payment(props) {
 
   
   const handlePostalCodeChange = (value) => {
-    const postalCodeRegex = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/; // Regex for Canadian postal code format
+    const postalCodeRegex = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/; 
 
     if (value.trim() === "") {
       setPostalCodeError("Postal Code is required");
@@ -356,7 +356,7 @@ function Payment(props) {
           id="ticketQuantity"
           name="ticketQuantity"
           value={ticketQuantity}
-          readOnly // Use readOnly instead of disabled for read-only inputs
+          readOnly 
         />
           </div>
         </div>
