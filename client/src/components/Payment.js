@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React,{useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 function Payment(props) {
-
-  
   const location = useLocation();
   const { ticketQuantity } = location.state || { ticketQuantity: 0 };
   
   console.log('Ticket Quantity:', ticketQuantity); 
   const shows = props.shows;
-
-
+  const [success, setSuccess] = useState(false);
+  const [ErrorMessage, setErrorMessage] = useState("");
+  const [orderID, setOrderID] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,7 +22,11 @@ function Payment(props) {
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [cardholdername, setCardholderName] = useState("");
-  
+  const initialOptions = {
+    clientId: "AdxX5Jm6gPp1fqRFvOd-v6cnyrnckqDDBr_hG6rP8A8h6huOFONISAWsDgPYdAJOJzxVgqBtdYPXBcUW",
+    currency: "USD",
+    intent: "capture",
+};
   const [ticketPrice, setTicketPrice] = useState(
     props.shows ? props.shows.price : 0
   );
@@ -57,6 +61,7 @@ function Payment(props) {
     }
     setState(value);
   };
+
   const handleStreetCityChange = (value) => {
     if (value.trim() === "") {
       setStreetCityError("Street/City is required");
@@ -65,6 +70,7 @@ function Payment(props) {
     }
     setStreetCity(value);
   };
+
   const handleBillingAddressChange = (value) => {
     if (value.trim() === "") {
       setBillingAddressError("Billing Address is required");
@@ -75,6 +81,45 @@ function Payment(props) {
     }
     setBillingAddress(value);
   };
+
+  const createOrder = (data, actions) => {
+    return actions.order
+      .create({
+        purchase_units: [
+          {
+            description: "Sunflower",
+            amount: {
+              currency_code: "USD",
+              value: 20,
+            },
+          },
+        ],
+      })
+      .then((orderID) => {
+        setOrderID(orderID);
+        return orderID;
+      });
+  };
+
+  // check Approval
+  const onApprove = (data, actions) => {
+    return actions.order.capture().then(function (details) {
+      const { payer } = details;
+      setSuccess(true);
+    });
+  };
+
+  //capture error
+  const onError = (data, actions) => {
+    setErrorMessage("An Error occured with your payment ");
+  };
+
+  useEffect(() => {
+    if (success) {
+      alert("Payment successful!!");
+      console.log("Order successful . Your order id is--", orderID);
+    }
+  }, [orderID, success]);
 
   const calculateTotalAmount = () => {
     const subtotal = ticketPrice * ticketQuantity;
@@ -358,22 +403,24 @@ function Payment(props) {
           value={ticketQuantity}
           readOnly 
         />
-          </div>
-        </div>
-       
-        <div className="payment-details">
-          <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
-          <p>Quantity: {ticketQuantity}</p>
-          <p>
-            GST ({gstPercentage}%): $
-            {((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}
-          </p>
-          <p>Total Payment: ${calculateTotalAmount()}</p>
-        </div>
-        <button type="submit">Pay Now</button>
-      </form>
+      </div>
     </div>
-  );
-}
 
+    <div className="payment-details">
+      <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
+      <p>Quantity: {ticketQuantity}</p>
+      <p>GST ({gstPercentage}%): ${((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}</p>
+      <p>Total Payment: ${calculateTotalAmount()}</p>
+    </div>
+    {/* <button type="submit">Pay Now</button> */}
+     <PayPalScriptProvider options={initialOptions}>  
+        <PayPalButtons
+        style={{ layout: "vertical" }}
+        createOrder={createOrder}
+        onApprove={onApprove}
+        />
+      </PayPalScriptProvider>
+  </form>
+</div>
+  );}
 export default Payment;
