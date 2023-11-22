@@ -64,7 +64,7 @@ const App = () => {
         number : seat[1],
         row : seat[0],
         showId: id,
-        userId : 'A3bh53',
+        userId : localStorage.getItem("userId") ?? "P2R4E6",
         price : price}
   
         tempData.pop(tempData.indexOf(occupiedSeats));

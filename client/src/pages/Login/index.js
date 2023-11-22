@@ -26,6 +26,7 @@ function Login(){
                 if(data!="Invalid Password"){
                     console.log(data);
                     localStorage.setItem('username',data.FirstName);
+                    localStorage.setItem('userId',data._id);
                     window.location.href="http://localhost:3000/"
                 }
                 else{

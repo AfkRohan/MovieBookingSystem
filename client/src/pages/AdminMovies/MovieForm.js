@@ -76,6 +76,7 @@ function MovieForm({
                 <option value="Punjabi">Punjabi</option>
                 <option value="Telugu">Telugu</option>
                 <option value="Tamil">Tamil</option>
+                <option value="Gujarati">Gujarati</option>
             </select>
             </Form.Item>
         </Col>
@@ -104,12 +105,12 @@ function MovieForm({
         </Col>
         <Col span={8}>
             <Form.Item label="Rating" name="rating">
-               <input type="number"/>
+               <input type="number" min={1} max={5}/>
             </Form.Item>
         </Col>
         <Col span={8}>
-            <Form.Item label="Duration" name="duration">
-               <input type="number" min={0} max={5}/>
+        <Form.Item label="Duration" name="duration">
+               <input type="number" min={50} max={180}/>
             </Form.Item>
         </Col>
         <Col span={16}>

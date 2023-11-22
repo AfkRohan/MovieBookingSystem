@@ -69,6 +69,7 @@ function EditMovieForm({
                 <option value="Punjabi">Punjabi</option>
                 <option value="Telugu">Telugu</option>
                 <option value="Tamil">Tamil</option>
+                <option value="Gujarati">Gujarati</option>
               </select>
             </Form.Item>
           </Col>
