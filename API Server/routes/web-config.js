@@ -120,7 +120,7 @@ router.post('/bookseats',async(req,res)=>{
   const data = req.body;
   console.log(data)
   const respseats = [];
-  for(let i=0; i<data.length(); i++){
+  for(let i=0; i<data.length; i++){
   try{
       let seatConfirmation = await Seat({
       screen : data[i].screen, 
@@ -141,7 +141,7 @@ router.post('/bookseats',async(req,res)=>{
 res.send(respseats)
 });
 
-// all bookings
+// seat cancellation byookings
 router.get('/getseats/:id', async(req,res)=>{
   try{
     const userId = req.params.id;

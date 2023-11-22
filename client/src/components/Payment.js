@@ -4,7 +4,13 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 function Payment(props) {
   const location = useLocation();
-  const { ticketQuantity } = location.state || { ticketQuantity: 0 };
+  const ticketQuantity  = parseInt(localStorage.getItem("BookedQuanity") ?? 0);
+  const ticketPrice  = parseInt(localStorage.getItem("Price") ?? 0);
+  const gstPercentage = 5;
+
+
+
+
   
   console.log('Ticket Quantity:', ticketQuantity); 
   const shows = props.shows;
@@ -27,10 +33,6 @@ function Payment(props) {
     currency: "USD",
     intent: "capture",
 };
-  const [ticketPrice, setTicketPrice] = useState(
-    props.shows ? props.shows.price : 0
-  );
-  const [gstPercentage, setGstPercentage] = useState(5);
   const [firstNameError, setFirstNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [lastNameError, setLastNameError] = useState("");

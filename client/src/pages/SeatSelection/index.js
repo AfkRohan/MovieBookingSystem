@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Select, Card, Button } from 'antd';
 import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -21,6 +22,7 @@ const App = () => {
 
    
  const [payload , setPayload] = useState([]);
+ 
 
 
 
@@ -37,27 +39,64 @@ const App = () => {
 
     if (seatIndex === -1) {
       updatedSeats.push(seat);
+      const occupiedSeats =  {
+        screen : screenNumber, 
+        isAvailable : false,
+        number : seat[1],
+        row : seat[0],
+        showId: id,
+        userId : 'A3bh53',
+        price : price}
+  
+        const tempData = payload;
+  
+        tempData.push(occupiedSeats);
+        setPayload(tempData);
+        console.log(payload);
+
     } else {
       updatedSeats.splice(seatIndex, 1);
-    }
+      const tempData = payload;
 
+      const occupiedSeats =  {
+        screen : screenNumber, 
+        isAvailable : false,
+        number : seat[1],
+        row : seat[0],
+        showId: id,
+        userId : 'A3bh53',
+        price : price}
+  
+        tempData.pop(tempData.indexOf(occupiedSeats));
+        setPayload(tempData);
+        console.log(payload);
+    }
     setSelectedSeats(updatedSeats);
+
+   
+      
+
+    console.log(selectedSeats);
   }
+
+
   };
 
-  const renderSeats = (rows, columns, offset) => {
+  const renderSeats = (columns) => {
     const seats = [];
     let seatNumber = 1;
-  
-    for (let row = 0; row < rows; row++) {
+    
+    const rows = ['A', 'B' , 'C' , 'D' , 'E' , 'F' ];
+    for (let i = 0 ; i < rows.length ; i++) {
+      
       const rowSeats = [];
   
       for (let col = 0; col < columns; col++) {
-        const seat = `${String.fromCharCode(offset + row)}${col + 1}`;
+        const seat = `${rows[i]}${col}`;
         const isSelected = selectedSeats.includes(seat);
        
         const seatStyle = {
-          backgroundColor: isSelected ? '#F7BD02' : isOccupied(seat) ? '#fff' : '#444451',
+          backgroundColor: isSelected ? '#F7BD02' : isOccupied(seat) ? '#8f9296' : '#444451',
         };
   
         rowSeats.push(
@@ -68,15 +107,13 @@ const App = () => {
             style={seatStyle} 
             onClick={() => handleSeatClick(seat,isBooked)}
           >
-            {seatNumber}
+            {seat}
           </div>
         );
-  
-        seatNumber++;
       }
   
       seats.push(
-        <div key={row} className="row">
+        <div key={rows[i]} className="row">
           {rowSeats}
         </div>
       );
@@ -85,6 +122,7 @@ const App = () => {
     return seats;
   };
 
+  // '/bookedseats/:id'
   
  
   useEffect(() => {
@@ -107,6 +145,25 @@ const App = () => {
     total.innerText = selectedSeatsCount * ticketPrice;
   }, [selectedSeats, selectedMovie]);
 
+
+  useEffect (()  => {
+
+    const fetchData =  async () => {
+
+    const response = await axios.get(`http://localhost:4000/api/bookedseats/${id}`);
+    const bookings = response.data;
+    console.log("Bookings " + typeof bookings);
+
+    const concatenatedBookings = bookings.map(bookings => `${bookings.row}${bookings.number}`);
+    setBooked(concatenatedBookings); // Set state with the concatenated bookings
+    
+    console.log(setBooked);
+
+ }
+  fetchData() },[]);
+
+ 
+
   return (
     <div className="App">
       <h2 style={{textAlign:'center' , color: 'white'}}>Select Seats for Booking : {moviename}</h2>
@@ -127,7 +184,7 @@ const App = () => {
         <div className="screen text-center"><h2 style={{"color":"black", "margin-top":"10px"}} className='text-center'> Screen {screenNumber}</h2></div>
         <div className="row">
          
-          <div className="middle-seats">{renderSeats(5, 10, 69)}</div>
+          <div className="middle-seats">{renderSeats(10)}</div>
           
         </div>
       </div>
@@ -138,19 +195,31 @@ const App = () => {
        
       </p>
       {console.log('Selected seats:', selectedSeats.length)}
-      <Link
-to={{
+{/* to={{
     pathname: '/payment',
     state: { ticketQuantity: selectedSeats.length , selectedSeats: selectedSeats}
-  }}
->
+  }} */}
+
+  
   <button
+ onClick={async () => {
+  try {
+    const response = await axios.post("http://localhost:4000/api/bookseats/", payload);
+    localStorage.setItem("BookedQuantity", selectedSeats.length);
+    localStorage.setItem("Price", price);
+    window.location.href = '/payment';
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}}
+
+
+
     className="btnproceedcheckout"
     disabled={selectedSeats.length === 0}
   >
     Proceed to Checkout
   </button>
-</Link>
       </div>
   );
 };
