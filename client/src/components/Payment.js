@@ -7,11 +7,13 @@ function Payment(props) {
   const ticketQuantity  = parseInt(localStorage.getItem("BookedQuanity") ?? 0);
   const ticketPrice  = parseInt(localStorage.getItem("Price") ?? 0);
   const gstPercentage = 5;
-
-
-
-
-  
+  const calculateTotalAmount = () => {
+    const subtotal = ticketPrice * ticketQuantity;
+    const gstAmount = (subtotal * gstPercentage) / 100;
+    const totalAmount = subtotal + gstAmount;
+    return totalAmount.toFixed(2);
+  };
+  const totalAmount = 40 ;
   console.log('Ticket Quantity:', ticketQuantity); 
   const shows = props.shows;
   const [success, setSuccess] = useState(false);
@@ -28,9 +30,11 @@ function Payment(props) {
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [cardholdername, setCardholderName] = useState("");
+  //Paypal payment Test Account Credentials
+  // Email: someone@personal.com  
+  // Password: Personal@123
   const initialOptions = {
-    clientId: "AdxX5Jm6gPp1fqRFvOd-v6cnyrnckqDDBr_hG6rP8A8h6huOFONISAWsDgPYdAJOJzxVgqBtdYPXBcUW",
-    currency: "USD",
+    clientId: "AdQ2j5Z-7F6gJ7_Ma0kFEDVmPanC0PMXkiz3AySocz6fw5hJ-yF2Bw8E4wWtk_h-EY854MaWMbZEvoeU",
     intent: "capture",
 };
   const [firstNameError, setFirstNameError] = useState("");
@@ -40,11 +44,9 @@ function Payment(props) {
   const [streetCityError, setStreetCityError] = useState("");
   const [stateError, setStateError] = useState("");
   const [postalCodeError, setPostalCodeError] = useState("");
-
   
   const handlePostalCodeChange = (value) => {
     const postalCodeRegex = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/; 
-
     if (value.trim() === "") {
       setPostalCodeError("Postal Code is required");
     } else if (!postalCodeRegex.test(value)) {
@@ -89,16 +91,15 @@ function Payment(props) {
       .create({
         purchase_units: [
           {
-            description: "Movie Booking",
+            description: "Movie Booking to Cinemax cinemas",
             amount: {
-              currency_code: "USD",
-              value: ticketPrice,
+              value: totalAmount,
             },
           },
         ],
       })
       .then((orderID) => {
-        setOrderID(orderID);
+        console.log(orderID)
         return orderID;
       });
   };
@@ -107,7 +108,7 @@ function Payment(props) {
   const onApprove = (data, actions) => {
     return actions.order.capture().then(function (details) {
       const { payer } = details;
-      setSuccess(true);
+      console.log(payer)
     });
   };
 
@@ -122,13 +123,6 @@ function Payment(props) {
       console.log("Order successful . Your order id is--", orderID);
     }
   }, [orderID, success]);
-
-  const calculateTotalAmount = () => {
-    const subtotal = ticketPrice * ticketQuantity;
-    const gstAmount = (subtotal * gstPercentage) / 100;
-    const totalAmount = subtotal + gstAmount;
-    return totalAmount.toFixed(2);
-  };
 
   const handleFirstNameChange = (value) => {
     const alphabeticRegex = /^[a-zA-Z]+$/; 
