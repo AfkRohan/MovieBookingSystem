@@ -89,10 +89,10 @@ function Payment(props) {
       .create({
         purchase_units: [
           {
-            description: "Sunflower",
+            description: "Movie Booking",
             amount: {
               currency_code: "USD",
-              value: 20,
+              value: ticketPrice,
             },
           },
         ],
