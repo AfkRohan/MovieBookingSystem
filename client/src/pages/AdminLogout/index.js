@@ -1,7 +1,8 @@
 import React from 'react'
+import Cookies from 'js-cookie';
 
 function AdminLogout() {
-  localStorage.removeItem('admin');
+  Cookies.remove('admin');
   window.location.href='/admin-login'
  return (
     <div>AdminLogout</div>

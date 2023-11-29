@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logowhite1.png';
 
 function Header(){
-   if(localStorage.getItem('admin')!=='Admin')
+   if(Cookies.get('admin')!=='Admin')
     window.location.href = '/admin-login'
     return(
  <>

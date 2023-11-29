@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { ShowLoading } from '../../redux/loadersSlice';
 import { HideLoading } from '../../redux/loadersSlice';
+import Cookies from 'js-cookie';
 
 function Login(){
     const dispatch = useDispatch();
@@ -25,8 +26,8 @@ function Login(){
                 // Name!123
                 if(data!="Invalid Password"){
                     console.log(data);
-                    localStorage.setItem('username',data.FirstName);
-                    localStorage.setItem('userId',data._id);
+                    Cookies.set('username',data.FirstName,{expires:7});
+                    Cookies.set('userId',data._id,{expires:7});
                     window.location.href="http://localhost:3000/"
                 }
                 else{
