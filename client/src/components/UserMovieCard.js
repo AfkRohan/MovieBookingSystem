@@ -23,7 +23,7 @@ function UserMovieCard(props) {
       </div>    
     </div>
     </div>
-  )
+  );
 }
 
 export default UserMovieCard

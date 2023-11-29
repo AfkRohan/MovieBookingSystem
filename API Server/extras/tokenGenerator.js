@@ -6,6 +6,6 @@ module.exports = function tokenGenerator(res) {
           expiresIn: "2h",
         }
       );
-  // save user token        
+         
   res.cookie('token', token);
 }

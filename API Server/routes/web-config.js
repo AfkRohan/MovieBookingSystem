@@ -18,6 +18,8 @@ const Show = require('../models/ShowsModel');
 
 const Seat = require('../models/SeatModel');
 
+const Favourite = require('../models/FavouriteModel');
+
 // API for creating a new user
 router.post('/create', async (req,res)=>{
     const data = req.body
@@ -349,11 +351,59 @@ router.post('/addshow',async (req,res)=>{
     }
 })
 
+// Add a Favourite
+router.post('/add-favourite',async (req,res)=>{
+  const data = req.body;
+  try {
+     const newFavourite = new Favourite({
+      userId: data.userId,
+      movieId: data.movieId
+     });
+     await newFavourite.save();
+     res.send(newFavourite)
+  }
+  catch(err) {
+      res.send(err)
+  }
+})
+
+// Remove a Favourite
+router.delete('/remove-favourite',async (req,res)=>{
+  const data = req.body;
+  try {
+     const newFavourite = Favourite.findOneAndRemove({
+      userId: data.userId,
+      movieId: data.movieId
+     });
+     res.send(newFavourite)
+  }
+  catch(err) {
+      res.send(err)
+  }
+})
+
+
+// View all Favourites for a user
+router.get('/favourites/:id',async (req,res)=>{
+  const userId = req.params.id;
+  try {
+     const allFavouriteByUserId = await Favourite.find({
+      userId: userId
+     });
+     res.send(allFavouriteByUserId);
+  }
+  catch(err) {
+      res.send(err)
+  }
+})
+
 // Test Route
 router.get('/',verifyToken,(req,res)=>{
   console.log(req.cookies)
   res.send("Token verified")
 })
+
+
 
 
 module.exports = router;

@@ -6,7 +6,7 @@ mongoose.connect(url,{
     useNewUrlParser: true ,
     useUnifiedTopology: true,
 })
-.then(console.log("***Mongoose Connected***"))
+.then(console.log("Mongoose Connected"))
 .catch((error)=>console.log(error))
 
 const userSchema = new mongoose.Schema({

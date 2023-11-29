@@ -3,8 +3,6 @@ import { Select, Card, Button } from 'antd';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-
-
 const { Option } = Select;
 
 const App = () => {
