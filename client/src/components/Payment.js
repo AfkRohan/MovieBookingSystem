@@ -109,6 +109,18 @@ function Payment(props) {
     return actions.order.capture().then(function (details) {
       const { payer } = details;
       console.log(payer)
+      alert("Success");
+      
+      const ticketData ={
+        firstName,
+        lastName,
+        ticketPrice,
+        ticketQuantity,
+        billingAddress,
+        
+      };
+      const ticketParams = new URLSearchParams(ticketData).toString();
+      window.location.href=`/PaymentSuccess?${ticketParams}`;
     });
   };
 
