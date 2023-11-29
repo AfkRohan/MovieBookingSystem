@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 
+
 function searchResults(movies, search) {
   if(search!=null)
   return movies.filter((movie) => {

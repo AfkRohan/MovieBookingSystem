@@ -295,8 +295,11 @@ router.get('/shows/:movieId',async (req,res)=>{
   const id = (req.params.movieId)
   try{
   const show = await Show.find({ movieId : id});
-  console.log(show)
-  res.send(show)
+  // Filter shows By current date
+  const today = new Date();
+  const showsByDate = show.filter(({ showDate }) => new Date(showDate.replace(/-/g, "/")) >= today);
+  console.log(showsByDate)
+  res.send(showsByDate)
   }
   catch(err){
     res.send(err)

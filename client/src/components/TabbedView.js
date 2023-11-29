@@ -19,8 +19,7 @@ const TabbedView = (props) => {
         console.error('Error fetching movie:', error);
       }
     };
-
-    fetchMovie();
+      fetchMovie();
   }, [id]);
 
   if (!movie) {
