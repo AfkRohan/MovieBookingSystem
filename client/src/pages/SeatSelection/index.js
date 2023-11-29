@@ -207,6 +207,10 @@ const App = () => {
     const response = await axios.post("http://localhost:4000/api/bookseats/", payload);
     localStorage.setItem("BookedQuantity", selectedSeats.length);
     localStorage.setItem("Price", price);
+    const subtotal = price * selectedSeats.length;
+    const gstAmount = (subtotal * 5) / 100;
+    const totalAmount = subtotal + gstAmount;
+    localStorage.setItem("totalPrice",totalAmount.toFixed(2))
     window.location.href = '/payment';
   } catch (error) {
     console.error('Error:', error);
