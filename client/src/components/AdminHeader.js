@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import logo from '../assets/logowhite1.png';
-
+import Cookies from 'js-cookie';
 function Header(){
    if(Cookies.get('admin')!=='Admin')
     window.location.href = '/admin-login'

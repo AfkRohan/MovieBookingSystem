@@ -49,7 +49,7 @@ function App() {
         <Route path="/admin-movie" element={<AdminMovies/>}/>
         <Route path="/show" element={<Show/>}/>
         <Route path="/payment" element={<PaymentForm/>}/>
-        <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/movie/:id/:moviename" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/tickets/:searchparam" element={<Tickets />} />
         <Route path="/helpcenter" element={<Helpcenter/>} />

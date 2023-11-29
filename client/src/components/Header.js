@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../assets/logowhite1.png';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 function Header() {
   return (
     <header className="header">
