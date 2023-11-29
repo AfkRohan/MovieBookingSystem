@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect , useState } from 'react';
 import { Link  , useParams} from 'react-router-dom';
 
-
 import { Button, Tabs } from 'antd';
 const TabbedView = (props) => {
   const shows = props.shows;
@@ -19,8 +18,7 @@ const TabbedView = (props) => {
         console.error('Error fetching movie:', error);
       }
     };
-
-    fetchMovie();
+      fetchMovie();
   }, [id]);
 
   if (!movie) {
@@ -46,8 +44,8 @@ const TabbedView = (props) => {
       <Tabs
         tabPosition={"top"}
         centered={true}
-        className='centerDivStyle p3'
-        tabBarStyle={{background:"white", padding:"5px"}}
+        className=' p3'
+        tabBarStyle={{background:"yellow", padding:"5px"}}
         tabBarGutter={50}
         items={(dates).map((date) => {
           const tarikh = new Date(date).toDateString();

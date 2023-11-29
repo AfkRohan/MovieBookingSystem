@@ -24,13 +24,15 @@ const Favourite = require('../models/FavouriteModel');
 router.post('/create', async (req,res)=>{
     const data = req.body
     console.log(data)
+    let actualDate = new Date(data.Date);
+    actualDate = actualDate.setDate(actualDate.getDate() + 1);
     const email = data.email
     const userPassword = await bcrypt.hash( data.Password,rounds);
     try{
     let user = new User({
     FirstName : data.firstName,
     LastName : data.lastName,
-    DateOfBirth: data.Date,
+    DateOfBirth: actualDate,
     Password:userPassword,
     Contact:{
         email:data.email,
@@ -295,7 +297,10 @@ router.get('/shows/:movieId',async (req,res)=>{
   const id = (req.params.movieId)
   try{
   const show = await Show.find({ movieId : id});
-  console.log(show)
+  // Filter shows By current date
+  // const today = new Date();
+  // const showsByDate = show.filter(({ showDate }) => new Date(showDate.replace(/-/g, "/")) >= today);
+  // console.log(showsByDate)
   res.send(show)
   }
   catch(err){
@@ -307,8 +312,10 @@ router.get('/shows/:movieId',async (req,res)=>{
 router.put('/show/:id',async (req,res)=>{
   const id = req.params.id
   const data = req.body
+  let actualDate = new Date(data.showDate);
+  actualDate = actualDate.setDate(actualDate.getDate() + 1);
   Show.findByIdAndUpdate(id.toString(),{ 
-  showDate : data.showDate,
+  showDate : actualDate,
   showTime : data.showTime,
   movieId : JSON.stringify(data.movieId).replaceAll('"',''),
   screen: data.screen,
@@ -332,10 +339,12 @@ router.delete('/show/:id',async (req,res)=>{
 // Add a show
 router.post('/addshow',async (req,res)=>{
   const data = req.body
+  let actualDate = new Date(data.showDate);
+  actualDate = actualDate.setDate(actualDate.getDate() + 1);
     console.log(data)
     try{
       let newshow = new Show ({ 
-        showDate : new Date(data.showDate),
+        showDate : actualDate,
         showTime : data.showTime,
         movieId : (data.movieId).toString().replaceAll('"',''),
         price : Number(data.price),

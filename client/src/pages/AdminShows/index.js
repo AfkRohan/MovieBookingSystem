@@ -34,7 +34,7 @@ function AdminShows() {
     .catch(err => {
       console.log(err);
     });
-  },movies);
+  },[]);
  
    const getMovieName = (id) =>{
     let movie = movies.find(m => m._id === id) ?? null;
@@ -50,6 +50,7 @@ function AdminShows() {
   return (
     <>
       <AdminHeader />
+      {(movies != null)?(<> 
       <ShowList />
       <table style={tableStyle}>
         <thead>
@@ -83,6 +84,7 @@ function AdminShows() {
           ))}
         </tbody>
       </table>
+      </>) : (<> <div className='text-danger'> Please add a show </div> </>)}
       <Footer />
 
       {isEditFormVisible && (
