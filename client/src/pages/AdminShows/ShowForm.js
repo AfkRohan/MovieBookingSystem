@@ -82,7 +82,13 @@ function ShowForm({
         </Col>
         <Col span={24}>
             <Form.Item label="Show Time" name="showTime">
-               <textarea type="text"/>
+               <select name="showTime">
+                <option key={"9:00am onwards"} value={"9:00 am onwards"}> 9:00 am Onwards</option>
+                <option key={"12:00pm onwards"} value={"12:00 pm onwards"}> 12:00 pm Onwards</option>
+                <option key={"3:00pm onwards"} value={"3:00 pm onwards"}> 3:00 pm Onwards</option>
+                <option key={"6:00pm onwards"} value={"6:00 pm onwards"}> 6:00 pm Onwards</option>
+                <option key={"9:00pm onwards"} value={"9:00 pm onwards"}> 9:00 pm Onwards</option>
+               </select>
             </Form.Item>
         </Col>
         <Col span={8}>

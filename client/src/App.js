@@ -29,6 +29,7 @@ import SeatSelection from './pages/SeatSelection';
 import PaymentSuccess from './pages/PaymentForm/PaymentSuccess';
 import Payment from './pages/PaymentForm';
 
+
 function App() {
   const {loading} = useSelector((state) => state.loaders);
   return (
@@ -51,7 +52,7 @@ function App() {
         <Route path="/payment" element={<PaymentForm/>}/>
         <Route path="/movie/:id/:moviename" element={<MovieDetails />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/tickets/:searchparam" element={<Tickets />} />
+        <Route path="/tickets/:searchparam/:name" element={<Tickets />} />
         <Route path="/helpcenter" element={<Helpcenter/>} />
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
         <Route path="/seatselection/:id/:moviename/:screenNumber/:price" element={<SeatSelection/>}/>

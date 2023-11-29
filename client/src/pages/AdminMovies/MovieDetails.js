@@ -55,7 +55,7 @@ const MovieDetails = () => {
               </List.Item>
             
               <List.Item className="movie-details-seats centerDivStyle m3" style={{background:'none'}}>
-                <Link to={`/tickets/${id}`}>
+                <Link to={`/tickets/${id}/${movie.name}`}>
                 <Button style={{color:'black'}} className="btnSeatselection">Book Now</Button></Link>
               </List.Item>
             </List>
