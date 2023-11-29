@@ -5,13 +5,12 @@ function FilterMovies({ filterOptions, onFilterChange }) {
     onFilterChange(filter, value);
   };
 
-
   return (
     <div className="filter-options">
       <label>
         Rating:
         <select value={filterOptions.rating || ''} onChange={(e) => handleFilterChange('rating', e.target.value)}>
-          <option value="">All</option>
+          <option value="0">All</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

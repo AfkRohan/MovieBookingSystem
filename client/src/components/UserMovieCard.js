@@ -1,47 +1,11 @@
+import React from 'react'
 import Heart from 'react-animated-heart';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import ViewDetailsButton from '../components/ViewDetailsButton';
-import FilterMovies from './FilterMovies';
+import { useState } from 'react';
+import ViewDetailsButton from '../components/ViewDetailsButton'
 
 function UserMovieCard(props) {
     const [isClick, setClick] = useState(false);
-    const [favorites, setFavorites] = useState([]);
-    
-    useEffect(() => {
-    
-      axios.get(`/api/user/${props.username}/favorites`)
-        .then(response => setFavorites(response.data))
-        .catch(error => console.error(error));},[props.username]);
-  
-    
-    const handleAddToFavorites = () => {
-     
-        axios.post(`/api/user/${props.username}/addFavorite`, { movieId: props.movie._id })
-          .then(response => setFavorites(response.data))
-          .catch(error => console.error(error));
-  
-        setClick(!isClick);
-      };
-
-      const MovieDetails = ({ movies }) => {
-        const { id } = useParams();
-        const [movie, setMovie] = useState(null);
-        const [filteredMovies, setFilteredMovies] = useState([]);
-        const [filterOptions, setFilterOptions] = useState({
-          rating: null,
-          nameSort: 'asc',
-          language: null,
-        });
-      }
-
-  
   return (
-    <div>
-    <div>
-       <MovieFilter filterOptions={filterOptions} onFilterChange={(filter, value) => setFilterOptions({ ...filterOptions, [filter]: value })} />
-    </div>
     <div className="movie-page" key={props.index}>
     <img src={props.movie.image} alt={props.movie.title} />
     <div className="movie-details">
@@ -51,17 +15,15 @@ function UserMovieCard(props) {
       <p>Language: {props.movie.languages}</p>
       <div className='featured-movies'>
         <div>
-        <Heart isClick={isClick} onClick={handleAddToFavorites} />
+        <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
           </div>  
           <div>
           <ViewDetailsButton movieId={props.movie._id} btnText={"View More"} />
           </div>
       </div>    
     </div>
-    
     </div>
-  </div>
-  )
+  );
 }
 
 export default UserMovieCard
