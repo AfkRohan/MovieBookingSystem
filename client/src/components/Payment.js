@@ -110,13 +110,14 @@ function Payment(props) {
       const { payer } = details;
       console.log(payer)
       alert("Success");
-      
+
       const ticketData ={
         firstName,
         lastName,
         ticketPrice,
         ticketQuantity,
         billingAddress,
+        totalAmount,
         
       };
       const ticketParams = new URLSearchParams(ticketData).toString();
@@ -193,6 +194,7 @@ function Payment(props) {
       totalAmount: calculateTotalAmount(),
     });
   };
+  
 
   return (
     <div className="payment-container">

@@ -28,6 +28,8 @@ import Movies from './pages/Movies';
 import SeatSelection from './pages/SeatSelection';
 import PaymentSuccess from './pages/PaymentForm/PaymentSuccess';
 import Payment from './pages/PaymentForm';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
 
 function App() {
   const {loading} = useSelector((state) => state.loaders);

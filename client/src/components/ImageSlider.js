@@ -2,7 +2,7 @@ import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
-import header1 from '../assets/Banner1.jpg';
+import header1 from '../assets/Banner6.jpg';
 import header2 from '../assets/Banner2.png';
 import header3 from '../assets/Banner3.png';
 

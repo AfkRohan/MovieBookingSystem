@@ -6,6 +6,9 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import AboutUs from '../../components/AboutUS';
 import axios from 'axios';
+import FeatureSection from '../../components/FeatureSection';
+import FestiveMovies from '../../components/FestiveMovies';
+import Snowfall from 'react-snowfall';
 
 function Home(){
    const [movie,setMovies] = useState([])
@@ -20,19 +23,64 @@ function Home(){
     return(
  <>
        <Header/>
+       <Snowfall snowflakeCount={100} color="#ffffff" style={{ zIndex: 1000, position: 'fixed' }} />
              <ImageSlider></ImageSlider>
              <main className="main-content">
-             <div>
-                <AboutUs></AboutUs>
-            </div>
+             <AboutUs></AboutUs>
+           
              <center><h1 className='mt1'>Featured Movies</h1></center>
              <div className="featured-movies">
              {movie.map((movie, index) => (
               <FeaturedMovieCard movie={movie} index ={index}/>
             ))}
+            
              </div>
-
-      <h2>Experience</h2>
+             <div style={{
+          textAlign: 'center',
+          margin: '20px 0',
+          fontSize: '24px',
+          fontStyle: 'italic',
+          position: 'relative',
+      
+        }}>
+          <div style={{
+            position: 'relative',
+            display: 'inline-block',
+            padding: '10px 20px',
+            margin:'2em',
+            backgroundColor: 'transparent',
+            border:'2px solid red',
+            borderRadius: '10px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          }}>
+            <span style={{
+              fontSize: '62px',
+              lineHeight: '1',
+              position: 'absolute',
+              top: '-30px',
+              left: '20px',
+              color: '#f5f5f5',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+            }}>“</span>
+            <h5 style={{ margin: '1em', color: 'white', fontSize:'1.3em' }}>
+              Immerse yourself in a world of cinematic wonders. Before you explore the finest cinematic experiences we offer, dive into the excitement that awaits!
+            </h5>
+            
+          </div>
+        </div>
+        <div>
+             
+             <center> <h1 style={{color:'white' , textAlign: 'center',
+          margin: '20px 0',
+          fontSize: '33px',
+          fontStyle: 'italic',
+          position: 'relative',
+       }}>~ Movies to watch this Christmas ~</h1></center>
+                <FestiveMovies></FestiveMovies>
+             
+            </div>
+             
+      <center><h1 className='mt2'>Experience</h1></center>
       <div className='experience experience-container'>
         <ExperienceSection
          imageSrc="https://mediafiles.cineplex.com/modernization/D1098GOTG_R1-6_2048x1280px_VOL3_DOM2_ENG_R02_20230426144640_0.jpg"
@@ -52,7 +100,13 @@ function Home(){
           description="Enjoy an elevated night out in an intimate."
          
         />
+        
     </div>
+    
+    <FeatureSection></FeatureSection>
+
+  
+
       
       </main>
             
