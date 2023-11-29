@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Select, Card, Button } from 'antd';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const { Option } = Select;
 
@@ -62,7 +63,7 @@ const App = () => {
         number : seat[1],
         row : seat[0],
         showId: id,
-        userId : localStorage.getItem("userId") ?? "P2R4E6",
+        userId : Cookies.get("userId"),
         price : price}
   
         tempData.pop(tempData.indexOf(occupiedSeats));

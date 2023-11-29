@@ -18,7 +18,7 @@ function UserMovieCard(props) {
         <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
           </div>  
           <div>
-          <ViewDetailsButton movieId={props.movie._id} btnText={"View More"} />
+          <ViewDetailsButton movieId={props.movie._id} moviename ={props.movie.name} btnText={"View More"} />
           </div>
       </div>    
     </div>

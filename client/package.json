@@ -12,6 +12,7 @@
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",
+    "js-cookie": "^3.0.5",
     "jspdf": "^2.5.1",
     "lottie-react": "^2.4.0",
     "moment": "^2.29.4",

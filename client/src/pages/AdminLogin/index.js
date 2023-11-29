@@ -3,6 +3,7 @@ import{Form, Input} from "antd";
 import Button from '../../components/Button';
 import logo from '../../assets/logo1.png';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function AdminLogin(){
     async function onFinish(values){
@@ -13,7 +14,7 @@ function AdminLogin(){
             .then((response) =>{ 
                 console.log(response)
                 if(response.status == 200){
-                    localStorage.setItem('admin','Admin')
+                   Cookies.set('admin','Admin')
                     window.location.href="/admin-dashboard"
                 }
             })
