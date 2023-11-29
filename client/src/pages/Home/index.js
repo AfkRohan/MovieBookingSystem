@@ -76,6 +76,7 @@ function Home(){
           fontStyle: 'italic',
           position: 'relative',
        }}>~ Movies to watch this Christmas ~</h1></center>
+       
                 <FestiveMovies></FestiveMovies>
              
             </div>

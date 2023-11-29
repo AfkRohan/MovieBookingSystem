@@ -45,7 +45,7 @@ const TabbedView = (props) => {
         tabPosition={"top"}
         centered={true}
         className=' p3'
-        tabBarStyle={{background:"yellow", padding:"5px"}}
+        tabBarStyle={{background:"#F8A602", padding:"5px"}}
         tabBarGutter={50}
         items={(dates).map((date) => {
           const tarikh = new Date(date).toDateString();

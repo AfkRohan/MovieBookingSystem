@@ -25,14 +25,15 @@
   
   .movie-details h1 {
     margin: 10px 0;
-    font-size: 24px;
+    color: white;
+    font-size: 40px;
   }
   
   .movie-details p {
      display: flex;
     margin: 10px 0;
     font-size: 16px;
-    color:khaki;
+    color:white;
   }
   
   .movie-details a {
@@ -82,3 +83,15 @@
     border-radius: 5px;
   }
   
+  .trailerlink{
+    color:#F8A602;
+    text-decoration: none;
+    font-size: 20px;
+   
+  }
+  .trailerlink:hover{
+    color:white;
+    text-decoration: none;
+   
+   
+  }

@@ -41,7 +41,10 @@ function Tickets() {
   return (
     <div>
         <Header></Header>
-    <div className="movie-ticket-page" >
+    <div className="movie-ticket-page">
+    <center><h1>Select a show for {movieData.name}</h1></center>
+    <p style={{padding:'1em'}}>{movieData.description}</p>
+    <center><a className='trailerlink' href={movieData.trailerLink} target="_blank" rel="open">- Watch Trailer -</a></center>
     {!isAvailable ? 
         <h4 className='text-center'> No Shows available now for this movie </h4> : (
           <TabbedView dates={dates} shows={showByMovieId} style={{
@@ -52,10 +55,8 @@ function Tickets() {
         )   
         }
       <div className="movie-details">
-        <h1>{movieData.title}</h1>
-        <img src={movieData.image} alt={movieData.title} />
-        <p>{movieData.description}</p>
-        <a href={movieData.trailerLink} target="_blank" rel="open">Watch Trailer</a>
+     
+     
       </div>
     </div>
     <Footer></Footer>
