@@ -76,6 +76,12 @@ function Home(){
           fontStyle: 'italic',
           position: 'relative',
        }}>~ Movies to watch this Christmas ~</h1></center>
+       <center> <p style={{color:'white' , textAlign: 'center',
+          margin: '20px 0',
+          fontSize: '20px',
+          fontStyle: 'italic',
+          position: 'relative',
+       }}>~ Coming Soon ~</p></center>
        
                 <FestiveMovies></FestiveMovies>
              
