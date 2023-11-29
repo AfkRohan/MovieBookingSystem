@@ -9,20 +9,20 @@ import logo from '../../assets/logo1.png';
 const PaymentSuccess = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const firstName = queryParams.get('firstName');
-  const lastName = queryParams.get('lastName');
+  // const firstName = queryParams.get('firstName');
+  // const lastName = queryParams.get('lastName');
   const ticketPrice = queryParams.get('ticketPrice');
   const ticketQuantity = queryParams.get('ticketQuantity');
-  const totalAmount = queryParams.get('totalAmount');
+  // const totalAmount = queryParams.get('totalAmount');
   
   const handleDownloadPDF =() => {
     const doc = new jsPDF();
     doc.addImage(logo, 'PNG', 55, 15, 100, 30);
     doc.setFontSize(12);
-    doc.text(`Name: ${firstName} ${lastName}`, 15, 60);
+    // doc.text(`Name: ${firstName} ${lastName}`, 15, 60);
     doc.text(`Quantity: ${ticketQuantity}`, 15, 70);
     doc.text(`Ticket Price: ${ticketPrice}`, 15, 80);
-    doc.text(`Total Price: ${totalAmount}`, 15, 90);
+    // doc.text(`Total Price: ${totalAmount}`, 15, 90);
     doc.text(`Thank You for Booking Tickets with us, Enjoy!!`,15,100);
     // doc.text(`Selected Seats: ${selectedSeats.join(', ')}`, 15, 70);
     doc.save('ticket.pdf');
