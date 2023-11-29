@@ -13,7 +13,7 @@ function Payment(props) {
     const totalAmount = subtotal + gstAmount;
     return totalAmount.toFixed(2);
   };
-  const totalAmount = 40 ;
+  const totalAmount = localStorage.getItem("totalPrice");
   console.log('Ticket Quantity:', ticketQuantity); 
   const shows = props.shows;
   const [success, setSuccess] = useState(false);
