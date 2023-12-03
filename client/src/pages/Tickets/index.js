@@ -30,9 +30,10 @@ function Tickets() {
           (res.data).map((show)=>{dates.push(show.showDate)})
           dates = removeDuplicates(dates)
           setDates(dates)
-          setAvailable(true);
+          if(dates.length > 0)
+            setAvailable(true);
           setShowByMovieId(res.data);
-        console.log(showByMovieId)
+        console.log(showByMovieId);
       }).catch((err)=>{
         console.log(err)
       })
@@ -46,7 +47,7 @@ function Tickets() {
     <p style={{padding:'1em'}}>{movieData.description}</p>
     <center><a className='trailerlink' href={movieData.trailerLink} target="_blank" rel="open">- Watch Trailer -</a></center>
     {!isAvailable ? 
-        <h4 className='text-center'> No Shows available now for this movie </h4> : (
+        (<h4 className='text-center'> No Shows available now for this movie </h4>) : (
           <TabbedView dates={dates} shows={showByMovieId} style={{
             backgroundImage: `url("${movieData.image}")`,
             backgroundSize: 'cover',

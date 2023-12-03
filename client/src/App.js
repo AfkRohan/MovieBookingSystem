@@ -30,12 +30,9 @@ import PaymentSuccess from './pages/PaymentForm/PaymentSuccess';
 import Payment from './pages/PaymentForm';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
-
-
 function App() {
   const {loading} = useSelector((state) => state.loaders);
   return (
-    
     <div>
       {loading && <div className='loader-parent'>
       <div className='loader'></div>
