@@ -57,6 +57,27 @@ router.post('/create', async (req,res)=>{
     }
 })
 
+// api to reset user accountpassword
+router.post('/fgtpwd',async (req,res)=>{
+  const data = req.body;
+  const userEmail = data.email;
+  const userPassword = await bcrypt.hash( data.Password,rounds);
+  console.log(data);   
+  const userWithNewPassword = await User.findOneAndUpdate({"Contact.email":userEmail},{Password: userPassword});
+  let userUpdated = await   userWithNewPassword.save();
+  const token = jwt.sign(
+    { user_id: userUpdated._id,userEmail},
+    "UserSecret",
+    {
+      expiresIn: "2h",
+    }
+  );
+  // save user token
+    res.cookie('token', token);
+    console.log(userUpdated);
+    res.send(userUpdated);
+});
+
 //api to get all movies
 router.get('/movies', async (req, res) => {
   try {

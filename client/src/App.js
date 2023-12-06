@@ -29,6 +29,7 @@ import SeatSelection from './pages/SeatSelection';
 import PaymentSuccess from './pages/PaymentForm/PaymentSuccess';
 import Payment from './pages/PaymentForm';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   const {loading} = useSelector((state) => state.loaders);
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/admin-login" element={<AdminLogin/>}/>
