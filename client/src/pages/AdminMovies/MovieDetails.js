@@ -25,25 +25,27 @@ const MovieDetails = () => {
   }
 
   return (
+    <>
+    <Header/>
     <div className="movie-details-container">
-      <Header />
-        <div  >
-          <Card className="movie-card"  style={{ background: `url(${movie.image})` }}>
+ 
+        <div style={{margin:'2em'}}>
+          <Card className="movie-card"  style={{ backgroundColor: 'black' }}>
             <List className="movie-details-list">
               <List.Item className="movie-details-title">
                 <h1 className='moviename' style={{ fontSize: '2.5em' }}>{movie.name}</h1>
               </List.Item>
 
               <List.Item className="movie-details-video">
-            <iframe
-              width="560"
+           <center> <iframe
+              width="720"
               height="315"
               src={movie.trailerLink}
               title="YouTube video player"
-              frameBorder="0"
+              frameBorder="1"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-            ></iframe>
+            ></iframe></center>
           </List.Item>
 
               <List.Item className="movie-tags" style={{ fontSize: '0.7em' }}>
@@ -67,7 +69,7 @@ const MovieDetails = () => {
           </Card>
         </div>
       <Footer />
-    </div>
+    </div></>
   );
 };
 
