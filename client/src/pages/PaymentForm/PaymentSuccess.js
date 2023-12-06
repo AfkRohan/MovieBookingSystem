@@ -42,8 +42,8 @@ const PaymentSuccess = () => {
       <div className="payment-success-container">
        <h1 className='payment'>Payment Successful !</h1>
       </div>
-       <div><h3>Enjoy Your Movie !!</h3></div>
-       <button className='btnproceedcheckout' onClick={handleDownloadPDF}>Download Ticket</button>
+       <div><h3 style={{margin:'1em', color:'white'}}>Enjoy Your Movie !!</h3></div>
+       <button className='btnproceedcheckout1' onClick={handleDownloadPDF}>Download Ticket</button>
       <Footer></Footer>
     </>
   );

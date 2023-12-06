@@ -10,7 +10,6 @@ mongoose.connect(url,{
 .catch((error)=>console.log(error))
 
 const userSchema = new mongoose.Schema({
-
     FirstName :{
         type:String,
         required : true

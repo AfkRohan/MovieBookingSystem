@@ -39,6 +39,9 @@ function AdminShows() {
    const getMovieName = (id) =>{
     let movie = movies.find(m => m._id === id) ?? null;
     console.log(movie);
+    if(movie==null){
+      return "";
+    }
     return movie.name;
    } 
 
