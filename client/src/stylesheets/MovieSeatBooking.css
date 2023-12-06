@@ -127,7 +127,7 @@
     color: #F7BD02; ;
   }
 
-  /* .btnproceedcheckout{
+  .btnproceedcheckout{
  
       background-color: #F7BD02; ;
       color: black;
@@ -139,7 +139,7 @@
       transition: background-color 0.3s ease;
       align-items: center;
    
-    } */
+    }
     
     button:hover {
       background-color: #F7BD02; ;

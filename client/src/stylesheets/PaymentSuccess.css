@@ -14,7 +14,7 @@
     height: 200px; 
     margin-bottom: 2em;
   }
-  .btnproceedcheckout {
+  .btnproceedcheckout1 {
     
     margin-left: 42.5em;
     margin-bottom:10em;
@@ -28,6 +28,7 @@
     transition: background-color 0.3s ease;
     align-items: center;
   }
+  
   @keyframes fadeIn {
     from {
       opacity: 0;
