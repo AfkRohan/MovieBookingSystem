@@ -10,7 +10,7 @@ function UserMovieCard(props) {
     <img src={props.movie.image} alt={props.movie.title} />
     <div className="movie-details">
       <h1 style={{color:"white"}}>{props.movie.name}</h1>
-      <p>{props.movie.description}</p>
+      {/* <p>{props.movie.description}</p> */}
       <p>Rating: {props.movie.rating}</p>
       <p>Language: {props.movie.languages}</p>
       <div className='featured-movies'>

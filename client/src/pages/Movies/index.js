@@ -21,7 +21,7 @@ function Movies() {
   const [rating, setRatingFilter] = useState(0);
   const [filteredMovies,setFilteredMovies] = useState([]);
 
-  useEffect(async () => {
+  useEffect( () => {
     axios
       .get("http://localhost:4000/api/movie")
       .then((response) => {
@@ -63,10 +63,10 @@ function Movies() {
   return (
     <>
       <Header />
-      <div className="centerDivStyle">
+      <div className="centerDivStyleFilterOptions">
       <div className="filter-options">
-      <label>
-        Rating:
+      <label className='filteroptionslabel'>
+        Rating
         <select value={rating} name='rating'  onChange={(e) => setRatingFilter(e.target.value)}>
           <option value={0}>All</option>
           <option value={1}>1</option>
@@ -77,8 +77,8 @@ function Movies() {
         </select>
       </label>
 
-      <label>
-        Language:
+      <label className='filteroptionslabel'>
+        Language
         <select value={language ?? '0'} name='language'  onChange={(e) => setLanguage(e.target.value)}>
           <option value="0">All</option>
           <option value="Hindi">Hindi</option>
@@ -90,6 +90,9 @@ function Movies() {
         </select>
       </label>
     </div>
+    </div>
+      <div className="centerDivStyle">
+   
         {(movie!=null)?( 
         <div className="movie-list">
        { filteredMovies.map((movie) => {

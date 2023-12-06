@@ -198,6 +198,24 @@
         padding: 88px 0 88px 0;  
         background-color: black;
   }
+  .centerDivStyleFilterOptions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 35px 0 0 0;  
+    background-color: black;
+}
+.filter-options {
+  display: flex;
+  gap: 20px;
+}
+.filteroptionslabel {
+  margin-bottom: 8px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
 
   /* Button Admin Side   */
 .btnAddMovie {

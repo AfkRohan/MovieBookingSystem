@@ -77,12 +77,12 @@ body{
 }
 
 .movie-page {
-  width: 45%;
-  margin-bottom: 20px;
-  padding: 10px;
+  width: 30%;
+  margin-bottom: 50px;
+  /* padding: 10px; */
   background-color: #090909;
   color:#fff;
-  border: 1px solid #e0e0e0;
+  border: 1px solid red;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
@@ -106,6 +106,8 @@ body{
   font-size: 1.2rem;
   margin: 0;
 }
+
+
 
 .movie-details p {
   margin: 5px 0;
