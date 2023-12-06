@@ -57,6 +57,7 @@ function App() {
         <Route path="/seatselection/:id/:moviename/:screenNumber/:price" element={<SeatSelection/>}/>
         <Route path="/paymentsuccess" element={<PaymentSuccess/>}/>
         <Route exact path="/payment" element={Payment} />
+        
       </Routes>
     </BrowserRouter>
     </div>

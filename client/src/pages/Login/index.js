@@ -77,7 +77,7 @@ function Login(){
                 <Button type="primary" htmlType="submit" title="Login" />
                 <br/>
                 <br/>
-                <Link to="/">Forgot Password?</Link><br/>
+                <Link to="/forgot-password">Forgot Password?</Link><br/>
                 <Link to="/register">Need To Create New Account? Click Here</Link>
                 
             </Form>
