@@ -8,23 +8,32 @@ import logo from '../../assets/logo1.png';
 
 const PaymentSuccess = () => {
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  // const firstName = queryParams.get('firstName');
-  // const lastName = queryParams.get('lastName');
-  const ticketPrice = queryParams.get('ticketPrice');
-  const ticketQuantity = queryParams.get('ticketQuantity');
+  const firstName = localStorage.getItem('firstName');
+  const lastName = localStorage.getItem('lastName');
+  const ticketPrice = localStorage.getItem('ticketPrice');
+  const ticketQuantity = localStorage.getItem('ticketQuantity');
+  const selectedSeats = localStorage.getItem('selectedSeats');
+  const moviename = localStorage.getItem('moviename');
+  const screenNumber = localStorage.getItem('screenNumber');
+  const totalAmount = localStorage.getItem('totalAmount');
+  const dates = localStorage.getItem('dates');
+
+  
   // const totalAmount = queryParams.get('totalAmount');
   
   const handleDownloadPDF =() => {
     const doc = new jsPDF();
     doc.addImage(logo, 'PNG', 55, 15, 100, 30);
     doc.setFontSize(12);
-    // doc.text(`Name: ${firstName} ${lastName}`, 15, 60);
-    doc.text(`Quantity: ${ticketQuantity}`, 15, 70);
-    doc.text(`Ticket Price: ${ticketPrice}`, 15, 80);
-    // doc.text(`Total Price: ${totalAmount}`, 15, 90);
-    doc.text(`Thank You for Booking Tickets with us, Enjoy!!`,15,100);
-    // doc.text(`Selected Seats: ${selectedSeats.join(', ')}`, 15, 70);
+    doc.text(`Name: ${firstName} ${lastName}`, 15, 60);
+    doc.text(`Movie Name: ${moviename}`, 15, 70);
+    doc.text(`Screen Number: ${screenNumber}`, 15, 80);
+    doc.text(`Quantity: ${ticketQuantity}`, 15, 90);
+    doc.text(`Ticket Price: ${ticketPrice}`, 15, 100);
+    doc.text(`Selected Seats: ${selectedSeats}`, 15, 110);
+    doc.text(`Total Price: ${totalAmount}`, 15, 120);
+    doc.text(`Date: ${dates}`, 15, 130);
+    doc.text(`Thank You for Booking Tickets with us, Enjoy!!`,15,140);
     doc.save('ticket.pdf');
   }
   return (

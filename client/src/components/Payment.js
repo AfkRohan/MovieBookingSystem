@@ -13,6 +13,8 @@ function Payment(props) {
     const totalAmount = subtotal + gstAmount;
     return totalAmount.toFixed(2);
   };
+
+  
   const totalAmount = localStorage.getItem("totalPrice");
   console.log('Ticket Quantity:', ticketQuantity); 
   const shows = props.shows;
@@ -21,6 +23,9 @@ function Payment(props) {
   const [orderID, setOrderID] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  localStorage.setItem('firstName', firstName);
+  localStorage.setItem('lastName', lastName);
+  localStorage.setItem('totalAmount',totalAmount );
   const [email, setEmail] = useState("");
   const [billingAddress, setBillingAddress] = useState("");
   const [streetCity, setStreetCity] = useState("");
@@ -44,6 +49,9 @@ function Payment(props) {
   const [streetCityError, setStreetCityError] = useState("");
   const [stateError, setStateError] = useState("");
   const [postalCodeError, setPostalCodeError] = useState("");
+
+
+  
   
   const handlePostalCodeChange = (value) => {
     const postalCodeRegex = /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/; 

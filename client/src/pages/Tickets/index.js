@@ -9,6 +9,10 @@ import TabbedView from '../../components/TabbedView';
 function Tickets() {
   const {searchparam} =   useParams() ?? "6542aa7e148dbfce5d5979f";
   const [dates, setDates] = useState([]);
+  useEffect(() => {
+    const formattedDates = dates.map(date => new Date(date).toLocaleDateString());
+    localStorage.setItem('dates', formattedDates);
+  }, [dates]);
   const [isAvailable,setAvailable] = useState(false);
   const removeDuplicates = (data) =>{ return [... new Set(data)]}
   const [movieData,setMovieData] = useState([])

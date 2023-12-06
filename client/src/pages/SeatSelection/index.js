@@ -10,6 +10,15 @@ const App = () => {
   const { id, moviename , screenNumber , price } = useParams();
   const [selectedMovie, setSelectedMovie] = useState(parseFloat(price));
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const ticketPrice = selectedMovie;
+  const ticketQuantity = selectedSeats.length;
+  localStorage.setItem('ticketPrice', ticketPrice);
+  localStorage.setItem('ticketQuantity', ticketQuantity);
+  localStorage.setItem('selectedSeats', selectedSeats);
+  localStorage.setItem('moviename',moviename );
+  localStorage.setItem('screenNumber',screenNumber );
+
+
   const [isBooked,setBooked] = useState([]);
   const isOccupied = (seat) =>{
     if(!isBooked.includes(seat))
@@ -23,13 +32,11 @@ const App = () => {
  const [payload , setPayload] = useState([]);
  
 
-
-
   const handleMovieChange = (value) => {
     setSelectedMovie(value);
   };
 
-  
+
 
   const handleSeatClick = (seat,isOccupied) => {
     if(!isOccupied.includes(seat)){
