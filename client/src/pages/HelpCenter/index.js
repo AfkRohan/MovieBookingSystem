@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { Receipt } from '../../components/Receipt';
 function Helpcenter() {
   return (
     <div>
@@ -31,10 +32,10 @@ function Helpcenter() {
         <a href="mailto:customercare@cinemaxmovies.com">customercare@cinemaxmovies.com</a>
       </section>
     </div>
+    <Receipt />
         <Footer></Footer>
     </div>
-
-      );
+    );
 }
 
 

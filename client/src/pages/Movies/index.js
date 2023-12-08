@@ -42,6 +42,7 @@ function Movies() {
      if(rating != 0){
         const movies = movies2.filter((movie)=>movie.rating==Number(rating));
         setFilteredMovies(movies);
+        setLanguage("0");
      }
      else{
       setFilteredMovies(movies2)
@@ -53,6 +54,7 @@ function Movies() {
     if(language!='0'){
       const filteredMovies = movie.filter((movie) => movie.languages === language);
       setFilteredMovies(filteredMovies);
+      setRatingFilter(0);
     }
     else{
       setFilteredMovies(movie)

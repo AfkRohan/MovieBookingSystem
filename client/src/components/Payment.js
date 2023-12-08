@@ -184,7 +184,6 @@ function Payment(props) {
 
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
-
     console.log("Payment submitted:", {
       firstName,
       lastName,
