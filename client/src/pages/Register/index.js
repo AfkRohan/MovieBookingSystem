@@ -11,7 +11,7 @@ import PhoneInput from 'react-phone-number-input';
 function Register(){
     function onFinish(values){
         if(values.password === values.confirmpassword){
-        axios.post('http://localhost:4000/api/create', {
+        axios.post('https://movie-booking-system-sable.vercel.app/api/create', {
             email: values.email,
             Password: values.password,
             firstName : values.fName,

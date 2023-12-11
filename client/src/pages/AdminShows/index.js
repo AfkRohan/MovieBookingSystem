@@ -13,7 +13,7 @@ function AdminShows() {
   const [selectedShow, setSelectedShow] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/show")
+    axios.get("https://movie-booking-system-sable.vercel.app/api/show")
       .then((response) => {
         const formattedData = response.data.map((showItem) => ({
           ...showItem,
@@ -27,7 +27,7 @@ function AdminShows() {
   }, []);
 
   useEffect(()=>{
-    axios.get("http://localhost:4000/api/movies")
+    axios.get("https://movie-booking-system-sable.vercel.app/api/movies")
     .then((response) => {
       setMovies(response.data);
     })

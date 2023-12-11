@@ -12,7 +12,7 @@ const TabbedView = (props) => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/movie/${id}`);
+        const response = await axios.get(`https://movie-booking-system-sable.vercel.app/api/movie/${id}`);
         setMovie(response.data);
       } catch (error) {
         console.error('Error fetching movie:', error);

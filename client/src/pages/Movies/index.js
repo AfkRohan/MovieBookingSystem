@@ -23,7 +23,7 @@ function Movies() {
 
   useEffect( () => {
     axios
-      .get("http://localhost:4000/api/movie")
+      .get("https://movie-booking-system-sable.vercel.app/api/movie")
       .then((response) => {
         setMovies(searchResults(response.data, searchParam));
         setFilteredMovies(searchResults(response.data, searchParam));

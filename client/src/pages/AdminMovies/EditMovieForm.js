@@ -23,7 +23,7 @@ function EditMovieForm({
       let response = null;
       if(formType === 'edit') {
         // Edit the selected movie
-        response = await axios.put(`http://localhost:4000/api/movie/${selectedMovie._id}`, values) ?? null;
+        response = await axios.put(`https://movie-booking-system-sable.vercel.app/api/movie/${selectedMovie._id}`, values) ?? null;
       }
 
       if (response !== null) {

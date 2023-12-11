@@ -12,7 +12,7 @@ import UserMovieCard from '../../components/UserMovieCard';
 function AdminMovies() {
   const [movie,setMovies] = useState([]);
   useEffect( () => {
-     axios.get("http://localhost:4000/api/movie").then((response)=>{
+     axios.get("https://movie-booking-system-sable.vercel.app/api/movie").then((response)=>{
       setMovies(response.data)
      }).catch(err => {
       console.log(err)

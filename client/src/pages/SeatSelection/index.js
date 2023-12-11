@@ -156,7 +156,7 @@ const App = () => {
 
     const fetchData =  async () => {
 
-    const response = await axios.get(`http://localhost:4000/api/bookedseats/${id}`);
+    const response = await axios.get(`https://movie-booking-system-sable.vercel.app/api/bookedseats/${id}`);
     const bookings = response.data;
     console.log("Bookings " + typeof bookings);
 
@@ -210,7 +210,7 @@ const App = () => {
   <button
  onClick={async () => {
   try {
-    const response = await axios.post("http://localhost:4000/api/bookseats/", payload);
+    const response = await axios.post("https://movie-booking-system-sable.vercel.app/api/bookseats/", payload);
     localStorage.setItem("BookedQuantity", selectedSeats.length);
     localStorage.setItem("Price", price);
     const subtotal = price * selectedSeats.length;

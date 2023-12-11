@@ -24,7 +24,7 @@ function MovieForm({
 
             let response =  null;
             if (formType === "add"){
-                response =  await axios.post("http://localhost:4000/api/addmovie", values) ?? null;
+                response =  await axios.post("https://movie-booking-system-sable.vercel.app/api/addmovie", values) ?? null;
             }else{
 
             }

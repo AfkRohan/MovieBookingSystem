@@ -13,7 +13,7 @@ const MovieDetails = ({ movies }) => {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const response = await axios.get(`http://localhost:4000/api/movie/${id}`);
+      const response = await axios.get(`https://movie-booking-system-sable.vercel.app/api/movie/${id}`);
       setMovie(response.data);
     };
 

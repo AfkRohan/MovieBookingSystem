@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 function AdminLogin(){
     async function onFinish(values){
-        axios.post('http://localhost:4000/api/admin-login', {
+        axios.post('https://movie-booking-system-sable.vercel.app/api/admin-login', {
                email: values.email,
                Password: values.password,
             })

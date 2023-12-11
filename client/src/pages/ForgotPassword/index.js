@@ -16,7 +16,7 @@ function ForgotPassword(){
     dispatch(ShowLoading())
     async function onFinish(values){
         if(values.password == values.confirmpassword){
-        axios.post('http://localhost:4000/api/fgtpwd', {
+        axios.post('https://movie-booking-system-sable.vercel.app/api/fgtpwd', {
                email: values.email,
                Password: values.password,
             })

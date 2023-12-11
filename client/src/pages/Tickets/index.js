@@ -21,7 +21,7 @@ function Tickets() {
   // 6542aa7e148dbfce5d5979fd
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/movie/${searchparam}`)
+      .get(`https://movie-booking-system-sable.vercel.app/api/movie/${searchparam}`)
       .then((response) => {
         setMovieData(response.data);
         console.log(response.data);
@@ -29,7 +29,7 @@ function Tickets() {
       .catch((err) => {
         console.log(err);
       });
-      axios.get(`http://localhost:4000/api/shows/${searchparam}`).then((res)=>{
+      axios.get(`https://movie-booking-system-sable.vercel.app/api/shows/${searchparam}`).then((res)=>{
           let dates = [];
           (res.data).map((show)=>{dates.push(show.showDate)})
           dates = removeDuplicates(dates)

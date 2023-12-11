@@ -21,7 +21,7 @@ function ShowForm({
     const [movies, setMovies] = useState([]);
     const loadMovies = async () => {
         try {
-          const response = await axios.get('http://localhost:4000/api/movie'); 
+          const response = await axios.get('https://movie-booking-system-sable.vercel.app/api/movie'); 
           setMovies(response.data);
         } catch (error) {
           console.error('Error loading movies:', error);
@@ -36,7 +36,7 @@ function ShowForm({
 
             let response =  null;
             if (formType === "add"){
-                response =  await axios.post("http://localhost:4000/api/addshow", values) ?? null;
+                response =  await axios.post("https://movie-booking-system-sable.vercel.app/api/addshow", values) ?? null;
             }else{
 
             }

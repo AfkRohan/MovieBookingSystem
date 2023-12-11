@@ -13,7 +13,7 @@ import Snowfall from 'react-snowfall';
 function Home(){
    const [movie,setMovies] = useState([])
   useEffect( () => {
-    axios.get("http://localhost:4000/api/movie").then((response)=>{
+    axios.get("https://movie-booking-system-sable.vercel.app/api/movie").then((response)=>{
     response.data = response.data.slice(0,3) 
     setMovies(response.data)
     }).catch(err => {
