@@ -5,6 +5,7 @@ import jsPDF from 'jspdf';
 import { useLocation } from 'react-router-dom';
 // import logo from '../assets/logowhite1.png';
 import logo from '../../assets/logo1.png';
+import { Receipt } from '../../components/Receipt';
 
 const PaymentSuccess = () => {
   const location = useLocation();
@@ -43,7 +44,12 @@ const PaymentSuccess = () => {
        <h1 className='payment'>Payment Successful !</h1>
       </div>
        <div><h3 style={{margin:'1em', color:'white'}}>Enjoy Your Movie !!</h3></div>
+       <div>
        <button className='btnproceedcheckout1' onClick={handleDownloadPDF}>Download Ticket</button>
+       </div>
+       <div>
+       <Receipt />
+       </div>
       <Footer></Footer>
     </>
   );
