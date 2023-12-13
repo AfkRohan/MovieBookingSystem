@@ -95,15 +95,7 @@ function Payment(props) {
     setBillingAddress(value);
   };
 
-  const createOrder = (data, actions) => {
-if (email === "" || firstName === "" || lastName === "") {
-    
-  return window.location.reload(false);
-  
-}
-    
-    
-
+  const createOrder = (data, actions) => {   
     return actions.order
       .create({
         purchase_units: [

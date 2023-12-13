@@ -44,15 +44,15 @@ const PaymentSuccess = () => {
        <h1 className='payment'>Payment Successful !</h1>
       </div>
        <div><h3 style={{margin:'1em', color:'white'}}>Enjoy Your Movie !!</h3></div>
-       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+       <div style={{margin:'2.1em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
        <button  onClick={handleDownloadPDF}>
        Download Ticket
       </button>
        </div>
-       <h2 style={{color:'white' , textAlign:'center' , marginTop:'10px', marginRight:'20px'}}>OR</h2>
+       {/* <h2 style={{color:'white' , textAlign:'center' , marginTop:'10px', marginRight:'20px'}}>OR</h2>
        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
        <Receipt />
-       </div>
+       </div> */}
       <Footer></Footer>
     </>
   );
