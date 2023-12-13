@@ -1,6 +1,7 @@
 import React,{useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { Alert } from 'antd';
 
 function Payment(props) {
   const location = useLocation();
@@ -95,6 +96,14 @@ function Payment(props) {
   };
 
   const createOrder = (data, actions) => {
+if (email === "" || firstName === "" || lastName === "") {
+    
+  return window.location.reload(false);
+  
+}
+    
+    
+
     return actions.order
       .create({
         purchase_units: [
@@ -114,24 +123,28 @@ function Payment(props) {
 
   // check Approval
   const onApprove = (data, actions) => {
-    return actions.order.capture().then(function (details) {
-      const { payer } = details;
-      console.log(payer)
-      alert("Success");
-
-      const ticketData ={
-        firstName,
-        lastName,
-        ticketPrice,
-        ticketQuantity,
-        billingAddress,
-        totalAmount,
-        
-      };
-      const ticketParams = new URLSearchParams(ticketData).toString();
-      window.location.href=`/PaymentSuccess?${ticketParams}`;
-    });
+    try {
+      return actions.order.capture().then(function (details) {
+        const { payer } = details;
+        console.log(payer);
+        alert("Success");
+  
+        const ticketData = {
+          firstName,
+          lastName,
+          ticketPrice,
+          ticketQuantity,
+          billingAddress,
+          totalAmount,
+        };
+        const ticketParams = new URLSearchParams(ticketData).toString();
+        window.location.href = `/PaymentSuccess?${ticketParams}`;
+      });
+    } catch (error) {
+      alert("Error occurred:", error);
+    }
   };
+  
 
   //capture error
   const onError = (data, actions) => {
@@ -215,6 +228,7 @@ function Payment(props) {
           <div className="form-group">
             <label htmlFor="firstName">First Name</label>
             <input
+              required
               type="text"
               id="firstName"
               name="firstName"
@@ -246,6 +260,7 @@ function Payment(props) {
           <div className="form-group">
             <label htmlFor="lastName">Last Name</label>
             <input
+              required
               type="text"
               id="lastName"
               name="lastName"
@@ -277,6 +292,7 @@ function Payment(props) {
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
+              required
               type="email"
               id="email"
               name="email"
@@ -316,7 +332,6 @@ function Payment(props) {
 
     <div className="payment-details">
       <p>Ticket Price: ${ticketPrice.toFixed(2)}</p>
-      <p>Quantity: {ticketQuantity}</p>
       <p>GST ({gstPercentage}%): ${((ticketPrice * ticketQuantity * gstPercentage) / 100).toFixed(2)}</p>
       <p>Total Payment: ${calculateTotalAmount()}</p>
     </div>
@@ -326,6 +341,7 @@ function Payment(props) {
         style={{ layout: "vertical" }}
         createOrder={createOrder}
         onApprove={onApprove}
+        onError={onError}
         />
       </PayPalScriptProvider>
   </form>
